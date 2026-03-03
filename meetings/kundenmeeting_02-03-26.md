@@ -28,17 +28,7 @@ Alle aus dem Projektteam, Barabara, Salomon, Kundenseitig: Daniel Wymann, Reto B
         - Welche Sensoren und Aktoren verursachen am meisten Anlagenstopps?
         - In welchem Zeitrahmen werden die meisten Stops verursacht?
     - Grosse Anlage mit diversen Hilfssystemen wie Abluft-Reinigung und Kühlung
-    - Datenstruktur, nach Kundenprio sortiert
-        - Timestamp
-        - eventTyp
-        - Priorität (Prio 1 wichtig für uns)
-        - Meldung
-        - Benutzer
-        - Objekt
-        - Zustand
-        - MSR NR
-        - Ort
-        - eventID
+    - Datenstruktur (siehe Readme)
 - Reto und Daniel sind offen für Veränderungen, sowohl an der Prio als auch an anderen Teilen des Systems
 - Fehlalarme gibt es eigentlich nicht, Alarm immer wenn Bedingung erfüllt -> Eventuell müsste man die Bedingungen anpassen
 - Erstmal Fokus nur auf Meldungen und dann eventuell in einem späteren Schritt Bedingungen überprüfen
