@@ -3,6 +3,15 @@
 Dieses Repository beinhaltet alle Dateien bezüglich des Projekts PRO2D.
 
 ## Projektinformation
+### Projektrollen
+PO: Florin
+Deputy PO: Janis
+Aufgabe: Issues anschauen und verwalten, bei Unklarheiten eine Überarbeitung in Auftrag geben, Priorisierung für die Sprints gestalten.
+
+Scrum-Master: Melanie
+Deputy Scrum-Muster: Harman
+Aufgabe: Leitung der Meetings, Time-Management, "ordentliche" Meetings (alle können sprechen, Core-Values werden eingehalten)
+
 Kunde: STRAG (**S**chlamm**Tr**ocknungs**AG**)
 Vertreter: Daniel Wymann
 
