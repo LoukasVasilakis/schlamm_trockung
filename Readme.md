@@ -43,6 +43,8 @@ Reto reto.balz@stragara.ch:
 | evtID      |        | 0           | Id                                           |
 | evtTyp     |        | 5           | "Login","Logout","Störung"                   |
 
+---
+
 ## Praxiswissen
 
 ### Trocknungsprozess
@@ -80,6 +82,7 @@ Anschliessend in den Biofilter
 Die Anlage kann auch Nassschlamm (5% TS) annehmen. Damit aus der 5% - 30% TS-Schlamm wird, wird er mit Flockungsmitteln versehen und anschliessend gepresst.
 Übrig bleibt der Schlamm und Trübwasser. Das Trübwasser kommt zurück zur ARA.
 
+---
 
 ## Infrastruktur 
 
@@ -91,6 +94,8 @@ zuweisen und andere Issues kommentieren.
 
 Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7--mE4=/?share_link_id=526173358274) notiert und geklärt.$
 
+---
+
 ## AI Governance
 ### Ground-Rules
 - Keine projektspezifischen und sensible Daten der KI füttern
@@ -99,3 +104,75 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
 - Neutrale Prompts, welche nicht auf das konkrete Projekt bzw. Domäne schliessen lassen
 - **Qualitätssicherung**: Jeder KI-generierte Code muss reviewed werden.
 - **Kennzeichnungspflicht**: Grössere KI Nutzung (Generierung von gesamten Funktionen oder Funktionalitäten) kennzeichnen
+---
+
+## Branching Workflow
+### Ground-Rules
+
+- `main`: An `main` wird, nur überträgt (push) nach einem `Sprint-Review`
+- `dev`: `issues`, die ihr `Review` bestanden haben werden auf `dev`übertragen
+- `feature/<issue-thema>`: `issues` werden in ihrem eigenen `Branch` verarbeitet und dürfen nur nach `Review` an `dev` übertragen werden
+
+### Hilfreiche git commands
+
+1. Aktuellen Stand  in lokalen workspace holen.
+   ```bash
+   git checkout dev
+   git pull origin dev
+   ```
+2. Feature-Branch erstellen.
+   ```bash
+   git checkout -b feature/<issue-thema>
+   # z.B. git checkout -b feature/histogramm
+   ```
+3. Auf Stand halten.
+   Wenn `dev` sich ändert:
+   ```bash
+   git checkout dev && git pull
+   git checkout feature/<issue-thema>
+   git merge dev    # oder: git rebase dev
+   ```
+4. Push & Merge Request öffnen.
+   ```bash
+   git push -u origin feature/<issue-thema>
+   ```
+
+5. Aufräumen:
+   ```bash
+   git branch -d feature/<issue-thema>
+   git push origin --delete feature/<issue-thema>
+   ```
+6. Versionieren:
+   ```bash
+   git checkout main
+   git pull origin main
+   git tag <version-name> # z.B. v1.0
+   git push origin <version-name>
+   ```
+
+
+7. Explorer:
+Eine IDE wie PyCharm kann die Nutzung von Git stark vereinfachen und viele Befehle durch einfache Klicks ersetzen
+
+---
+
+## Development Standards
+### Review & Merge Regel
+
+- Wer das Review durchführt, soll anschliessend auch den Merge durchführen 
+- Als Reviewer dürfen auch Kollegen, die am gleichen Issue arbeiten, zugewiesen werden
+- Commit Message soll erklären was wurde gemacht / verändert und warum
+- Wie in GitLab automatisch vorgesehen, soll der Source-Branch nach dem Merge gelöscht werden.
+Ausser beim dev-Branch nach einem Merge in den main-Branch oder in speziellen Ausnahmefällen
+
+### Best-Practice-Anweisungen (nicht obligatorisch, aber sehr empfohlen)
+
+- Konstantes Repository-Layout behalten
+- Eine revision per commit
+- Regelmässige Pulls
+- Push keinen fehlerhaften Code, ausser du arbeitest gerade aktiv daran und bittest einen Kollegen um Unterstützung
+- Lieber zu viele Code comments als zu wenig
+- Code löschen statt auskommentieren
+- Niemals Änderungen im .git-Ordner vornehmen
+
+---
