@@ -40,16 +40,11 @@ select = [
     "B",   # flake8-bugbear
 ]
 
-# Notebook-specific ignores
-ignore = [
-    "E402",  # Module level import not at top (common in notebooks)
-    "E501",  # Line too long (notebooks often have long lines for readability)
-    "F401",  # Imported but unused (exploratory imports are common)
-    "B018",  # Useless expression (common for display purposes in notebooks)
-]
-
 [tool.ruff.lint.per-file-ignores]
 "*.ipynb" = [
+    "E501",  # Line too long (notebooks often have long lines for readability)
+    "B018",  # Useless expression (common for display purposes in notebooks)
+    "F401",  # Imported but unused (exploratory imports are common)
     "T201",  # Allow print statements in notebooks
     "E703",  # Allow semicolons (used to suppress output)
 ]
@@ -64,7 +59,3 @@ ruff = "pyproject.toml"
 black = 1
 ruff = 1
 isort = 1
-
-[tool.nbqa.addopts]
-# Additional options for running linters through nbqa
-ruff = ["--fix"]
