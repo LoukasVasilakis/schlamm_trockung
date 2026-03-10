@@ -11,11 +11,11 @@ stages:
 ruff:
     stage: lint
     script:
-    - ruff format --check .
-    - nbqa ruff .
+    - uv run ruff format --check .
+    - uv run nbqa ruff .
 
 unittest:
     stage: test
     script:
-    - pytest --verbose
+    - uv run pytest --verbose
 
