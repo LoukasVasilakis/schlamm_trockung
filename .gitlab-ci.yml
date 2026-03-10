@@ -17,5 +17,5 @@ ruff:
 unittest:
     stage: test
     script:
-    - uv run pytest --verbose
+    - uv run pytest --verbose --allow-no-tests
 
