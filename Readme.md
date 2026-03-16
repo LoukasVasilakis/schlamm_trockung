@@ -111,26 +111,38 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
 
     pro2db_ausfaelle_in_schlammtrocknungsanlage/
     │
-    ├── meetings/           # Notizen und Protokolle von Meetings
+    ├── meetings/                   # Notizen und Protokolle von Meetings
     │   ├── deepdive_09-03-2026.md
     │   ├── kickoff_24-02-26.md
     │   ├── kundenmeeting_02-03-26.md
     │   └── planning_03-03-26.md
+    │ 
+    ├── notebooks/
+    │
+    ├── src/
+    │
+    ├── test/                       # Automatisierte Code-Überprüfung
+    │
     ├── praesentationen/            # Präsentationsmaterial (Slides etc.)
-    ├── eda/
-    │   ├── eda_documents/
+    │
+    ├── eda/                        # Explorative Datenanalyse
+    │   ├── eda_documents/          # EDA Dokumentation
     │   └── eda_scripts/            # Package für alle eda scripts
     │       └── __init__.py
+    │
     ├── dashboard/
-    │   ├── dashboard_documents/
-    │   └── dashboard_scripts/          # Package für alle Dashboard scripts
+    │   ├── dashboard_documents/     # Dashboard Dokumentation
+    │   └── dashboard_scripts/       # Package für alle Dashboard scripts
     │       └── __init__.py
-    ├── Readme.md           # Projektbeschreibung und Nutzung
-    ├── .gitignore          # Dateien die Git ignorieren soll
-    ├── pyproject.toml
-    ├── requieremnts.txt
-    ├── .gitlab-ci.yml
-    └── pre-commit-config.yaml
+    │
+    ├── Readme.md                    # Projektbeschreibung und Nutzung
+    ├── .gitignore                   # Dateien die Git ignorieren soll
+    ├── pyproject.toml               # Projekt- und Abhängkigkeitskonfiguration
+    ├── requirements.txt             # Python-Abhängigkeitenliste
+    ├── .gitlab-ci.yml               # CI/CD Pipeline Konfiguration
+    ├── goal-driven-roadmap-and-releases.md
+    ├── pre-commit-config.yaml       # Pre-Commit Prüfregeln
+    └── uv.lock                      # Abhängigkeitsversionen sperren
 
 ## Branching Workflow
 ### Ground-Rules
