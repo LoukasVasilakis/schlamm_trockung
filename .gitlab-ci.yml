@@ -1,0 +1,21 @@
+default:
+  image: python:3.12
+  before_script:
+  - pip install uv
+  - uv sync --all-groups --all-extras
+
+stages:
+- lint
+- test
+
+ruff:
+    stage: lint
+    script:
+    - uv run ruff format --check .
+    - uv run nbqa ruff .
+
+unittest:
+    stage: test
+    script:
+    - uv run pytest --verbose
+
