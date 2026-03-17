@@ -176,3 +176,34 @@ Ausser beim dev-Branch nach einem Merge in den main-Branch oder in speziellen Au
 - Niemals Änderungen im .git-Ordner vornehmen
 
 ---
+
+## Data Import (Postgres)
+
+Die CSV-Daten werden automatisch beim Start des Datenbank-Containers importiert.
+
+### Funktionsweise
+- **OneDrive Link** Damit der Datenimport stattfinden kann, müssen die CSVs lokal verfügbar sein.
+ Das können wir erreichen, indem wir im Sharepoint im `STRAG` Ordner klicken "Verknüpfung zu Onedrive hinzufügen"
+- **Import** Sobald die OneDrive-Verknüpfung existiert muss nur noch der Container gestartet werden (`docker compose up`) im Ordner `db/docker`
+
+### Datenquelle (Docker)
+In der `db/docker/.env` Datei kann der lokale Pfad zu den CSV-Daten konfiguriert werden. Dies ist notwendig, da der OneDrive-Pfad je nach Benutzer variiert.
+
+Beispiel in `.env`:
+```env
+IMPORT_DATA_PATH=C:/Pfad/zu/deinen/Daten
+```
+
+In der `docker-compose.yml` wird diese Variable dann verwendet:
+```yaml
+volumes:
+  - "${IMPORT_DATA_PATH}:/import_data"
+```
+Stelle sicher, dass `IMPORT_DATA_PATH` in deiner lokalen `.env` auf den korrekten Ordner mit den CSV-Dateien zeigt.
+Wichtig ist dabei, dass der `IMPORT_DATA_PATH` auf den ordner `Logger` zeigt, da ansonsten auch die (vorerst unnötigen Prozess-Events) importiert werden (und der import fehlschlägt).
+
+### Manueller Re-Import
+Der Import kann auch von Hand gestartet werden:
+```bash
+docker exec -it postgres_db /docker-entrypoint-initdb.d/02_import_csv.sh
+```
