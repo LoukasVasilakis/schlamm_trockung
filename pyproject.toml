@@ -9,6 +9,8 @@ dependencies = [
     "matplotlib >= 3.10.1",
     "dash >= 4.0.0",
     "pre-commit>=4.5.1",
+    "psycopg2",
+    "psycopg2-binary"
 ]
 
 [project.optional-dependencies]
