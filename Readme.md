@@ -12,6 +12,8 @@ Scrum-Master: Melanie
 Deputy Scrum-Muster: Harman
 Aufgabe: Leitung der Meetings, Time-Management, "ordentliche" Meetings (alle können sprechen, Core-Values werden eingehalten)
 
+Developers: Alessandro Gregori, Loukas Vasilakis
+
 Kunde: STRAG (**S**chlamm**Tr**ocknungs**AG**)
 Vertreter: Daniel Wymann
 
@@ -105,6 +107,42 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
 - **Qualitätssicherung**: Jeder KI-generierte Code muss reviewed werden.
 - **Kennzeichnungspflicht**: Grössere KI Nutzung (Generierung von gesamten Funktionen oder Funktionalitäten) kennzeichnen
 ---
+## Projektstruktur
+
+    pro2db_ausfaelle_in_schlammtrocknungsanlage/
+    │
+    ├── meetings/                   # Notizen und Protokolle von Meetings
+    │   ├── deepdive_09-03-2026.md
+    │   ├── kickoff_24-02-26.md
+    │   ├── kundenmeeting_02-03-26.md
+    │   └── planning_03-03-26.md
+    │ 
+    ├── notebooks/
+    │
+    ├── src/
+    │
+    ├── test/                       # Automatisierte Code-Überprüfung
+    │
+    ├── praesentationen/            # Präsentationsmaterial (Slides etc.)
+    │
+    ├── eda/                        # Explorative Datenanalyse
+    │   ├── eda_documents/          # EDA Dokumentation
+    │   └── eda_scripts/            # Package für alle eda scripts
+    │       └── __init__.py
+    │
+    ├── dashboard/
+    │   ├── dashboard_documents/     # Dashboard Dokumentation
+    │   └── dashboard_scripts/       # Package für alle Dashboard scripts
+    │       └── __init__.py
+    │
+    ├── Readme.md                    # Projektbeschreibung und Nutzung
+    ├── .gitignore                   # Dateien die Git ignorieren soll
+    ├── pyproject.toml               # Projekt- und Abhängkigkeitskonfiguration
+    ├── requirements.txt             # Python-Abhängigkeitenliste
+    ├── .gitlab-ci.yml               # CI/CD Pipeline Konfiguration
+    ├── goal-driven-roadmap-and-releases.md
+    ├── pre-commit-config.yaml       # Pre-Commit Prüfregeln
+    └── uv.lock                      # Abhängigkeitsversionen sperren
 
 ## Branching Workflow
 ### Ground-Rules
