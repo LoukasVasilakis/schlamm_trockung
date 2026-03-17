@@ -14,7 +14,7 @@ services:
     volumes:
     #  - postgres_data:/var/lib/postgresql/data
       - ../init:/docker-entrypoint-initdb.d
-      - "C:/Users/Florin/OneDrive - FHNW/P-pro2Db_Ausfälle-in-Schlammtrockungsanlage_M365 - STRAG AG/Data/Logger:/import_data"
+      - "${IMPORT_DATA_PATH}:/import_data"
 
 volumes:
   postgres_data:
