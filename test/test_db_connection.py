@@ -15,4 +15,6 @@ def test_db_connection():
 
     cur.close()
     conn.close()
+    assert len(events) > 0
+    assert len(events) == 5
     assert True
