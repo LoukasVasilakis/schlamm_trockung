@@ -18,9 +18,18 @@ TOP3_LINE_COLORS = ["#2E5EAA", "#F28E2B", "#59A14F"]
 TOP3_STACK_COLORS = ["#2E5EAA", "#F28E2B", "#BDBDBD"]
 
 de_months = {
-    1: "Jan", 2: "Feb", 3: "Mär", 4: "Apr",
-    5: "Mai", 6: "Jun", 7: "Jul", 8: "Aug",
-    9: "Sep", 10: "Okt", 11: "Nov", 12: "Dez"
+    1: "Jan",
+    2: "Feb",
+    3: "Mär",
+    4: "Apr",
+    5: "Mai",
+    6: "Jun",
+    7: "Jul",
+    8: "Aug",
+    9: "Sep",
+    10: "Okt",
+    11: "Nov",
+    12: "Dez",
 }
 
 weekday_mapping = {
@@ -30,13 +39,11 @@ weekday_mapping = {
     "Thursday": "Donnerstag",
     "Friday": "Freitag",
     "Saturday": "Samstag",
-    "Sunday": "Sonntag"
+    "Sunday": "Sonntag",
 }
 
-weekday_order = [
-    "Montag", "Dienstag", "Mittwoch",
-    "Donnerstag", "Freitag", "Samstag", "Sonntag"
-]
+weekday_order = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+
 
 # -----------------------------
 # Hilfsfunktionen
@@ -45,11 +52,9 @@ def german_month_formatter(x, pos=None):
     dt = mdates.num2date(x)
     return de_months.get(dt.month, "")
 
+
 def style_time_axis(ax, x_values):
-    ax.set_xlim(
-        x_values.min() - pd.Timedelta(days=5),
-        x_values.max() + pd.Timedelta(days=5)
-    )
+    ax.set_xlim(x_values.min() - pd.Timedelta(days=5), x_values.max() + pd.Timedelta(days=5))
     ax.xaxis.set_major_locator(mdates.YearLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
     ax.xaxis.set_minor_locator(mdates.MonthLocator(interval=2))
@@ -64,10 +69,12 @@ def style_time_axis(ax, x_values):
     for year in pd.Series(x_values).dt.year.unique():
         ax.axvline(pd.Timestamp(f"{year}-01-01"), color="gray", linestyle="--", alpha=0.3)
 
+
 def show_and_close():
     plt.tight_layout()
     plt.show()
     plt.close()
+
 
 # -----------------------------
 # Daten laden
@@ -129,10 +136,7 @@ print("\n----- NA / NaN CHECK (GANZER DATENSATZ) -----")
 missing = df.isna().sum()
 missing_percent = df.isna().mean() * 100
 
-na_check = pd.DataFrame({
-    "Fehlende Werte": missing,
-    "Anteil (%)": missing_percent.round(2)
-})
+na_check = pd.DataFrame({"Fehlende Werte": missing, "Anteil (%)": missing_percent.round(2)})
 
 print(na_check)
 
@@ -197,24 +201,16 @@ show_and_close()
 # -----------------------------
 monthly_year = (
     df.assign(Monat=df["Datum"].dt.month)
-      .groupby(["Jahr", "Monat"])
-      .size()
-      .reset_index(name="Anzahl")
+    .groupby(["Jahr", "Monat"])
+    .size()
+    .reset_index(name="Anzahl")
 )
 
-pivot_month = monthly_year.pivot(
-    index="Monat",
-    columns="Jahr",
-    values="Anzahl"
-)
+pivot_month = monthly_year.pivot(index="Monat", columns="Jahr", values="Anzahl")
 
 fig, ax = plt.subplots(figsize=(12, 6))
 
-colors = {
-    2024: "#2E5EAA",
-    2025: "#F28E2B",
-    2026: "#59A14F"
-}
+colors = {2024: "#2E5EAA", 2025: "#F28E2B", 2026: "#59A14F"}
 
 for year in pivot_month.columns:
     ax.plot(
@@ -223,11 +219,10 @@ for year in pivot_month.columns:
         marker="o",
         linewidth=2,
         label=year,
-        color=colors[year]
+        color=colors[year],
     )
 
-month_labels = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun",
-                "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"]
+month_labels = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"]
 
 ax.set_xticks(range(1, 13))
 ax.set_xticklabels(month_labels)
@@ -243,25 +238,13 @@ show_and_close()
 # -----------------------------
 # Plot 3: Störmeldungen nach Uhrzeit pro Jahr
 # -----------------------------
-hour_year = (
-    df.groupby(["Jahr", "Stunde"])
-    .size()
-    .reset_index(name="Anzahl")
-)
+hour_year = df.groupby(["Jahr", "Stunde"]).size().reset_index(name="Anzahl")
 
-pivot_hour = hour_year.pivot(
-    index="Stunde",
-    columns="Jahr",
-    values="Anzahl"
-).reindex(range(24))
+pivot_hour = hour_year.pivot(index="Stunde", columns="Jahr", values="Anzahl").reindex(range(24))
 
 fig, ax = plt.subplots(figsize=(12, 6))
 
-colors = {
-    2024: "#2E5EAA",
-    2025: "#F28E2B",
-    2026: "#59A14F"
-}
+colors = {2024: "#2E5EAA", 2025: "#F28E2B", 2026: "#59A14F"}
 
 for year in pivot_hour.columns:
     ax.plot(
@@ -271,7 +254,7 @@ for year in pivot_hour.columns:
         color=colors[year],
         linewidth=2.5,
         marker="o",
-        markersize=5
+        markersize=5,
     )
 
 ax.set_title("Störmeldungen nach Uhrzeit pro Jahr")
@@ -290,27 +273,15 @@ show_and_close()
 # -----------------------------
 # Plot 4: Wochentag vs Jahr
 # -----------------------------
-heatmap_weekday = (
-    df.groupby(["Wochentag", "Jahr"])
-    .size()
-    .reset_index(name="Anzahl")
-)
+heatmap_weekday = df.groupby(["Wochentag", "Jahr"]).size().reset_index(name="Anzahl")
 
-pivot_heatmap = heatmap_weekday.pivot(
-    index="Wochentag",
-    columns="Jahr",
-    values="Anzahl"
-).reindex(weekday_order)
+pivot_heatmap = heatmap_weekday.pivot(index="Wochentag", columns="Jahr", values="Anzahl").reindex(
+    weekday_order
+)
 
 fig, ax = plt.subplots(figsize=(8, 6))
 
-sns.heatmap(
-    pivot_heatmap,
-    cmap="Blues",
-    annot=True,
-    fmt=".0f",
-    ax=ax
-)
+sns.heatmap(pivot_heatmap, cmap="Blues", annot=True, fmt=".0f", ax=ax)
 
 ax.set_title("Störmeldungen: Wochentag vs Jahr")
 ax.set_xlabel("Jahr")
@@ -341,11 +312,7 @@ show_and_close()
 # -----------------------------
 # Plot 6: Top Störmeldungen nach Priorität (prozentual)
 # -----------------------------
-pivot_prio = (
-    df.groupby(["Meldung", "Prio"])
-    .size()
-    .unstack(fill_value=0)
-)
+pivot_prio = df.groupby(["Meldung", "Prio"]).size().unstack(fill_value=0)
 
 pivot_prio = pivot_prio.reindex(columns=[0, 1, 2], fill_value=0)
 
@@ -357,12 +324,7 @@ pivot_prio_percent = pivot_prio_percent.iloc[::-1]
 
 fig, ax = plt.subplots(figsize=(12, 7))
 
-pivot_prio_percent.plot(
-    kind="barh",
-    stacked=True,
-    ax=ax,
-    color=["#D62728", "#F28E2B", "#59A14F"]
-)
+pivot_prio_percent.plot(kind="barh", stacked=True, ax=ax, color=["#D62728", "#F28E2B", "#59A14F"])
 
 ax.set_title("Top 10 Störmeldungen nach Priorität (prozentuale Verteilung)")
 ax.set_xlabel("Anteil (%)")
@@ -384,7 +346,7 @@ for i, (_, row) in enumerate(pivot_prio_percent.iterrows()):
                 va="center",
                 color="white",
                 fontsize=9,
-                fontweight="bold"
+                fontweight="bold",
             )
         cumulative += value
 
@@ -393,10 +355,7 @@ show_and_close()
 # -----------------------------
 # Zusatzanalyse: Peak Oktober 2024
 # -----------------------------
-oct_2024 = df[
-    (df["Datum"].dt.year == 2024) &
-    (df["Datum"].dt.month == 10)
-]
+oct_2024 = df[(df["Datum"].dt.year == 2024) & (df["Datum"].dt.month == 10)]
 
 print("\nTop 10 Störmeldungen im Oktober 2024:")
 print(oct_2024["Meldung"].value_counts().head(10))
