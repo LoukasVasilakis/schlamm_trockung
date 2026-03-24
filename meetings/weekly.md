@@ -1,6 +1,6 @@
 ## 10.03.26
 ### Anwesend
-Alle aus dem Projektteam
+Alle Projektteilnehmer
 
 Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten.
 
@@ -12,7 +12,7 @@ Agenda für Weekly nächste Woche:
 
 ## 17.03.26
 ### Anwesend
-Alle aus dem Projektteam
+Alle Projektteilnehmer
 
 Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten.
 
@@ -23,7 +23,7 @@ Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du näc
 - EDA -> Alessandro und Harman zeigen erste EDA Ergebnisse
 - Dashboard Design -> Janis zeigt Dashboard Design Entwurf
 
-#### Nächste Schritte
+### Nächste Schritte
 - Harman und Alessandro erstellen kurzen Report, welcher die Fragen beantwortet
 - Janis, Florin und Melanie erstellen anschliessend Präsentation für Kundenmeeting
 - Melanie erstellt Test-Dashboard
