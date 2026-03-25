@@ -1,12 +1,7 @@
-## Planning SW
+# Planning
+## Planning Sprint 1
 ### Anwesend
-- Janis
-- Alessio
-- Loukas
-- Harman
-- Melanie (verspätet)
-- Barbara
-- Salomon
+Alle Projektteilnehmer (Melanie verspätet), Barbara, Salomon
 
 ### Besprochen wurde
 - Wie funktioniert Scrum? Input von Barbara
@@ -19,3 +14,12 @@
 - Issues-Board aufgeräumt, diverse Labels erstellt, neue Issues erstellt und zugeteilt
 - Input von Barbara: Projektvorgehen (agil vs planungsorientiert)
 - Nächster Kundentermin: Di, 24. März, 13:00, wenn möglich in der STRAG AG
+
+## Planning Sprint 2
+### Anwesend
+Alle Projektteilnehmer, Barbara, Salomon
+
+### Besprochen wurde
+- Neues Sprintziel: Dashboard erstellt
+- Vorbereitung Assessment besprochen und aufgeteilt
+- Issues-Board aufgeräumt, neue Issues erstellt und zugeteilt

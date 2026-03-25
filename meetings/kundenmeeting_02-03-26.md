@@ -1,10 +1,6 @@
 ## Vorbereitung
 ### Anwesend
-- Loukas
-- Harman
-- Alessio
-- Janis
-- Melanie
+Alle Projektteilnehmer \ Florin
 
 ### Besprochen wurde
 - Wie organisieren wir die nächsten Termine mit dem Kunden? -> Termin im Team planen und dann den Kunden anfragen
@@ -14,7 +10,7 @@
 
 ## Kundenmeeting
 ### Anwesend
-Alle aus dem Projektteam, Barabara, Salomon, Kundenseitig: Daniel Wymann, Reto Balz lässt sich entschuldigen
+Alle Projektteilnehmer, Barabara, Salomon, kundenseitig Daniel Wymann (Reto Balz lässt sich entschuldigen)
 
 ### Besprochen wurde
 - Kennenlernen: Alle Stellen sich vor -> Daniel Wymann ist Geschäftsleiter der STRAG AG, kennt die FHNW vom Studium
