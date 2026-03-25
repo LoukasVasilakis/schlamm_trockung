@@ -115,20 +115,36 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
     │   ├── deepdive_09-03-2026.md
     │   ├── kickoff_24-02-26.md
     │   ├── kundenmeeting_02-03-26.md
+    │   ├── retro.md
+    │   ├── weekly.md
     │   └── planning_03-03-26.md
+    │
+    ├── db/
+    │   ├── docker/
+    │   │   └── docker-compose.yml
+    │   └── init/
+    │       ├── 01_init.sql
+    │       └── 02_import_csv.sh
     │ 
     ├── notebooks/
     │
     ├── src/
     │
     ├── test/                       # Automatisierte Code-Überprüfung
+    │   ├── test_db_connection.py
+    │   └── test_example.py
     │
     ├── praesentationen/            # Präsentationsmaterial (Slides etc.)
     │
     ├── eda/                        # Explorative Datenanalyse
     │   ├── eda_documents/          # EDA Dokumentation
+    │   │   └── Bericht_EDA_Schlammtrocknungsanlage_Sprint_1.pdf
+    │   │
     │   └── eda_scripts/            # Package für alle eda scripts
-    │       └── __init__.py
+    │       ├── __init__.py
+    │       ├── error_analysis.py
+    │       └── user_analysis.ipynb
+    │
     │
     ├── dashboard/
     │   ├── dashboard_documents/     # Dashboard Dokumentation
