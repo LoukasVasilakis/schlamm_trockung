@@ -1,11 +1,5 @@
 ### Anwesend
-- Janis
-- Florin
-- Loukas
-- Alessandro
-- Melanie
-- Barbara
-- Salomon
+Alle Projektteilnehmer \ Harman, Barbara, Salomon
 
 ### Besprochen
 - Skills und Erfahrungen der Projektteilnehmer
