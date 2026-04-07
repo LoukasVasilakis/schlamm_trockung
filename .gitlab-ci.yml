@@ -33,5 +33,5 @@ unittest:
     - uv sync --all-groups --all-extras
     - bash scripts/load_test_db.sh
     script:
-    - uv run pytest test/test_example.py --verbose
+    - uv run pytest
 
