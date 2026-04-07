@@ -1,0 +1,15 @@
+Datum;Prio;Msr;Ort;Objekt;Meldung;Zustand;Benutzer;evtID;evtTyp
+03.01.20 14:44:37:774;;GM-161;SEA;Rührwerk Nassschlamm-Bunker;;;Roland Reinle;649768;Aggregate-Vorwahlen
+03.01.20 08:16:28:913;;GM-161;SEA;Rührwerk Nassschlamm-Bunker;;;Roland Reinle;649762;Aggregate-Vorwahlen
+03.01.20 06:23:20:930;;MV-512;Luftwäscher alkalisch;Magnetventil Prozessw-Einsp. -> F-003;;;Roland Reinle;649761;Aggregate-Vorwahlen
+03.01.20 06:23:20:420;0;MV-512;Luftwäscher alkalisch;Magnetventil Prozessw-Einsp. -> F-003;;Geht;;649760;Nicht bereit
+03.01.20 06:23:12:427;;MV-512;Luftwäscher alkalisch;Magnetventil Prozessw-Einsp. -> F-003;;;Roland Reinle;649759;Aggregate-Vorwahlen
+03.01.20 06:23:12:120;0;MV-512;Luftwäscher alkalisch;Magnetventil Prozessw-Einsp. -> F-003;;Kommt;;649760;Nicht bereit
+03.01.20 05:39:39:898;;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;;Roland Reinle;649758;Aggregate-Vorwahlen
+03.01.20 05:39:39:140;0;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;Geht;;649757;Nicht bereit
+03.01.20 05:39:30:942;;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;;Roland Reinle;649756;Aggregate-Vorwahlen
+03.01.20 05:39:30:200;0;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;Kommt;;649757;Nicht bereit
+03.01.20 05:39:12:681;;AV-506;Luftwäscher sauer;Motorventil Abschlämmung -> F-002;;;Roland Reinle;649755;Aggregate-Vorwahlen
+03.01.20 05:39:12:040;0;AV-506;Luftwäscher sauer;Motorventil Abschlämmung -> F-002;;Geht;;649754;Nicht bereit
+03.01.20 05:38:47:222;;AV-506;Luftwäscher sauer;Motorventil Abschlämmung -> F-002;;;Roland Reinle;649753;Aggregate-Vorwahlen
+03.01.20 05:38:46:460;0;AV-506;Luftwäscher sauer;Motorventil Abschlämmung -> F-002;;Kommt;;649754;Nicht bereit

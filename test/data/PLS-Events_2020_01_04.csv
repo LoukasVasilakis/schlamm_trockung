@@ -1,0 +1,29 @@
+Datum;Prio;Msr;Ort;Objekt;Meldung;Zustand;Benutzer;evtID;evtTyp
+04.01.20 15:53:22:240;;TM-101;Trockner;Trockner Antrieb Band 1;;Kommt;;649792;Nicht bereit
+04.01.20 15:53:22:240;;PRG-20;Schlammtrocknung;Trockner;;Kommt;;649793;Nicht bereit
+04.01.20 15:53:19:150;;TM-101;Trockner;Trockner Antrieb Band 1;;Geht;;649788;Nicht bereit
+04.01.20 15:53:19:150;;PRG-20;Schlammtrocknung;Trockner;;Geht;;649789;Nicht bereit
+04.01.20 10:56:11:074;;TM-101;Trockner;Trockner Antrieb Band 1;;Kommt;;649788;Nicht bereit
+04.01.20 10:56:11:074;;PRG-20;Schlammtrocknung;Trockner;;Kommt;;649789;Nicht bereit
+04.01.20 10:56:10:463;;TM-101;Trockner;Trockner Antrieb Band 1;;Geht;;649786;Nicht bereit
+04.01.20 10:56:10:463;;PRG-20;Schlammtrocknung;Trockner;;Geht;;649787;Nicht bereit
+04.01.20 10:52:47:963;;TM-101;Trockner;Trockner Antrieb Band 1;;Kommt;;649786;Nicht bereit
+04.01.20 10:52:47:963;;PRG-20;Schlammtrocknung;Trockner;;Kommt;;649787;Nicht bereit
+04.01.20 10:52:47:190;;TM-101;Trockner;Trockner Antrieb Band 1;;Geht;;649784;Nicht bereit
+04.01.20 10:52:47:190;;PRG-20;Schlammtrocknung;Trockner;;Geht;;649785;Nicht bereit
+04.01.20 10:52:10:540;;TM-101;Trockner;Trockner Antrieb Band 1;;Kommt;;649784;Nicht bereit
+04.01.20 10:52:10:540;;PRG-20;Schlammtrocknung;Trockner;;Kommt;;649785;Nicht bereit
+04.01.20 10:52:09:930;;TM-101;Trockner;Trockner Antrieb Band 1;;Geht;;649782;Nicht bereit
+04.01.20 10:52:09:930;;PRG-20;Schlammtrocknung;Trockner;;Geht;;649783;Nicht bereit
+04.01.20 10:51:54:093;;TM-101;Trockner;Trockner Antrieb Band 1;;Kommt;;649782;Nicht bereit
+04.01.20 10:51:54:093;;PRG-20;Schlammtrocknung;Trockner;;Kommt;;649783;Nicht bereit
+04.01.20 10:51:53:320;;TM-101;Trockner;Trockner Antrieb Band 1;;Geht;;649780;Nicht bereit
+04.01.20 10:51:53:320;;PRG-20;Schlammtrocknung;Trockner;;Geht;;649781;Nicht bereit
+04.01.20 10:51:17:870;;TM-101;Trockner;Trockner Antrieb Band 1;;Kommt;;649780;Nicht bereit
+04.01.20 10:51:17:870;;PRG-20;Schlammtrocknung;Trockner;;Kommt;;649781;Nicht bereit
+04.01.20 10:51:15:390;;TM-101;Trockner;Trockner Antrieb Band 1;;Geht;;649778;Nicht bereit
+04.01.20 10:51:15:390;;PRG-20;Schlammtrocknung;Trockner;;Geht;;649779;Nicht bereit
+04.01.20 07:59:20:930;;TM-101;Trockner;Trockner Antrieb Band 1;;Kommt;;649778;Nicht bereit
+04.01.20 07:59:20:930;;PRG-20;Schlammtrocknung;Trockner;;Kommt;;649779;Nicht bereit
+04.01.20 07:59:18:317;;TM-101;Trockner;Trockner Antrieb Band 1;;Geht;;649691;Nicht bereit
+04.01.20 07:59:18:317;;PRG-20;Schlammtrocknung;Trockner;;Geht;;649692;Nicht bereit
