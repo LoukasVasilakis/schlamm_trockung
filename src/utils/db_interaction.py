@@ -1,4 +1,4 @@
-from psycopg2 import cursor
+from psycopg2.extensions import cursor
 
 
 def select_something(cur: cursor):
