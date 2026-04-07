@@ -29,4 +29,13 @@ Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du näc
 - Melanie erstellt Test-Dashboard
 - Ziel für nächsten Sprint: Dashboard
 
+## 07.04.26
+### Anwesend
+Alessandro, Janis, Loukas, Harman, Melanie
+
+Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten.
+
+### Ausserordentlich
+Loukas zeigt die Dashboard-Übersichtsseite, welche er bereits erstellt hat.
+
 
