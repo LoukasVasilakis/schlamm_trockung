@@ -1,0 +1,339 @@
+Datum;Prio;Msr;Ort;Objekt;Meldung;Zustand;Benutzer;evtID;evtTyp
+06.01.20 16:50:24:962;;GM-161;SEA;Rührwerk Nassschlamm-Bunker;;;Rolf Hirt;649960;Aggregate-Vorwahlen
+06.01.20 16:50:24:390;;GM-161;SEA;Rührwerk Nassschlamm-Bunker;;Geht;;649526;Nicht bereit
+06.01.20 16:50:24:390;;PRG-39;SEA;RW Nassschlamm-Bunker;;Geht;;649527;Nicht bereit
+06.01.20 14:22:12:010;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649952;Aggregate-Vorwahlen
+06.01.20 14:22:11:513;0;AV-002;Ablass ;Ablass zur ARA;;Geht;;649949;Nicht bereit
+06.01.20 14:21:55:552;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649951;Aggregate-Vorwahlen
+06.01.20 14:21:34:711;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649950;Aggregate-Vorwahlen
+06.01.20 14:18:23:857;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649948;Aggregate-Vorwahlen
+06.01.20 14:18:23:404;0;AV-002;Ablass ;Ablass zur ARA;;Kommt;;649949;Nicht bereit
+06.01.20 14:15:16:857;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649947;Aggregate-Vorwahlen
+06.01.20 14:15:16:310;0;AV-002;Ablass ;Ablass zur ARA;;Geht;;649946;Nicht bereit
+06.01.20 14:14:46:574;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649945;Aggregate-Vorwahlen
+06.01.20 14:14:46:090;0;AV-002;Ablass ;Ablass zur ARA;;Kommt;;649946;Nicht bereit
+06.01.20 14:11:56:359;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649944;Aggregate-Vorwahlen
+06.01.20 14:11:55:824;0;AV-002;Ablass ;Ablass zur ARA;;Geht;;649942;Nicht bereit
+06.01.20 14:11:33:644;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649943;Aggregate-Vorwahlen
+06.01.20 14:10:48:843;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649941;Aggregate-Vorwahlen
+06.01.20 14:10:48:480;0;AV-002;Ablass ;Ablass zur ARA;;Kommt;;649942;Nicht bereit
+06.01.20 14:09:28:438;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649940;Aggregate-Vorwahlen
+06.01.20 14:09:28:040;0;AV-002;Ablass ;Ablass zur ARA;;Geht;;649938;Nicht bereit
+06.01.20 14:09:14:008;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649939;Aggregate-Vorwahlen
+06.01.20 14:08:47:274;;AV-002;Ablass ;Ablass zur ARA;;;Roland Reinle;649937;Aggregate-Vorwahlen
+06.01.20 14:08:46:913;0;AV-002;Ablass ;Ablass zur ARA;;Kommt;;649938;Nicht bereit
+06.01.20 14:08:23:937;0;AV-002;Ablass ;Ablass zur ARA;Schliesst nicht;Freigabe;Roland Reinle;649935;Störmeldungen
+06.01.20 14:08:23:330;;AV-002;Ablass ;Ablass zur ARA;;Geht;;649936;Nicht bereit
+06.01.20 14:08:23:264;0;AV-002;Ablass ;Ablass zur ARA;Schliesst nicht;Quittierung;Roland Reinle;649935;Störmeldungen
+06.01.20 14:08:13:638;0;AV-002;Ablass ;Ablass zur ARA;Schliesst nicht;Geht;;649935;Störmeldungen
+06.01.20 14:08:13:480;;AV-002;Ablass ;Ablass zur ARA;;Kommt;;649936;Nicht bereit
+06.01.20 14:08:13:480;0;AV-002;Ablass ;Ablass zur ARA;Schliesst nicht;Kommt;;649935;Störmeldungen
+06.01.20 14:07:43:250;;PRG-43;Schlammeintrag;Schwenkpresse;;Geht;;649931;Nicht bereit
+06.01.20 14:07:43:250;;PRG-19;Schlammeintrag;Matrizenreinigung;;Geht;;649900;Nicht bereit
+06.01.20 14:07:43:250;;PRG-03;Hilfsbetriebe;Hydraulik;;Geht;;649934;Nicht bereit
+06.01.20 14:07:33:690;;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;;Geht;;649923;Nicht bereit
+06.01.20 14:07:33:690;;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;;Geht;;649919;Nicht bereit
+06.01.20 14:07:33:690;;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;;Geht;;649916;Nicht bereit
+06.01.20 14:07:33:673;1;PRG-43;Schlammeintrag;Schwenkpresse;Programm Störung;Freigabe;Roland Reinle;649928;Störmeldungen
+06.01.20 14:07:33:673;0;PRG-40;Schlammeintrag;Schubboden;Programm Störung;Freigabe;Roland Reinle;649926;Störmeldungen
+06.01.20 14:07:33:673;0;LIAL-113;Hydraulikaggregat;Niveau Hydrauliköl;Niveau tief Alarm;Freigabe;Roland Reinle;649907;Störmeldungen
+06.01.20 14:07:33:673;1;P-102;Hydraulikaggregat;Hydraulikpumpe Schubboden;Ölniveu zu tief!;Freigabe;Roland Reinle;649906;Störmeldungen
+06.01.20 14:07:33:673;1;P-101;Hydraulikaggregat;Hydraulikpumpe Schwenkpresse;Ölniveu zu tief!;Freigabe;Roland Reinle;649905;Störmeldungen
+06.01.20 14:07:33:673;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Oberer Grenzwert Alarm;Freigabe;Roland Reinle;649922;Störmeldungen
+06.01.20 14:07:33:673;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Oberer Grenzwert Warnung;Freigabe;Roland Reinle;649921;Störmeldungen
+06.01.20 14:07:33:673;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Unterer Grenzwert Warnung;Freigabe;Roland Reinle;649933;Störmeldungen
+06.01.20 14:07:33:673;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Unterer Grenzwert Alarm;Freigabe;Roland Reinle;649932;Störmeldungen
+06.01.20 14:07:33:673;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649920;Störmeldungen
+06.01.20 14:07:33:673;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Oberer Grenzwert Alarm;Freigabe;Roland Reinle;649918;Störmeldungen
+06.01.20 14:07:33:673;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649917;Störmeldungen
+06.01.20 14:07:33:673;1;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Oberer Grenzwert Alarm;Freigabe;Roland Reinle;649915;Störmeldungen
+06.01.20 14:07:33:673;0;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649914;Störmeldungen
+06.01.20 14:07:33:673;0;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649912;Störmeldungen
+06.01.20 14:07:33:673;0;PRG-03;Hilfsbetriebe;Hydraulik;Programm Störung;Freigabe;Roland Reinle;649929;Störmeldungen
+06.01.20 14:07:33:673;0;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649910;Störmeldungen
+06.01.20 14:07:33:673;0;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649908;Störmeldungen
+06.01.20 14:07:33:223;;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;;Geht;;649913;Nicht bereit
+06.01.20 14:07:33:223;;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;;Geht;;649911;Nicht bereit
+06.01.20 14:07:33:223;;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;;Geht;;649909;Nicht bereit
+06.01.20 14:07:32:809;0;PRG-03;Hilfsbetriebe;Hydraulik;Programm Störung;Geht;;649929;Störmeldungen
+06.01.20 14:07:32:808;1;PRG-43;Schlammeintrag;Schwenkpresse;Programm Störung;Quittierung;Roland Reinle;649928;Störmeldungen
+06.01.20 14:07:32:808;0;PRG-40;Schlammeintrag;Schubboden;Programm Störung;Quittierung;Roland Reinle;649926;Störmeldungen
+06.01.20 14:07:32:808;0;LIAL-113;Hydraulikaggregat;Niveau Hydrauliköl;Niveau tief Alarm;Quittierung;Roland Reinle;649907;Störmeldungen
+06.01.20 14:07:32:808;1;P-102;Hydraulikaggregat;Hydraulikpumpe Schubboden;Ölniveu zu tief!;Quittierung;Roland Reinle;649906;Störmeldungen
+06.01.20 14:07:32:808;1;P-101;Hydraulikaggregat;Hydraulikpumpe Schwenkpresse;Ölniveu zu tief!;Quittierung;Roland Reinle;649905;Störmeldungen
+06.01.20 14:07:32:808;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Oberer Grenzwert Alarm;Quittierung;Roland Reinle;649922;Störmeldungen
+06.01.20 14:07:32:808;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Oberer Grenzwert Warnung;Quittierung;Roland Reinle;649921;Störmeldungen
+06.01.20 14:07:32:808;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Unterer Grenzwert Warnung;Quittierung;Roland Reinle;649933;Störmeldungen
+06.01.20 14:07:32:808;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Unterer Grenzwert Alarm;Quittierung;Roland Reinle;649932;Störmeldungen
+06.01.20 14:07:32:808;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649920;Störmeldungen
+06.01.20 14:07:32:808;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Oberer Grenzwert Alarm;Quittierung;Roland Reinle;649918;Störmeldungen
+06.01.20 14:07:32:808;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649917;Störmeldungen
+06.01.20 14:07:32:808;1;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Oberer Grenzwert Alarm;Quittierung;Roland Reinle;649915;Störmeldungen
+06.01.20 14:07:32:808;0;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649914;Störmeldungen
+06.01.20 14:07:32:808;0;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649912;Störmeldungen
+06.01.20 14:07:32:808;0;PRG-03;Hilfsbetriebe;Hydraulik;Programm Störung;Quittierung;Roland Reinle;649929;Störmeldungen
+06.01.20 14:07:32:808;0;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649910;Störmeldungen
+06.01.20 14:07:32:808;0;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649908;Störmeldungen
+06.01.20 14:07:32:140;;PRG-03;Hilfsbetriebe;Hydraulik;;Kommt;;649934;Nicht bereit
+06.01.20 14:07:32:140;;PRG-03;Hilfsbetriebe;Hydraulik;;Geht;;649924;Nicht bereit
+06.01.20 14:07:30:444;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Unterer Grenzwert Warnung;Geht;;649933;Störmeldungen
+06.01.20 14:07:30:444;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Unterer Grenzwert Alarm;Geht;;649932;Störmeldungen
+06.01.20 14:07:29:370;;PRG-40;Schlammeintrag;Schubboden;;Geht;;649930;Nicht bereit
+06.01.20 14:07:29:370;0;LIAL-113;Hydraulikaggregat;Niveau Hydrauliköl;Niveau tief Alarm;Geht;;649907;Störmeldungen
+06.01.20 14:07:29:370;1;P-102;Hydraulikaggregat;Hydraulikpumpe Schubboden;Ölniveu zu tief!;Geht;;649906;Störmeldungen
+06.01.20 14:07:29:370;1;P-101;Hydraulikaggregat;Hydraulikpumpe Schwenkpresse;Ölniveu zu tief!;Geht;;649905;Störmeldungen
+06.01.20 14:07:29:370;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Oberer Grenzwert Alarm;Geht;;649918;Störmeldungen
+06.01.20 14:07:29:370;1;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Oberer Grenzwert Alarm;Geht;;649915;Störmeldungen
+06.01.20 14:07:28:598;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Geht;;649917;Störmeldungen
+06.01.20 14:07:28:598;0;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Überlauf - Messbereich um 10% überschritten;Geht;;649914;Störmeldungen
+06.01.20 14:07:28:598;0;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;Überlauf - Messbereich um 10% überschritten;Geht;;649912;Störmeldungen
+06.01.20 14:07:28:598;0;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;Überlauf - Messbereich um 10% überschritten;Geht;;649908;Störmeldungen
+06.01.20 14:07:28:440;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Oberer Grenzwert Alarm;Geht;;649922;Störmeldungen
+06.01.20 14:07:28:440;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Oberer Grenzwert Warnung;Geht;;649921;Störmeldungen
+06.01.20 14:07:28:440;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Unterer Grenzwert Warnung;Kommt;;649933;Störmeldungen
+06.01.20 14:07:28:440;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Unterer Grenzwert Alarm;Kommt;;649932;Störmeldungen
+06.01.20 14:07:28:440;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Geht;;649920;Störmeldungen
+06.01.20 14:07:28:440;0;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;Überlauf - Messbereich um 10% überschritten;Geht;;649910;Störmeldungen
+06.01.20 14:07:27:984;1;PRG-43;Schlammeintrag;Schwenkpresse;Programm Störung;Geht;;649928;Störmeldungen
+06.01.20 14:07:27:984;0;PRG-40;Schlammeintrag;Schubboden;Programm Störung;Geht;;649926;Störmeldungen
+06.01.20 14:07:27:830;;PRG-43;Schlammeintrag;Schwenkpresse;;Kommt;;649931;Nicht bereit
+06.01.20 14:07:27:830;;PRG-43;Schlammeintrag;Schwenkpresse;;Geht;;649927;Nicht bereit
+06.01.20 14:07:27:830;;PRG-40;Schlammeintrag;Schubboden;;Kommt;;649930;Nicht bereit
+06.01.20 14:07:27:830;;PRG-40;Schlammeintrag;Schubboden;;Geht;;649925;Nicht bereit
+06.01.20 14:07:27:830;0;PRG-03;Hilfsbetriebe;Hydraulik;Programm Störung;Kommt;;649929;Störmeldungen
+06.01.20 14:07:27:510;1;STR-AL55;Allgemein;NOT-AUS Software Schlammtrockung;Signal hat angesprochen;Geht;;649880;Störmeldungen
+06.01.20 14:07:27:510;;PRG-43;Schlammeintrag;Schwenkpresse;;Geht;;649904;Nicht bereit
+06.01.20 14:07:27:510;;PRG-43;Schlammeintrag;Schwenkpresse;;Kommt;;649927;Nicht bereit
+06.01.20 14:07:27:510;1;PRG-43;Schlammeintrag;Schwenkpresse;Programm Störung;Kommt;;649928;Störmeldungen
+06.01.20 14:07:27:510;;PRG-42;Schlammeintrag;Verteiler;;Geht;;649903;Nicht bereit
+06.01.20 14:07:27:510;;PRG-40;Schlammeintrag;Schubboden;;Geht;;649901;Nicht bereit
+06.01.20 14:07:27:510;;PRG-40;Schlammeintrag;Schubboden;;Kommt;;649925;Nicht bereit
+06.01.20 14:07:27:510;0;PRG-40;Schlammeintrag;Schubboden;Programm Störung;Kommt;;649926;Störmeldungen
+06.01.20 14:07:27:510;;PRG-23;Hauptprogramm;Hauptprogramm;;Geht;;649888;Nicht bereit
+06.01.20 14:07:27:510;0;PRG-23;Hauptprogramm;Hauptprogramm;Programm Störung;Geht;;649890;Störmeldungen
+06.01.20 14:07:27:510;0;PRG-23;Hauptprogramm;Hauptprogramm;Schnellabschaltung Hardware NOTAUS!;Geht;;649889;Störmeldungen
+06.01.20 14:07:27:510;;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;;Kommt;;649923;Nicht bereit
+06.01.20 14:07:27:510;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Oberer Grenzwert Alarm;Kommt;;649922;Störmeldungen
+06.01.20 14:07:27:510;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Oberer Grenzwert Warnung;Kommt;;649921;Störmeldungen
+06.01.20 14:07:27:510;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Kommt;;649920;Störmeldungen
+06.01.20 14:07:27:510;;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;;Kommt;;649919;Nicht bereit
+06.01.20 14:07:27:510;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Oberer Grenzwert Alarm;Kommt;;649918;Störmeldungen
+06.01.20 14:07:27:510;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Kommt;;649917;Störmeldungen
+06.01.20 14:07:27:510;;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;;Kommt;;649916;Nicht bereit
+06.01.20 14:07:27:510;1;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Oberer Grenzwert Alarm;Kommt;;649915;Störmeldungen
+06.01.20 14:07:27:510;0;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Überlauf - Messbereich um 10% überschritten;Kommt;;649914;Störmeldungen
+06.01.20 14:07:27:510;;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;;Kommt;;649913;Nicht bereit
+06.01.20 14:07:27:510;0;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;Überlauf - Messbereich um 10% überschritten;Kommt;;649912;Störmeldungen
+06.01.20 14:07:27:510;;PRG-03;Hilfsbetriebe;Hydraulik;;Geht;;649899;Nicht bereit
+06.01.20 14:07:27:510;;PRG-03;Hilfsbetriebe;Hydraulik;;Kommt;;649924;Nicht bereit
+06.01.20 14:07:27:510;;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;;Kommt;;649911;Nicht bereit
+06.01.20 14:07:27:510;0;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;Überlauf - Messbereich um 10% überschritten;Kommt;;649910;Störmeldungen
+06.01.20 14:07:27:510;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Geht;;649884;Störmeldungen
+06.01.20 14:07:27:510;;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;;Kommt;;649909;Nicht bereit
+06.01.20 14:07:27:510;0;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;Überlauf - Messbereich um 10% überschritten;Kommt;;649908;Störmeldungen
+06.01.20 14:07:27:510;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Geht;;649883;Störmeldungen
+06.01.20 14:07:27:354;0;;;;;Geht;;649882;Störmeldungen
+06.01.20 14:07:27:354;0;;;;;Geht;;649881;Störmeldungen
+06.01.20 14:07:27:354;0;STR-AL51;Schaltschrank;Überspannungsschutz Einspeisung;Signal hat angesprochen;Geht;;649879;Störmeldungen
+06.01.20 14:07:27:354;1;STR-AL50;Allgemein;NOT-AUS Hardware Schlammtrockung;;Geht;;649878;Störmeldungen
+06.01.20 14:07:27:354;0;LIAL-113;Hydraulikaggregat;Niveau Hydrauliköl;Niveau tief Alarm;Kommt;;649907;Störmeldungen
+06.01.20 14:07:27:354;1;P-102;Hydraulikaggregat;Hydraulikpumpe Schubboden;Ölniveu zu tief!;Kommt;;649906;Störmeldungen
+06.01.20 14:07:27:354;1;P-102;Hydraulikaggregat;Hydraulikpumpe Schubboden;Öltemperatur zu hoch!;Geht;;649877;Störmeldungen
+06.01.20 14:07:27:354;1;P-101;Hydraulikaggregat;Hydraulikpumpe Schwenkpresse;Ölniveu zu tief!;Kommt;;649905;Störmeldungen
+06.01.20 14:07:27:354;1;P-101;Hydraulikaggregat;Hydraulikpumpe Schwenkpresse;Öltemperatur zu hoch!;Geht;;649876;Störmeldungen
+06.01.20 13:39:33:828;;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;;Geht;;649874;Nicht bereit
+06.01.20 13:39:33:828;;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;;Geht;;649872;Nicht bereit
+06.01.20 13:39:33:464;1;PRG-43;Schlammeintrag;Schwenkpresse;Programm Störung;Geht;;649898;Störmeldungen
+06.01.20 13:39:33:464;0;PRG-42;Schlammeintrag;Verteiler;Programm Störung;Geht;;649896;Störmeldungen
+06.01.20 13:39:33:464;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Geht;;649894;Störmeldungen
+06.01.20 13:39:33:464;0;PRG-40;Schlammeintrag;Schubboden;Programm Störung;Geht;;649892;Störmeldungen
+06.01.20 13:39:33:464;0;PRG-19;Schlammeintrag;Matrizenreinigung;Programm Störung;Geht;;649887;Störmeldungen
+06.01.20 13:39:33:464;0;PRG-03;Hilfsbetriebe;Hydraulik;Programm Störung;Geht;;649885;Störmeldungen
+06.01.20 13:39:33:463;0;;;;;Freigabe;Roland Reinle;649882;Störmeldungen
+06.01.20 13:39:33:463;0;;;;;Freigabe;Roland Reinle;649881;Störmeldungen
+06.01.20 13:39:33:463;1;STR-AL55;Allgemein;NOT-AUS Software Schlammtrockung;Signal hat angesprochen;Freigabe;Roland Reinle;649880;Störmeldungen
+06.01.20 13:39:33:463;0;STR-AL51;Schaltschrank;Überspannungsschutz Einspeisung;Signal hat angesprochen;Freigabe;Roland Reinle;649879;Störmeldungen
+06.01.20 13:39:33:463;1;STR-AL50;Allgemein;NOT-AUS Hardware Schlammtrockung;;Freigabe;Roland Reinle;649878;Störmeldungen
+06.01.20 13:39:33:463;1;PRG-43;Schlammeintrag;Schwenkpresse;Programm Störung;Freigabe;Roland Reinle;649898;Störmeldungen
+06.01.20 13:39:33:463;0;PRG-42;Schlammeintrag;Verteiler;Programm Störung;Freigabe;Roland Reinle;649896;Störmeldungen
+06.01.20 13:39:33:463;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Freigabe;Roland Reinle;649894;Störmeldungen
+06.01.20 13:39:33:463;0;PRG-40;Schlammeintrag;Schubboden;Programm Störung;Freigabe;Roland Reinle;649892;Störmeldungen
+06.01.20 13:39:33:463;0;PRG-23;Hauptprogramm;Hauptprogramm;Programm Störung;Freigabe;Roland Reinle;649890;Störmeldungen
+06.01.20 13:39:33:463;0;PRG-23;Hauptprogramm;Hauptprogramm;Schnellabschaltung Hardware NOTAUS!;Freigabe;Roland Reinle;649889;Störmeldungen
+06.01.20 13:39:33:463;1;P-102;Hydraulikaggregat;Hydraulikpumpe Schubboden;Öltemperatur zu hoch!;Freigabe;Roland Reinle;649877;Störmeldungen
+06.01.20 13:39:33:463;1;P-101;Hydraulikaggregat;Hydraulikpumpe Schwenkpresse;Öltemperatur zu hoch!;Freigabe;Roland Reinle;649876;Störmeldungen
+06.01.20 13:39:33:463;0;PRG-19;Schlammeintrag;Matrizenreinigung;Programm Störung;Freigabe;Roland Reinle;649887;Störmeldungen
+06.01.20 13:39:33:463;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649873;Störmeldungen
+06.01.20 13:39:33:463;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649871;Störmeldungen
+06.01.20 13:39:33:463;0;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649869;Störmeldungen
+06.01.20 13:39:33:463;0;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649867;Störmeldungen
+06.01.20 13:39:33:463;0;QISA-428;Wasseraufbreitung;Leitwert nach Enthärtungsanlage;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649865;Störmeldungen
+06.01.20 13:39:33:463;0;QICA-512;Wäscher 2;pH Wäscher 2;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649863;Störmeldungen
+06.01.20 13:39:33:463;0;PRG-03;Hilfsbetriebe;Hydraulik;Programm Störung;Freigabe;Roland Reinle;649885;Störmeldungen
+06.01.20 13:39:33:463;0;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649861;Störmeldungen
+06.01.20 13:39:33:463;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;649884;Störmeldungen
+06.01.20 13:39:33:463;0;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649859;Störmeldungen
+06.01.20 13:39:33:463;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;649883;Störmeldungen
+06.01.20 13:39:33:463;0;QICA-502;Wäscher 1;pH  Wäscher 1;Überlauf - Messbereich um 10% überschritten;Freigabe;Roland Reinle;649857;Störmeldungen
+06.01.20 13:39:33:360;;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;;Geht;;649870;Nicht bereit
+06.01.20 13:39:33:360;;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;;Geht;;649868;Nicht bereit
+06.01.20 13:39:33:360;;QISA-428;Wasseraufbreitung;Leitwert nach Enthärtungsanlage;;Geht;;649866;Nicht bereit
+06.01.20 13:39:33:360;;QICA-512;Wäscher 2;pH Wäscher 2;;Geht;;649864;Nicht bereit
+06.01.20 13:39:33:360;;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;;Geht;;649862;Nicht bereit
+06.01.20 13:39:33:360;;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;;Geht;;649860;Nicht bereit
+06.01.20 13:39:33:360;;QICA-502;Wäscher 1;pH  Wäscher 1;;Geht;;649858;Nicht bereit
+06.01.20 13:39:33:150;0;;;;;Quittierung;Roland Reinle;649882;Störmeldungen
+06.01.20 13:39:33:150;0;;;;;Quittierung;Roland Reinle;649881;Störmeldungen
+06.01.20 13:39:33:150;1;STR-AL55;Allgemein;NOT-AUS Software Schlammtrockung;Signal hat angesprochen;Quittierung;Roland Reinle;649880;Störmeldungen
+06.01.20 13:39:33:150;0;STR-AL51;Schaltschrank;Überspannungsschutz Einspeisung;Signal hat angesprochen;Quittierung;Roland Reinle;649879;Störmeldungen
+06.01.20 13:39:33:150;1;STR-AL50;Allgemein;NOT-AUS Hardware Schlammtrockung;;Quittierung;Roland Reinle;649878;Störmeldungen
+06.01.20 13:39:33:150;1;PRG-43;Schlammeintrag;Schwenkpresse;Programm Störung;Quittierung;Roland Reinle;649898;Störmeldungen
+06.01.20 13:39:33:150;0;PRG-42;Schlammeintrag;Verteiler;Programm Störung;Quittierung;Roland Reinle;649896;Störmeldungen
+06.01.20 13:39:33:150;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Quittierung;Roland Reinle;649894;Störmeldungen
+06.01.20 13:39:33:150;0;PRG-40;Schlammeintrag;Schubboden;Programm Störung;Quittierung;Roland Reinle;649892;Störmeldungen
+06.01.20 13:39:33:150;0;PRG-23;Hauptprogramm;Hauptprogramm;Programm Störung;Quittierung;Roland Reinle;649890;Störmeldungen
+06.01.20 13:39:33:150;0;PRG-23;Hauptprogramm;Hauptprogramm;Schnellabschaltung Hardware NOTAUS!;Quittierung;Roland Reinle;649889;Störmeldungen
+06.01.20 13:39:33:150;1;P-102;Hydraulikaggregat;Hydraulikpumpe Schubboden;Öltemperatur zu hoch!;Quittierung;Roland Reinle;649877;Störmeldungen
+06.01.20 13:39:33:150;1;P-101;Hydraulikaggregat;Hydraulikpumpe Schwenkpresse;Öltemperatur zu hoch!;Quittierung;Roland Reinle;649876;Störmeldungen
+06.01.20 13:39:33:150;0;PRG-19;Schlammeintrag;Matrizenreinigung;Programm Störung;Quittierung;Roland Reinle;649887;Störmeldungen
+06.01.20 13:39:33:150;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649873;Störmeldungen
+06.01.20 13:39:33:150;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649871;Störmeldungen
+06.01.20 13:39:33:150;0;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649869;Störmeldungen
+06.01.20 13:39:33:150;0;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649867;Störmeldungen
+06.01.20 13:39:33:150;0;QISA-428;Wasseraufbreitung;Leitwert nach Enthärtungsanlage;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649865;Störmeldungen
+06.01.20 13:39:33:150;0;QICA-512;Wäscher 2;pH Wäscher 2;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649863;Störmeldungen
+06.01.20 13:39:33:150;0;PRG-03;Hilfsbetriebe;Hydraulik;Programm Störung;Quittierung;Roland Reinle;649885;Störmeldungen
+06.01.20 13:39:33:150;0;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649861;Störmeldungen
+06.01.20 13:39:33:150;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;649884;Störmeldungen
+06.01.20 13:39:33:150;0;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649859;Störmeldungen
+06.01.20 13:39:33:150;0;QICA-502;Wäscher 1;pH  Wäscher 1;Überlauf - Messbereich um 10% überschritten;Quittierung;Roland Reinle;649857;Störmeldungen
+06.01.20 13:39:32:898;;PRG-43;Schlammeintrag;Schwenkpresse;;Kommt;;649904;Nicht bereit
+06.01.20 13:39:32:898;;PRG-43;Schlammeintrag;Schwenkpresse;;Geht;;649897;Nicht bereit
+06.01.20 13:39:32:898;;PRG-42;Schlammeintrag;Verteiler;;Kommt;;649903;Nicht bereit
+06.01.20 13:39:32:898;;PRG-42;Schlammeintrag;Verteiler;;Geht;;649895;Nicht bereit
+06.01.20 13:39:32:898;;PRG-41;Schlammeintrag;Trogkette;;Kommt;;649902;Nicht bereit
+06.01.20 13:39:32:898;;PRG-41;Schlammeintrag;Trogkette;;Geht;;649893;Nicht bereit
+06.01.20 13:39:32:898;;PRG-40;Schlammeintrag;Schubboden;;Kommt;;649901;Nicht bereit
+06.01.20 13:39:32:898;;PRG-40;Schlammeintrag;Schubboden;;Geht;;649891;Nicht bereit
+06.01.20 13:39:32:898;;PRG-19;Schlammeintrag;Matrizenreinigung;;Kommt;;649900;Nicht bereit
+06.01.20 13:39:32:898;;PRG-19;Schlammeintrag;Matrizenreinigung;;Geht;;649886;Nicht bereit
+06.01.20 13:39:32:898;;PRG-03;Hilfsbetriebe;Hydraulik;;Kommt;;649899;Nicht bereit
+06.01.20 13:39:32:898;;PRG-03;Hilfsbetriebe;Hydraulik;;Geht;;649875;Nicht bereit
+06.01.20 13:39:30:616;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;649883;Störmeldungen
+06.01.20 13:39:14:500;;PRG-43;Schlammeintrag;Schwenkpresse;;Kommt;;649897;Nicht bereit
+06.01.20 13:39:14:500;1;PRG-43;Schlammeintrag;Schwenkpresse;Programm Störung;Kommt;;649898;Störmeldungen
+06.01.20 13:39:14:500;;PRG-42;Schlammeintrag;Verteiler;;Kommt;;649895;Nicht bereit
+06.01.20 13:39:14:500;0;PRG-42;Schlammeintrag;Verteiler;Programm Störung;Kommt;;649896;Störmeldungen
+06.01.20 13:39:14:500;;PRG-41;Schlammeintrag;Trogkette;;Geht;;649459;Nicht bereit
+06.01.20 13:39:14:500;;PRG-41;Schlammeintrag;Trogkette;;Kommt;;649893;Nicht bereit
+06.01.20 13:39:14:500;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Kommt;;649894;Störmeldungen
+06.01.20 13:39:14:500;;PRG-40;Schlammeintrag;Schubboden;;Kommt;;649891;Nicht bereit
+06.01.20 13:39:14:500;0;PRG-40;Schlammeintrag;Schubboden;Programm Störung;Kommt;;649892;Störmeldungen
+06.01.20 13:39:14:500;;PRG-23;Hauptprogramm;Hauptprogramm;;Kommt;;649888;Nicht bereit
+06.01.20 13:39:14:500;0;PRG-23;Hauptprogramm;Hauptprogramm;Programm Störung;Kommt;;649890;Störmeldungen
+06.01.20 13:39:14:500;0;PRG-23;Hauptprogramm;Hauptprogramm;Schnellabschaltung Hardware NOTAUS!;Kommt;;649889;Störmeldungen
+06.01.20 13:39:14:500;;PRG-19;Schlammeintrag;Matrizenreinigung;;Kommt;;649886;Nicht bereit
+06.01.20 13:39:14:500;0;PRG-19;Schlammeintrag;Matrizenreinigung;Programm Störung;Kommt;;649887;Störmeldungen
+06.01.20 13:39:14:500;0;PRG-03;Hilfsbetriebe;Hydraulik;Programm Störung;Kommt;;649885;Störmeldungen
+06.01.20 13:39:14:500;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Kommt;;649884;Störmeldungen
+06.01.20 13:39:14:500;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Kommt;;649883;Störmeldungen
+06.01.20 13:39:14:180;0;;;;;Kommt;;649882;Störmeldungen
+06.01.20 13:39:14:180;0;;;;;Kommt;;649881;Störmeldungen
+06.01.20 13:39:14:180;1;STR-AL55;Allgemein;NOT-AUS Software Schlammtrockung;Signal hat angesprochen;Kommt;;649880;Störmeldungen
+06.01.20 13:39:14:180;0;STR-AL51;Schaltschrank;Überspannungsschutz Einspeisung;Signal hat angesprochen;Kommt;;649879;Störmeldungen
+06.01.20 13:39:14:180;1;STR-AL50;Allgemein;NOT-AUS Hardware Schlammtrockung;;Kommt;;649878;Störmeldungen
+06.01.20 13:39:14:180;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Geht;;649873;Störmeldungen
+06.01.20 13:39:14:180;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Geht;;649871;Störmeldungen
+06.01.20 13:39:14:180;0;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Überlauf - Messbereich um 10% überschritten;Geht;;649869;Störmeldungen
+06.01.20 13:39:14:180;0;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;Überlauf - Messbereich um 10% überschritten;Geht;;649867;Störmeldungen
+06.01.20 13:39:14:180;0;QISA-428;Wasseraufbreitung;Leitwert nach Enthärtungsanlage;Überlauf - Messbereich um 10% überschritten;Geht;;649865;Störmeldungen
+06.01.20 13:39:14:180;0;QICA-512;Wäscher 2;pH Wäscher 2;Überlauf - Messbereich um 10% überschritten;Geht;;649863;Störmeldungen
+06.01.20 13:39:14:180;0;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;Überlauf - Messbereich um 10% überschritten;Geht;;649861;Störmeldungen
+06.01.20 13:39:14:180;0;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;Überlauf - Messbereich um 10% überschritten;Geht;;649859;Störmeldungen
+06.01.20 13:39:14:180;0;QICA-502;Wäscher 1;pH  Wäscher 1;Überlauf - Messbereich um 10% überschritten;Geht;;649857;Störmeldungen
+06.01.20 13:39:14:026;1;P-102;Hydraulikaggregat;Hydraulikpumpe Schubboden;Öltemperatur zu hoch!;Kommt;;649877;Störmeldungen
+06.01.20 13:39:14:026;1;P-101;Hydraulikaggregat;Hydraulikpumpe Schwenkpresse;Öltemperatur zu hoch!;Kommt;;649876;Störmeldungen
+06.01.20 13:39:13:870;;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;;Kommt;;649874;Nicht bereit
+06.01.20 13:39:13:870;1;LS-113;Hydraulikaggregat;Niveau Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Kommt;;649873;Störmeldungen
+06.01.20 13:39:13:870;;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;;Kommt;;649872;Nicht bereit
+06.01.20 13:39:13:870;1;TS-112;Hydraulikaggregat;Temperatur Hydrauliköl;Überlauf - Messbereich um 10% überschritten;Kommt;;649871;Störmeldungen
+06.01.20 13:39:13:870;;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;;Kommt;;649870;Nicht bereit
+06.01.20 13:39:13:870;0;TISA-514;Wäscher 2;Temp. H2SO4 vor WT Wäscher 2;Überlauf - Messbereich um 10% überschritten;Kommt;;649869;Störmeldungen
+06.01.20 13:39:13:870;;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;;Kommt;;649868;Nicht bereit
+06.01.20 13:39:13:870;0;QISA-514;Wäscher 2;Leitfähigkeit Wäscher 2;Überlauf - Messbereich um 10% überschritten;Kommt;;649867;Störmeldungen
+06.01.20 13:39:13:870;;QISA-428;Wasseraufbreitung;Leitwert nach Enthärtungsanlage;;Kommt;;649866;Nicht bereit
+06.01.20 13:39:13:870;0;QISA-428;Wasseraufbreitung;Leitwert nach Enthärtungsanlage;Überlauf - Messbereich um 10% überschritten;Kommt;;649865;Störmeldungen
+06.01.20 13:39:13:870;;QICA-512;Wäscher 2;pH Wäscher 2;;Kommt;;649864;Nicht bereit
+06.01.20 13:39:13:870;0;QICA-512;Wäscher 2;pH Wäscher 2;Überlauf - Messbereich um 10% überschritten;Kommt;;649863;Störmeldungen
+06.01.20 13:39:13:870;;PRG-03;Hilfsbetriebe;Hydraulik;;Kommt;;649875;Nicht bereit
+06.01.20 13:39:13:870;;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;;Kommt;;649862;Nicht bereit
+06.01.20 13:39:13:870;0;TISA-504;Wäscher 2;Temp. H2SO4 vor WT Wäscher 1;Überlauf - Messbereich um 10% überschritten;Kommt;;649861;Störmeldungen
+06.01.20 13:39:13:870;;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;;Kommt;;649860;Nicht bereit
+06.01.20 13:39:13:870;0;QISA-504;Wäscher 1;Leitfähigkeit Wäscher 1;Überlauf - Messbereich um 10% überschritten;Kommt;;649859;Störmeldungen
+06.01.20 13:39:13:870;;QICA-502;Wäscher 1;pH  Wäscher 1;;Kommt;;649858;Nicht bereit
+06.01.20 13:39:13:870;0;QICA-502;Wäscher 1;pH  Wäscher 1;Überlauf - Messbereich um 10% überschritten;Kommt;;649857;Störmeldungen
+06.01.20 13:25:30:433;;GM-161;SEA;Rührwerk Nassschlamm-Bunker;;;Roland Reinle;649856;Aggregate-Vorwahlen
+06.01.20 06:22:25:115;;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;;Roland Reinle;649845;Aggregate-Vorwahlen
+06.01.20 06:22:24:343;0;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;Geht;;649844;Nicht bereit
+06.01.20 06:21:45:821;;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;;Roland Reinle;649843;Aggregate-Vorwahlen
+06.01.20 06:21:45:310;0;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;Kommt;;649844;Nicht bereit
+06.01.20 06:21:28:643;;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;;;Roland Reinle;649842;Aggregate-Vorwahlen
+06.01.20 06:21:28:080;;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;;Geht;;649830;Nicht bereit
+06.01.20 06:02:20:290;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Geht;;649841;Störmeldungen
+06.01.20 06:02:20:290;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Geht;;649840;Störmeldungen
+06.01.20 06:00:22:161;0;P-004;Wäscher sauer;Umwälzpumpe Wäscher 1;Trockenlaufschutz angesprochen;Freigabe;Roland Reinle;649835;Störmeldungen
+06.01.20 06:00:22:161;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Freigabe;Roland Reinle;649841;Störmeldungen
+06.01.20 06:00:22:161;0;PRG-00;Abluftreinigung;Wäscher 1;Teilbetrieb, Anlagenteil kontrollieren!;Freigabe;Roland Reinle;649831;Störmeldungen
+06.01.20 06:00:22:161;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;649840;Störmeldungen
+06.01.20 06:00:21:350;0;P-004;Wäscher sauer;Umwälzpumpe Wäscher 1;Trockenlaufschutz angesprochen;Quittierung;Roland Reinle;649835;Störmeldungen
+06.01.20 06:00:21:350;0;PRG-00;Abluftreinigung;Wäscher 1;Teilbetrieb, Anlagenteil kontrollieren!;Quittierung;Roland Reinle;649831;Störmeldungen
+06.01.20 06:00:21:350;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;649840;Störmeldungen
+06.01.20 06:00:21:319;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Quittierung;Roland Reinle;649841;Störmeldungen
+06.01.20 06:00:18:563;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Kommt;;649841;Störmeldungen
+06.01.20 06:00:14:804;;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;;;Roland Reinle;649839;Aggregate-Vorwahlen
+06.01.20 06:00:13:800;;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;;Geht;;649824;Nicht bereit
+06.01.20 06:00:13:800;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Kommt;;649840;Störmeldungen
+06.01.20 06:00:11:466;;LISL-506;Wäscher sauer;Niveaustand Wäscher 1 Min;;;Roland Reinle;649838;Aggregate-Vorwahlen
+06.01.20 06:00:10:410;;LISL-506;Wäscher sauer;Niveaustand Wäscher 1 Min;;Geht;;649822;Nicht bereit
+06.01.20 06:00:08:180;;LISH-506;Wäscher sauer;Niveaustand Wäscher 1 Max;;;Roland Reinle;649837;Aggregate-Vorwahlen
+06.01.20 06:00:07:183;;LISH-506;Wäscher sauer;Niveaustand Wäscher 1 Max;;Geht;;649826;Nicht bereit
+06.01.20 06:00:07:183;0;PRG-00;Abluftreinigung;Wäscher 1;Teilbetrieb, Anlagenteil kontrollieren!;Geht;;649831;Störmeldungen
+06.01.20 06:00:03:639;;LIAH-506;Wäscher sauer;Niveaustand Wäscher 1 Max-Max;;;Roland Reinle;649836;Aggregate-Vorwahlen
+06.01.20 06:00:02:563;;LIAH-506;Wäscher sauer;Niveaustand Wäscher 1 Max-Max;;Geht;;649828;Nicht bereit
+06.01.20 06:00:01:635;0;P-004;Wäscher sauer;Umwälzpumpe Wäscher 1;Trockenlaufschutz angesprochen;Geht;;649835;Störmeldungen
+06.01.20 06:00:01:170;0;P-004;Wäscher sauer;Umwälzpumpe Wäscher 1;Trockenlaufschutz angesprochen;Kommt;;649835;Störmeldungen
+06.01.20 05:59:51:217;;LISL-516;Wäscher sauer;Niveaustand Wäscher 2 Min;;;Roland Reinle;649834;Aggregate-Vorwahlen
+06.01.20 05:59:50:743;;LISL-516;Wäscher sauer;Niveaustand Wäscher 2 Min;;Geht;;649833;Nicht bereit
+06.01.20 05:59:44:014;;LISL-516;Wäscher sauer;Niveaustand Wäscher 2 Min;;;Roland Reinle;649832;Aggregate-Vorwahlen
+06.01.20 05:59:43:664;;LISL-516;Wäscher sauer;Niveaustand Wäscher 2 Min;;Kommt;;649833;Nicht bereit
+06.01.20 05:59:43:053;0;PRG-00;Abluftreinigung;Wäscher 1;Teilbetrieb, Anlagenteil kontrollieren!;Kommt;;649831;Störmeldungen
+06.01.20 05:59:40:633;;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;;;Roland Reinle;649829;Aggregate-Vorwahlen
+06.01.20 05:59:39:973;;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;;Kommt;;649830;Nicht bereit
+06.01.20 05:59:33:527;;LIAH-506;Wäscher sauer;Niveaustand Wäscher 1 Max-Max;;;Roland Reinle;649827;Aggregate-Vorwahlen
+06.01.20 05:59:33:185;;LIAH-506;Wäscher sauer;Niveaustand Wäscher 1 Max-Max;;Kommt;;649828;Nicht bereit
+06.01.20 05:59:30:429;;LISH-506;Wäscher sauer;Niveaustand Wäscher 1 Max;;;Roland Reinle;649825;Aggregate-Vorwahlen
+06.01.20 05:59:29:930;;LISH-506;Wäscher sauer;Niveaustand Wäscher 1 Max;;Kommt;;649826;Nicht bereit
+06.01.20 05:59:25:345;;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;;;Roland Reinle;649823;Aggregate-Vorwahlen
+06.01.20 05:59:24:680;;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;;Kommt;;649824;Nicht bereit
+06.01.20 05:59:24:680;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Geht;;649820;Störmeldungen
+06.01.20 05:59:24:680;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Geht;;649819;Störmeldungen
+06.01.20 05:59:20:615;;LISL-506;Wäscher sauer;Niveaustand Wäscher 1 Min;;;Roland Reinle;649821;Aggregate-Vorwahlen
+06.01.20 05:59:20:070;;LISL-506;Wäscher sauer;Niveaustand Wäscher 1 Min;;Kommt;;649822;Nicht bereit
+06.01.20 05:59:09:506;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Freigabe;Roland Reinle;649820;Störmeldungen
+06.01.20 05:59:09:506;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;649819;Störmeldungen
+06.01.20 05:59:08:739;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Quittierung;Roland Reinle;649820;Störmeldungen
+06.01.20 05:59:08:739;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;649819;Störmeldungen
+06.01.20 05:57:56:933;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Kommt;;649820;Störmeldungen
+06.01.20 05:57:52:170;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Kommt;;649819;Störmeldungen
+06.01.20 05:57:51:403;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Geht;;649818;Störmeldungen
+06.01.20 05:57:51:403;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Geht;;649817;Störmeldungen
+06.01.20 05:55:47:431;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Freigabe;Roland Reinle;649818;Störmeldungen
+06.01.20 05:55:47:431;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;649817;Störmeldungen
+06.01.20 05:55:46:523;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Quittierung;Roland Reinle;649818;Störmeldungen
+06.01.20 05:55:46:523;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;649817;Störmeldungen
+06.01.20 05:54:43:624;1;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Kommt;;649818;Störmeldungen
+06.01.20 05:54:38:860;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Kommt;;649817;Störmeldungen
+06.01.20 05:29:04:082;;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;;Roland Reinle;649816;Aggregate-Vorwahlen
+06.01.20 05:29:03:560;0;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;Geht;;649815;Nicht bereit
+06.01.20 05:28:46:705;;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;;Roland Reinle;649814;Aggregate-Vorwahlen
+06.01.20 05:28:46:300;0;MV-502;Luftwäscher sauer;Magnetventil Prozessw-Einsp. -> F-002;;Kommt;;649815;Nicht bereit
