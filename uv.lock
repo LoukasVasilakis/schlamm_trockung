@@ -948,7 +948,7 @@ wheels = [
 [[package]]
 name = "pro2db-ausfaelle-in-schlammtrocknungsanlage"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "dash" },
     { name = "matplotlib" },
