@@ -30,6 +30,9 @@ CREATE TABLE IF NOT EXISTS events (
     "evtTyp" TEXT
 );
 
+  DROP TABLE IF EXISTS tmp_events;
+  CREATE TEMP TABLE temp_events AS SELECT * FROM events WITH NO DATA;
+
 \copy tmp_events FROM '$file' WITH (FORMAT csv, HEADER true, DELIMITER ';', ENCODING 'LATIN1');
 
 INSERT INTO events ("Datum", "Prio", "Msr", "Ort", "Objekt", "Meldung", "Zustand", "Benutzer", "evtID", "evtTyp")
