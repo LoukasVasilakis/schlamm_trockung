@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS events (
 );
 
   DROP TABLE IF EXISTS tmp_events;
-  CREATE TABLE temp_events AS SELECT * FROM events WITH NO DATA;
+  CREATE TABLE tmp_events AS SELECT * FROM events WITH NO DATA;
 
 \copy tmp_events FROM '$file' WITH (FORMAT csv, HEADER true, DELIMITER ';', ENCODING 'LATIN1');
 
