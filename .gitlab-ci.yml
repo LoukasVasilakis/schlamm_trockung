@@ -33,4 +33,5 @@ unittest:
     - uv sync --all-groups --all-extras
     - bash scripts/load_test_db.sh
     script:
-    - PYTHONPATH="$CI_PROJECT_DIR" uv run pytest --verbose --ignore=test/test_db_connection.py
+    - uv run pytest
+
