@@ -1,13 +1,19 @@
 import pandas as pd
 import psycopg2
 import dash
-from dash import html
-from dash import dcc
-from dash import callback
+from dash import html, dcc, callback
 from dash.dependencies import Input, Output
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.io as pio
 
+
+# Dashboard Guidelinnes
+pio.templates["custom"] = pio.templates["plotly_white"]  # Plotly template erstellen
+pio.templates["custom"].layout.font.family = "Arial" # Schriftfont immer Arial
+pio.templates.default = "custom" # # Jeder Plot verwendet automatisch Arial
+
+# Dataset
 
 # Establish a connection to the PostgreSQL database
 conn = psycopg2.connect(
@@ -15,10 +21,10 @@ conn = psycopg2.connect(
     user="postgres",    # user/password: login credentials
     password="postgres",
     host="localhost",   # host: where the database server is running (localhost = this machine)
-    port="5432" # port: default PostgreSQL port
+    port="5432"  # port: default PostgreSQL port
 )
 
-df = pd.read_sql('SELECT "Datum", "Meldung", "evtTyp", "Prio", "Benutzer" FROM events', conn) # Dataframe erstellen
+df = pd.read_sql('SELECT "Datum", "Meldung", "evtTyp", "Prio", "Benutzer" FROM events', conn)  # Dataframe erstellen
 
 conn.close()  # Close the database connection, avoid open connections (resource leaks)
 
@@ -33,23 +39,34 @@ df = df.dropna(subset=["Datum"]).copy()  # Alle Zeilen ohne gültiges Datum entf
 df["Meldung"] = df["Meldung"].fillna("").astype(str)  # Leere Meldungen mit leerem String füllen und sicher als Text speichern
 
 dates = pd.to_datetime(df["Datum"].dropna().sort_values().dt.normalize().unique())  # Eindeutige Datumswerte ohne Uhrzeit für Slider und Kalender
+event_types = sorted(
+    df.loc[
+        (df["evtTyp"].notna()) & # Nur Zeilen mit gültigem evtTyp berücksichtigen
+        (df["evtTyp"] != "Login/Logout") & # Login/Logout-Ereignisse ausschliessen
+        (df["Benutzer"].notna()) & # Nur Zeilen mit gültigem Benutzer berücksichtigen
+        (~df["Benutzer"].isin(["AUTO"])), # Systemeinträge (AUTO) ausschliessen
+        "evtTyp"
+    ].unique()
+) # Eindeutige evtTyp-Werte für Dropdown
+
+# Applikation
 
 app = dash.Dash(__name__)  # Dash-App erstellen
 
 app.layout = html.Div([
-    html.H1("STRAG AG", style={"textAlign": "center"}), # Obertitel
+    html.H1("STRAG AG", style={"textAlign": "center", "fontFamily": "Arial"}), # Titel
 
-    html.H3("Select Date"), # Untertitel
+    html.H3("Select Date", style={"fontFamily": "Arial"}), # Untertitel
 
     html.Div(
         dcc.DatePickerRange(
             id="date-picker-range",  # Eindeutige ID für Callback-Verknüpfung
-            min_date_allowed=dates[0].date(), # Erste Zeile in dates ist das früste auswählbar Datum
-            max_date_allowed=dates[-1].date(), # Letzte Zeile in dates ist das letzte auswählbar Datum
-            start_date=dates[0].date(), # Gleich hier
-            end_date=dates[-1].date(), # Gleich hier
+            min_date_allowed=dates[0].date(),  # Erste Zeile in dates ist das früste auswählbar Datum
+            max_date_allowed=dates[-1].date(),  # Letzte Zeile in dates ist das letzte auswählbar Datum
+            start_date=dates[0].date(),  # Gleich hier
+            end_date=dates[-1].date(),  # Gleich hier
             display_format="YYYY-MM-DD",
-            updatemode="bothdates" # Ermöglicht im Kalender ein Start und End Datum zu wählen
+            updatemode="bothdates"  # Ermöglicht im Kalender ein Start und End Datum zu wählen
         ),
         style={
             "display": "inline-block",  # Kalenderfeld nur so breit wie nötig darstellen
@@ -77,11 +94,39 @@ app.layout = html.Div([
     html.Div([
         html.Div(
             dcc.Graph(id="stoermeldungen-bar-chart", config={"displayModeBar": False}),  # Balkendiagramm ohne Plotly-Menüleiste
-            style={"width": "60%", "display": "inline-block", "verticalAlign": "top"}  # Linkes Diagramm nimmt 60% Breite ein
+            style={
+                "width": "60%", # Linkes Diagramm nimmt 60% Breite ein
+                "display": "inline-block",
+                "verticalAlign": "top",
+                "paddingTop": "0px"
+            }
         ),
         html.Div(
-            dcc.Graph(id="benutzer-heatmap", config={"displayModeBar": False}),  # Heatmap ohne Plotly-Menüleiste
-            style={"width": "38%", "display": "inline-block", "verticalAlign": "top", "marginLeft": "2%"}  # Rechtes Diagramm nimmt 38% Breite ein
+            [
+                html.Div(
+                    [
+                        html.Label("Filter evtTyp", style={"fontFamily": "Arial", "display": "block", "marginBottom": "5px"}),
+                        dcc.Dropdown(
+                            id="heatmap-evttyp-dropdown",
+                            options=[{"label": "All", "value": "ALL"}] + [
+                                {"label": evt_type, "value": evt_type} for evt_type in event_types
+                            ],
+                            value="ALL",
+                            clearable=False,
+                            style={"fontFamily": "Arial"}
+                        )
+                    ],
+                    style={"marginBottom": "10px"}
+                ),
+                dcc.Graph(id="benutzer-heatmap", config={"displayModeBar": False})  # Heatmap ohne Plotly-Menüleiste
+            ],
+            style={
+                "width": "38%",
+                "display": "inline-block",
+                "verticalAlign": "top",
+                "marginLeft": "2%",
+                "paddingTop": "0px"
+            }
         )
     ])
 ],
@@ -95,20 +140,32 @@ style={  # ästhetische Einstellungen
 
 @callback(
     Output("date-range-slider", "value"),
+    Output("date-picker-range", "start_date"),
+    Output("date-picker-range", "end_date"),
     Input("date-picker-range", "start_date"),
-    Input("date-picker-range", "end_date")
+    Input("date-picker-range", "end_date"),
+    Input("date-range-slider", "value")
 )
-def update_slider_from_picker(start_date, end_date):
-    start_date = pd.to_datetime(start_date)  # Startdatum aus dem Kalender in pandas-Datum umwandeln
-    end_date = pd.to_datetime(end_date)  # Enddatum aus dem Kalender in pandas-Datum umwandeln
+def sync_date_controls(start_date, end_date, slider_value):
+    trigger = dash.callback_context.triggered_id  # Erkennen, welches Element die Änderung ausgelöst hat
 
-    start_idx = dates.searchsorted(start_date)  # Position des Startdatums in der dates-Liste finden
-    end_idx = dates.searchsorted(end_date)  # Position des Enddatums in der dates-Liste finden
+    if trigger == "date-picker-range":
+        start_date = pd.to_datetime(start_date)  # Startdatum aus dem Kalender in pandas-Datum umwandeln
+        end_date = pd.to_datetime(end_date)  # Enddatum aus dem Kalender in pandas-Datum umwandeln
 
-    start_idx = min(start_idx, len(dates) - 1)  # Verhindert, dass der Index ausserhalb des gültigen Bereichs liegt
-    end_idx = min(end_idx, len(dates) - 1)  # Verhindert, dass der Index ausserhalb des gültigen Bereichs liegt
+        start_idx = dates.searchsorted(start_date)  # Position des Startdatums in der dates-Liste finden
+        end_idx = dates.searchsorted(end_date)  # Position des Enddatums in der dates-Liste finden
 
-    return [start_idx, end_idx]  # Slider auf die gewählten Datumspositionen setzen
+        start_idx = min(start_idx, len(dates) - 1)  # Verhindert, dass der Index ausserhalb des gültigen Bereichs liegt
+        end_idx = min(end_idx, len(dates) - 1)  # Verhindert, dass der Index ausserhalb des gültigen Bereichs liegt
+
+        return [start_idx, end_idx], dash.no_update, dash.no_update  # Nur Slider aktualisieren
+
+    if trigger == "date-range-slider":
+        start_idx, end_idx = slider_value  # Die beiden Slider-Positionen entpacken
+        return dash.no_update, dates[start_idx].date(), dates[end_idx].date()  # Nur Kalender aktualisieren
+
+    return slider_value, start_date, end_date  # Initialzustand beibehalten
 
 
 @callback(
@@ -124,6 +181,9 @@ def show_selected_dates(slider_value):
     Output("stoermeldungen-bar-chart", "figure"),
     Input("date-range-slider", "value")
 )
+
+# Linkes Plot
+
 def update_bar_chart(slider_value):
     start_idx, end_idx = slider_value  # Aktuelle Start- und Endposition des Sliders übernehmen
 
@@ -165,7 +225,7 @@ def update_bar_chart(slider_value):
         title="Top 10 Störmeldungen im gewählten Zeitraum",
     )  # Horizontales Balkendiagramm erstellen
 
-    fig.update_traces(textposition="outside")  # Textposition ausserhalb der Balken festlegen
+    fig.update_traces(textposition="outside")
 
     fig.update_layout(
         xaxis_title="Anzahl",
@@ -181,9 +241,13 @@ def update_bar_chart(slider_value):
 
 @callback(
     Output("benutzer-heatmap", "figure"),
-    Input("date-range-slider", "value")
+    Input("date-range-slider", "value"),
+    Input("heatmap-evttyp-dropdown", "value")
 )
-def update_user_heatmap(slider_value):
+
+# Rechtes Plot
+
+def update_user_heatmap(slider_value, selected_evttyp):
     start_idx, end_idx = slider_value  # Aktuelle Start- und Endposition des Sliders übernehmen
 
     start_date = dates[start_idx]  # Startindex in echtes Datum umwandeln
@@ -193,6 +257,9 @@ def update_user_heatmap(slider_value):
         (df["Datum"] >= start_date) &
         (df["Datum"] <= end_date)
     ].copy()  # Datensatz auf den gewählten Zeitraum filtern
+
+    if selected_evttyp != "ALL":
+        dff = dff[dff["evtTyp"] == selected_evttyp].copy()  # Nur den gewählten evtTyp anzeigen
 
     dff = dff[dff["evtTyp"] != "Login/Logout"].copy()  # Login/Logout-Ereignisse ausschliessen
     dff = dff[dff["Benutzer"].notna()].copy()  # Zeilen ohne Benutzer entfernen
@@ -205,7 +272,7 @@ def update_user_heatmap(slider_value):
             plot_bgcolor="#F0FFF0",
             paper_bgcolor="#F0FFF0",
             font=dict(family="Arial", color="black")
-        )  # Layout des leeren Diagramms an das Dashboard anpassen
+        )
         return fig
 
     user_counts = dff["Benutzer"].value_counts().sort_values(ascending=False)  # Benutzer nach Anzahl Ereignissen absteigend zählen
@@ -219,17 +286,23 @@ def update_user_heatmap(slider_value):
         data=go.Heatmap(
             z=heatmap_df[["Anzahl"]].values,
             x=["Anzahl"],
-            y=heatmap_df["Benutzer"],  # Benutzer als Zeilenbeschriftung
-            colorscale="Reds",  # Farbschema von hellrot bis dunkelrot
-            showscale=True,  # Farbskala rechts anzeigen
-            text=heatmap_df["Anzahl"],  # Anzahl zusätzlich als Text in den Feldern anzeigen
-            texttemplate="%{text}",
-            textfont={"color": "black", "size": 12},  # Schriftfarbe und Schriftgrösse in den Feldern
+            y=heatmap_df["Benutzer"],
+            colorscale="Reds",
+            showscale=True,
             hovertemplate="Benutzer: %{y}<br>Anzahl: %{z}<extra></extra>",
-            ygap=3,  # Trennlinien zwischen Benützerzeilen
+            ygap=3,
             xgap=1
-        ) # Beschriftungen, Farben und Ränder des Diagramms definieren
+        )
     )
+
+    for _, row in heatmap_df.iterrows(): # Anzahl in den Heatmap-Blocks einfügen
+        fig.add_annotation(
+            x="Anzahl",
+            y=row["Benutzer"],
+            text=str(row["Anzahl"]),
+            showarrow=False,
+            font=dict(family="Arial", color="black", size=12) # Schwarze Farbe, Schriftgrösse
+        )
 
     fig.update_layout(
         title="Benutzer-Aktivität im gewählten Zeitraum",
@@ -239,10 +312,9 @@ def update_user_heatmap(slider_value):
         paper_bgcolor="#F0FFF0",
         font=dict(family="Arial", color="black"),
         margin=dict(l=160, r=40, t=60, b=40)
-    )  # Layout der Heatmap definieren
+    )
 
     return fig
-
 
 if __name__ == "__main__":
     app.run(debug=True)  # App im Debug-Modus starten
