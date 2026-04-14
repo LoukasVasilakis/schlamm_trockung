@@ -38,4 +38,12 @@ Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du näc
 ### Ausserordentlich
 Loukas zeigt die Dashboard-Übersichtsseite, welche er bereits erstellt hat.
 
+## 14.04.26
+### Anwesend
+Alle aus dem Projektteam
+
+Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten.
+
+### Ausserordentlich
+Florin wird ein Video erstellen, welches das Laden der Daten nochmals beschreibt. So können die neuen Daten nachgeladen werden.
 
