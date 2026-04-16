@@ -33,6 +33,7 @@ def build_user_color_map(source_df):
 
     return color_map
 
+
 GLOBAL_USER_COLOR_MAP = build_user_color_map(df)
 
 
@@ -185,25 +186,12 @@ def update_user_overview(slider_value, selected_evttyp):
         else pd.Series(dtype=float)
     )
 
-    # Zeile 3: Nur Personen ohne Login/Logout, NaN, AUTO
-    dff_persons = dff[
-        (dff["evtTyp"] != "Login/Logout") &
-        (dff["Benutzer"].notna()) &
-        (~dff["Benutzer"].isin(["AUTO"]))
-    ].copy()
-
-    user_counts_persons = dff_persons["Benutzer"].astype(str).value_counts()
-    user_pct_persons = (
-        (user_counts_persons / user_counts_persons.sum() * 100).round(1)
-        if not user_counts_persons.empty
-        else pd.Series(dtype=float)
-    )
-
+    # Figure for 2 rows x 2 columns
     fig = make_subplots(
-        rows=3,
+        rows=2,
         cols=2,
         horizontal_spacing=0.18,
-        vertical_spacing=0.18
+        vertical_spacing=0.22
     )
 
     add_bar_trace(fig, user_counts_all, 1, 1, color_map, is_percent=False)
@@ -212,13 +200,10 @@ def update_user_overview(slider_value, selected_evttyp):
     add_bar_trace(fig, user_counts_no_nan_auto, 2, 1, color_map, is_percent=False)
     add_bar_trace(fig, user_pct_no_nan_auto, 2, 2, color_map, is_percent=True)
 
-    add_bar_trace(fig, user_counts_persons, 3, 1, color_map, is_percent=False)
-    add_bar_trace(fig, user_pct_persons, 3, 2, color_map, is_percent=True)
-
     # Spaltentitel ganz oben
     fig.add_annotation(
         x=0.24,
-        y=1.08,
+        y=1.10,
         xref="paper",
         yref="paper",
         text="<b>absolut</b>",
@@ -228,7 +213,7 @@ def update_user_overview(slider_value, selected_evttyp):
 
     fig.add_annotation(
         x=0.76,
-        y=1.08,
+        y=1.10,
         xref="paper",
         yref="paper",
         text="<b>prozentual</b>",
@@ -236,23 +221,13 @@ def update_user_overview(slider_value, selected_evttyp):
         font=dict(family="Arial", size=16, color="black")
     )
 
-    # Nur noch Titel über Zeile 2 und 3
+    # Titel nur über der zweiten Zeile
     fig.add_annotation(
         x=0.5,
-        y=0.64,
+        y=0.43,
         xref="paper",
         yref="paper",
         text="<b>Benutzer (Ohne NaN, AUTO)</b>",
-        showarrow=False,
-        font=dict(family="Arial", size=14, color="black")
-    )
-
-    fig.add_annotation(
-        x=0.5,
-        y=0.30,
-        xref="paper",
-        yref="paper",
-        text="<b>Benutzer (Nur Personen, ohne Login/Logout, NaN, AUTO)</b>",
         showarrow=False,
         font=dict(family="Arial", size=14, color="black")
     )
@@ -261,16 +236,12 @@ def update_user_overview(slider_value, selected_evttyp):
     fig.update_xaxes(title_text="Anteil (%)", row=1, col=2)
     fig.update_xaxes(title_text="Anzahl Events", row=2, col=1)
     fig.update_xaxes(title_text="Anteil (%)", row=2, col=2)
-    fig.update_xaxes(title_text="Anzahl Events", row=3, col=1)
-    fig.update_xaxes(title_text="Anteil (%)", row=3, col=2)
 
     fig.update_yaxes(title_text="Benutzer", row=1, col=1)
     fig.update_yaxes(title_text="Benutzer", row=2, col=1)
-    fig.update_yaxes(title_text="Benutzer", row=3, col=1)
 
     fig.update_yaxes(title_text="", row=1, col=2)
     fig.update_yaxes(title_text="", row=2, col=2)
-    fig.update_yaxes(title_text="", row=3, col=2)
 
     title_suffix = (
         f" – evtTyp: {selected_evttyp}"
@@ -280,7 +251,7 @@ def update_user_overview(slider_value, selected_evttyp):
 
     fig.update_layout(
         title=f"Benutzer-Übersicht – Anzahl Events pro Benutzer{title_suffix}",
-        height=1200,
+        height=850,
         plot_bgcolor="#F0FFF0",
         paper_bgcolor="#F0FFF0",
         font=dict(family="Arial", color="black"),
