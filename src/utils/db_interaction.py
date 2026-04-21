@@ -74,3 +74,8 @@ class EventDataSource:
             top_n = user_data["Meldung"].value_counts().head(n)
             result[user] = top_n
         return result
+
+    def get_events_from_user(self, username: str) -> pd.DataFrame:
+        """Gibt alle Events eines bestimmten Benutzers zurück."""
+        df = self.get_cleaned_events()
+        return df[df["Benutzer"] == username]
