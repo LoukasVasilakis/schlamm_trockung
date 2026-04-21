@@ -125,3 +125,15 @@ def test_get_events_in_time_range(data_source: EventDataSource) -> None:
         pd.to_datetime(start_date) <= pd.to_datetime(d) < pd.to_datetime(end_date)
         for d in events_in_range["Datum"]
     )
+
+
+def test_filter_events(data_source: EventDataSource) -> None:
+    filtered_evttype = data_source.filter_events(
+        column_to_filter="evtTyp", filter_for=["Login/Logout"]
+    )
+    assert filtered_evttype is not None
+    assert all(evt == "Login/Logout" for evt in filtered_evttype["evtTyp"].unique())
+
+    filtered_msr = data_source.filter_events(column_to_filter="MSR", filter_for=["240", "150"])
+    assert filtered_msr is not None
+    assert all(msr in ["240", "150"] for msr in filtered_msr["MSR"].unique())

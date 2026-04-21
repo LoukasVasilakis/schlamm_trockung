@@ -92,3 +92,10 @@ class EventDataSource:
         start_dt = pd.to_datetime(start)
         end_dt = pd.to_datetime(end)
         return df[(df["Datum"] >= start_dt) & (df["Datum"] < end_dt)]
+
+    def filter_events(
+        self, column_to_filter: str, filter_for: list[str], df: pd.DataFrame | None = None
+    ) -> pd.DataFrame:
+        """Gibt alle Events zurück, die bestimmte Werte in einer Spalte enthalten."""
+        df = self.get_cleaned_events() if df is None else df
+        return df[df[column_to_filter].isin(filter_for)]
