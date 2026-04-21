@@ -17,5 +17,5 @@ ruff:
 unittest:
     stage: test
     script:
-    - uv run pytest test/test_example.py --verbose
+    - uv run pytest --verbose --ignore=test/test_db_connection.py
 
