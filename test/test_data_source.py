@@ -93,7 +93,7 @@ def test_get_time_analysis_data(data_source: EventDataSource) -> None:
     assert all(time_analysis_data["Wochentag"] == "Friday")
     assert "Ist_Nacht" in time_analysis_data.columns
     assert "Ist_Wochenende" in time_analysis_data.columns
-    assert all(not time_analysis_data["Ist_Wochenende"])
+    assert not any(time_analysis_data["Ist_Wochenende"])
 
 
 def test_get_events_from_user(data_source: EventDataSource) -> None:
