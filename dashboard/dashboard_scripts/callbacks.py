@@ -10,7 +10,7 @@ from data_loader import dates
     Output("date-picker-range", "end_date"),
     Input("date-picker-range", "start_date"),
     Input("date-picker-range", "end_date"),
-    Input("date-range-slider", "value")
+    Input("date-range-slider", "value"),
 )
 def sync_date_controls(start_date, end_date, slider_value):
     trigger = dash.callback_context.triggered_id
@@ -34,10 +34,7 @@ def sync_date_controls(start_date, end_date, slider_value):
     return slider_value, start_date, end_date
 
 
-@callback(
-    Output("output-date", "children"),
-    Input("date-range-slider", "value")
-)
+@callback(Output("output-date", "children"), Input("date-range-slider", "value"))
 def show_selected_dates(slider_value):
     start_idx, end_idx = slider_value
     return (

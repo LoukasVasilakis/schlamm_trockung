@@ -6,12 +6,10 @@ def test_update_bar_chart_returns_empty_figure_when_no_stoermeldungen(
 ):
     df, dates = fake_dashboard_data
 
-    module = __import__("test.conftest", fromlist=["load_module_with_fake_data"]).load_module_with_fake_data(
-        pages_dir / "stormeldungen.py",
-        "stormeldungen_test_module_empty",
-        df,
-        dates,
-        monkeypatch
+    module = __import__(
+        "test.conftest", fromlist=["load_module_with_fake_data"]
+    ).load_module_with_fake_data(
+        pages_dir / "stormeldungen.py", "stormeldungen_test_module_empty", df, dates, monkeypatch
     )
 
     # Choose only the last day (2024-01-04), which has no evtTyp == "Störmeldungen"
@@ -28,12 +26,10 @@ def test_update_bar_chart_counts_top_messages_correctly(
 ):
     df, dates = fake_dashboard_data
 
-    module = __import__("test.conftest", fromlist=["load_module_with_fake_data"]).load_module_with_fake_data(
-        pages_dir / "stormeldungen.py",
-        "stormeldungen_test_module_counts",
-        df,
-        dates,
-        monkeypatch
+    module = __import__(
+        "test.conftest", fromlist=["load_module_with_fake_data"]
+    ).load_module_with_fake_data(
+        pages_dir / "stormeldungen.py", "stormeldungen_test_module_counts", df, dates, monkeypatch
     )
 
     # Full range
@@ -55,17 +51,17 @@ def test_update_bar_chart_counts_top_messages_correctly(
     assert sorted(x_values) == [1, 1, 2]
 
 
-def test_update_bar_chart_filters_by_date_range(
-    fake_dashboard_data, pages_dir, monkeypatch
-):
+def test_update_bar_chart_filters_by_date_range(fake_dashboard_data, pages_dir, monkeypatch):
     df, dates = fake_dashboard_data
 
-    module = __import__("test.conftest", fromlist=["load_module_with_fake_data"]).load_module_with_fake_data(
+    module = __import__(
+        "test.conftest", fromlist=["load_module_with_fake_data"]
+    ).load_module_with_fake_data(
         pages_dir / "stormeldungen.py",
         "stormeldungen_test_module_datefilter",
         df,
         dates,
-        monkeypatch
+        monkeypatch,
     )
 
     # Only first date: 2024-01-01

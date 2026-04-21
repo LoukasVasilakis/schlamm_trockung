@@ -50,14 +50,13 @@ def add_bar_trace(fig, series, row, col, color_map, is_percent=False):
             yref=yref,
             text="Keine Daten",
             showarrow=False,
-            font=dict(family="Arial", size=12, color="black")
+            font=dict(family="Arial", size=12, color="black"),
         )
         return
 
-    plot_df = pd.DataFrame({
-        "Benutzer": series.index.astype(str),
-        "Wert": series.values
-    }).sort_values("Wert", ascending=True)
+    plot_df = pd.DataFrame(
+        {"Benutzer": series.index.astype(str), "Wert": series.values}
+    ).sort_values("Wert", ascending=True)
 
     text_values = (
         [f"{val:.1f}%" for val in plot_df["Wert"]]
@@ -79,46 +78,34 @@ def add_bar_trace(fig, series, row, col, color_map, is_percent=False):
                 if is_percent
                 else "Benutzer: %{y}<br>Anzahl Events: %{x}<extra></extra>"
             ),
-            showlegend=False
+            showlegend=False,
         ),
         row=row,
-        col=col
+        col=col,
     )
 
 
 layout = html.Div(
     [
-        html.H2(
-            "Benutzer-Übersicht",
-            style={"fontFamily": "Arial", "textAlign": "center"}
-        ),
+        html.H2("Benutzer-Übersicht", style={"fontFamily": "Arial", "textAlign": "center"}),
         html.Div(
             [
                 html.Label(
                     "Filter evtTyp",
-                    style={
-                        "fontFamily": "Arial",
-                        "display": "block",
-                        "marginBottom": "5px"
-                    }
+                    style={"fontFamily": "Arial", "display": "block", "marginBottom": "5px"},
                 ),
                 dcc.Dropdown(
                     id="balkendiagram-evttyp-dropdown",
-                    options=[{"label": "All", "value": "ALL"}] + [
-                        {"label": evt_type, "value": evt_type}
-                        for evt_type in ALL_EVENT_TYPES
-                    ],
+                    options=[{"label": "All", "value": "ALL"}]
+                    + [{"label": evt_type, "value": evt_type} for evt_type in ALL_EVENT_TYPES],
                     value="ALL",
                     clearable=False,
-                    style={"fontFamily": "Arial", "width": "300px"}
-                )
+                    style={"fontFamily": "Arial", "width": "300px"},
+                ),
             ],
-            style={"marginBottom": "15px"}
+            style={"marginBottom": "15px"},
         ),
-        dcc.Graph(
-            id="benutzer-balkendiagram",
-            config={"displayModeBar": False}
-        )
+        dcc.Graph(id="benutzer-balkendiagram", config={"displayModeBar": False}),
     ]
 )
 
@@ -126,7 +113,7 @@ layout = html.Div(
 @callback(
     Output("benutzer-balkendiagram", "figure"),
     Input("date-range-slider", "value"),
-    Input("balkendiagram-evttyp-dropdown", "value")
+    Input("balkendiagram-evttyp-dropdown", "value"),
 )
 def update_user_overview(slider_value, selected_evttyp):
     start_idx, end_idx = slider_value
@@ -134,10 +121,7 @@ def update_user_overview(slider_value, selected_evttyp):
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
-    dff = df[
-        (df["Datum"] >= start_date) &
-        (df["Datum"] <= end_date)
-    ].copy()
+    dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)].copy()
 
     if selected_evttyp not in [None, "ALL"]:
         dff = dff[dff["evtTyp"] == selected_evttyp].copy()
@@ -150,7 +134,7 @@ def update_user_overview(slider_value, selected_evttyp):
             paper_bgcolor="#F0FFF0",
             font=dict(family="Arial", color="black"),
             xaxis=dict(visible=False),
-            yaxis=dict(visible=False)
+            yaxis=dict(visible=False),
         )
         fig.add_annotation(
             text="Keine Benutzerdaten im gewählten Zeitraum",
@@ -159,7 +143,7 @@ def update_user_overview(slider_value, selected_evttyp):
             xref="paper",
             yref="paper",
             showarrow=False,
-            font=dict(family="Arial", size=14, color="black")
+            font=dict(family="Arial", size=14, color="black"),
         )
         return fig
 
@@ -174,10 +158,7 @@ def update_user_overview(slider_value, selected_evttyp):
     )
 
     # Zeile 2: Ohne NaN und AUTO
-    dff_no_nan_auto = dff[
-        (dff["Benutzer"].notna()) &
-        (~dff["Benutzer"].isin(["AUTO"]))
-    ].copy()
+    dff_no_nan_auto = dff[(dff["Benutzer"].notna()) & (~dff["Benutzer"].isin(["AUTO"]))].copy()
 
     user_counts_no_nan_auto = dff_no_nan_auto["Benutzer"].astype(str).value_counts()
     user_pct_no_nan_auto = (
@@ -187,12 +168,7 @@ def update_user_overview(slider_value, selected_evttyp):
     )
 
     # Figure for 2 rows x 2 columns
-    fig = make_subplots(
-        rows=2,
-        cols=2,
-        horizontal_spacing=0.18,
-        vertical_spacing=0.22
-    )
+    fig = make_subplots(rows=2, cols=2, horizontal_spacing=0.18, vertical_spacing=0.22)
 
     add_bar_trace(fig, user_counts_all, 1, 1, color_map, is_percent=False)
     add_bar_trace(fig, user_pct_all, 1, 2, color_map, is_percent=True)
@@ -208,7 +184,7 @@ def update_user_overview(slider_value, selected_evttyp):
         yref="paper",
         text="<b>absolut</b>",
         showarrow=False,
-        font=dict(family="Arial", size=16, color="black")
+        font=dict(family="Arial", size=16, color="black"),
     )
 
     fig.add_annotation(
@@ -218,7 +194,7 @@ def update_user_overview(slider_value, selected_evttyp):
         yref="paper",
         text="<b>prozentual</b>",
         showarrow=False,
-        font=dict(family="Arial", size=16, color="black")
+        font=dict(family="Arial", size=16, color="black"),
     )
 
     # Titel nur über der zweiten Zeile
@@ -229,7 +205,7 @@ def update_user_overview(slider_value, selected_evttyp):
         yref="paper",
         text="<b>Benutzer (Ohne NaN, AUTO)</b>",
         showarrow=False,
-        font=dict(family="Arial", size=14, color="black")
+        font=dict(family="Arial", size=14, color="black"),
     )
 
     fig.update_xaxes(title_text="Anzahl Events", row=1, col=1)
@@ -243,11 +219,7 @@ def update_user_overview(slider_value, selected_evttyp):
     fig.update_yaxes(title_text="", row=1, col=2)
     fig.update_yaxes(title_text="", row=2, col=2)
 
-    title_suffix = (
-        f" – evtTyp: {selected_evttyp}"
-        if selected_evttyp not in [None, "ALL"]
-        else ""
-    )
+    title_suffix = f" – evtTyp: {selected_evttyp}" if selected_evttyp not in [None, "ALL"] else ""
 
     fig.update_layout(
         title=f"Benutzer-Übersicht – Anzahl Events pro Benutzer{title_suffix}",
@@ -256,7 +228,7 @@ def update_user_overview(slider_value, selected_evttyp):
         paper_bgcolor="#F0FFF0",
         font=dict(family="Arial", color="black"),
         margin=dict(l=170, r=80, t=170, b=50),
-        bargap=0.2
+        bargap=0.2,
     )
 
     return fig

@@ -3,12 +3,14 @@ def test_update_user_overview_returns_empty_figure_when_no_data_for_filter(
 ):
     df, dates = fake_dashboard_data
 
-    module = __import__("test.conftest", fromlist=["load_module_with_fake_data"]).load_module_with_fake_data(
+    module = __import__(
+        "test.conftest", fromlist=["load_module_with_fake_data"]
+    ).load_module_with_fake_data(
         pages_dir / "benutzer_balkendiagram.py",
         "benutzer_test_module_empty",
         df,
         dates,
-        monkeypatch
+        monkeypatch,
     )
 
     # Last date only has evtTyp "Warnungen", so filtering to "Störmeldungen" should yield empty
@@ -20,17 +22,17 @@ def test_update_user_overview_returns_empty_figure_when_no_data_for_filter(
     assert fig.layout.plot_bgcolor == "#F0FFF0"
 
 
-def test_update_user_overview_returns_four_traces(
-    fake_dashboard_data, pages_dir, monkeypatch
-):
+def test_update_user_overview_returns_four_traces(fake_dashboard_data, pages_dir, monkeypatch):
     df, dates = fake_dashboard_data
 
-    module = __import__("test.conftest", fromlist=["load_module_with_fake_data"]).load_module_with_fake_data(
+    module = __import__(
+        "test.conftest", fromlist=["load_module_with_fake_data"]
+    ).load_module_with_fake_data(
         pages_dir / "benutzer_balkendiagram.py",
         "benutzer_test_module_traces",
         df,
         dates,
-        monkeypatch
+        monkeypatch,
     )
 
     slider_value = [0, len(dates) - 1]
@@ -47,12 +49,14 @@ def test_update_user_overview_excludes_auto_and_nan_in_second_row(
 ):
     df, dates = fake_dashboard_data
 
-    module = __import__("test.conftest", fromlist=["load_module_with_fake_data"]).load_module_with_fake_data(
+    module = __import__(
+        "test.conftest", fromlist=["load_module_with_fake_data"]
+    ).load_module_with_fake_data(
         pages_dir / "benutzer_balkendiagram.py",
         "benutzer_test_module_filtering",
         df,
         dates,
-        monkeypatch
+        monkeypatch,
     )
 
     slider_value = [0, len(dates) - 1]
@@ -84,12 +88,14 @@ def test_update_user_overview_evttyp_filter_changes_title(
 ):
     df, dates = fake_dashboard_data
 
-    module = __import__("test.conftest", fromlist=["load_module_with_fake_data"]).load_module_with_fake_data(
+    module = __import__(
+        "test.conftest", fromlist=["load_module_with_fake_data"]
+    ).load_module_with_fake_data(
         pages_dir / "benutzer_balkendiagram.py",
         "benutzer_test_module_title",
         df,
         dates,
-        monkeypatch
+        monkeypatch,
     )
 
     slider_value = [0, len(dates) - 1]

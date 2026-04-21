@@ -12,22 +12,13 @@ dash.register_page(__name__, path="/stormeldungen", name="Störmeldungen")
 
 layout = html.Div(
     [
-        html.H2(
-            "Top 10 Störmeldungen",
-            style={"fontFamily": "Arial", "textAlign": "center"}
-        ),
-        dcc.Graph(
-            id="stoermeldungen-bar-chart",
-            config={"displayModeBar": False}
-        )
+        html.H2("Top 10 Störmeldungen", style={"fontFamily": "Arial", "textAlign": "center"}),
+        dcc.Graph(id="stoermeldungen-bar-chart", config={"displayModeBar": False}),
     ]
 )
 
 
-@callback(
-    Output("stoermeldungen-bar-chart", "figure"),
-    Input("date-range-slider", "value")
-)
+@callback(Output("stoermeldungen-bar-chart", "figure"), Input("date-range-slider", "value"))
 def update_bar_chart(slider_value):
     start_idx, end_idx = slider_value
 
@@ -35,24 +26,17 @@ def update_bar_chart(slider_value):
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
     dff = df[
-        (df["Datum"] >= start_date) &
-        (df["Datum"] <= end_date) &
-        (df["evtTyp"] == "Störmeldungen")
+        (df["Datum"] >= start_date) & (df["Datum"] <= end_date) & (df["evtTyp"] == "Störmeldungen")
     ].copy()
 
     dff = dff[dff["Meldung"].str.strip() != ""].copy()
 
     if dff.empty:
-        fig = px.bar(
-            x=[],
-            y=[],
-            orientation="h",
-            title="Keine Störmeldungen im gewählten Zeitraum"
-        )
+        fig = px.bar(x=[], y=[], orientation="h", title="Keine Störmeldungen im gewählten Zeitraum")
         fig.update_layout(
             plot_bgcolor="#F0FFF0",
             paper_bgcolor="#F0FFF0",
-            font=dict(family="Arial", color="black")
+            font=dict(family="Arial", color="black"),
         )
         return fig
 
@@ -66,7 +50,7 @@ def update_bar_chart(slider_value):
         x="Anzahl",
         y="Meldung",
         orientation="h",
-        title="Top 10 Störmeldungen im gewählten Zeitraum"
+        title="Top 10 Störmeldungen im gewählten Zeitraum",
     )
 
     fig.update_traces(textposition="outside")
@@ -77,7 +61,7 @@ def update_bar_chart(slider_value):
         plot_bgcolor="#F0FFF0",
         paper_bgcolor="#F0FFF0",
         font=dict(family="Arial", color="black"),
-        margin=dict(l=220, r=40, t=60, b=40)
+        margin=dict(l=220, r=40, t=60, b=40),
     )
 
     return fig

@@ -20,6 +20,7 @@ Zusätzlich Hilfsfunktion, die:
 - dash.register_page deaktiviert, damit Tests ohne laufende Dash-App funktionieren
 """
 
+
 @pytest.fixture
 def fake_dashboard_data():
     df = pd.DataFrame(
@@ -62,9 +63,7 @@ def fake_dashboard_data():
         }
     )
 
-    dates = pd.to_datetime(
-        df["Datum"].dt.normalize().sort_values().unique()
-    )
+    dates = pd.to_datetime(df["Datum"].dt.normalize().sort_values().unique())
 
     return df, dates
 
