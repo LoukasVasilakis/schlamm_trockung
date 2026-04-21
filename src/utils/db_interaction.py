@@ -15,7 +15,7 @@ class EventDataSource:
         df["Benutzer"] = df["Benutzer"].replace("Vinzenzo Signorelli", "Vincenzo Signorelli")
         return df
 
-    def get_person_events(self, include_login_logout=False) -> pd.DataFrame:
+    def get_person_events(self, include_login_logout: bool = False) -> pd.DataFrame:
         """Gibt nur Events von echten Personen zurück (ohne AUTO, NaN, Gast, cag)."""
         df = self.get_cleaned_events()
 
@@ -27,7 +27,7 @@ class EventDataSource:
 
         return df_persons
 
-    def get_events_by_type(self, event_types: list) -> pd.DataFrame:
+    def get_events_by_type(self, event_types: list[str]) -> pd.DataFrame:
         """Gibt Events bestimmter Typen zurück (z.B. 'Sollwert-Vorgaben')."""
         df = self.get_cleaned_events()
         return df[df["evtTyp"].isin(event_types)]
@@ -39,25 +39,24 @@ class EventDataSource:
 
     def get_efficiency_metrics(self) -> pd.DataFrame:
         """Berechnet die Effizienz (Events pro Login-Session) pro Benutzer."""
-        df = self.get_cleaned_events()
 
         # Logins zählen
-        ll = df[df["evtTyp"] == "Login/Logout"]
+        ll = self.get_events_by_type(["Login/Logout"])
         logins = ll[ll["Meldung"].str.startswith("Login", na=False)]
         login_counts = logins.groupby("Benutzer").size()
 
         # Relevante Eingriffe (Grenzwertsetzungen etc.)
         eingriff_types = ["Sollwert-Vorgaben", "Aggregate-Vorwahlen", "Programm-Vorwahlen"]
-        eingriffe = df[df["evtTyp"].isin(eingriff_types)]
+        eingriffe = self.get_events_by_type(eingriff_types)
         eing_counts = eingriffe.groupby("Benutzer").size()
 
         # Metriken kombinieren
         eff = (eing_counts / login_counts).dropna().round(2)
         return eff.to_frame(name="Events_pro_Login")
 
-    def get_time_analysis_data(self) -> pd.DataFrame:
+    def get_time_analysis_data(self, df: pd.DataFrame | None = None) -> pd.DataFrame:
         """Gibt Daten mit erweiterten Zeitfeldern für die Analyse zurück."""
-        df = self.get_cleaned_events()
+        df = self.get_cleaned_events() if df is None else df
         df["Datum"] = pd.to_datetime(df["Datum"])
         df["Stunde"] = df["Datum"].dt.hour
         df["Wochentag"] = df["Datum"].dt.day_name()
@@ -65,9 +64,11 @@ class EventDataSource:
         df["Ist_Nacht"] = (df["Stunde"] >= 22) | (df["Stunde"] < 6)
         return df
 
-    def get_top_meldungen_per_user(self, n=5) -> dict:
+    def get_top_meldungen_per_user(
+        self, n: int = 5, df: pd.DataFrame | None = None
+    ) -> dict[str, pd.Series]:
         """Gibt die Top N Meldungen für jeden Benutzer zurück."""
-        df = self.get_person_events()
+        df = self.get_person_events() if df is None else df
         result = {}
         for user in df["Benutzer"].unique():
             user_data = df[df["Benutzer"] == user]
@@ -75,7 +76,19 @@ class EventDataSource:
             result[user] = top_n
         return result
 
-    def get_events_from_user(self, username: str) -> pd.DataFrame:
+    def get_events_from_user(
+        self, users: list[str], df: pd.DataFrame | None = None
+    ) -> pd.DataFrame:
         """Gibt alle Events eines bestimmten Benutzers zurück."""
-        df = self.get_cleaned_events()
-        return df[df["Benutzer"] == username]
+        df = self.get_cleaned_events() if df is None else df
+        return df[df["Benutzer"].isin(users)]
+
+    def get_events_in_time_range(
+        self, start: str, end: str, df: pd.DataFrame | None = None
+    ) -> pd.DataFrame:
+        """Gibt alle Events in einem bestimmten Zeitbereich zurück.(exclude end)"""
+        df = self.get_cleaned_events() if df is None else df
+        df["Datum"] = pd.to_datetime(df["Datum"])
+        start_dt = pd.to_datetime(start)
+        end_dt = pd.to_datetime(end)
+        return df[(df["Datum"] >= start_dt) & (df["Datum"] < end_dt)]
