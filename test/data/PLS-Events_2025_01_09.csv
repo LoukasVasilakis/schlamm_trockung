@@ -1,0 +1,233 @@
+Datum;Prio;Msr;Ort;Objekt;Meldung;Zustand;Benutzer;evtID;evtTyp
+09.01.25 21:44:29:723;;;;;Logout STRAGSRV01;;Rolf Hirt;982672;Login/Logout
+09.01.25 20:46:25:912;0;UV100-D04;Hauptprogramm;Trockner aus;Schlammannahme seit 1 Stunde nicht verfügbar -> Stop-Anforderung;Kommt;;982671;Störmeldungen
+09.01.25 20:43:45:577;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Freigabe;Rolf Hirt;982648;Störmeldungen
+09.01.25 20:43:44:976;2;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Warnung;Freigabe;Rolf Hirt;982670;Störmeldungen
+09.01.25 20:43:44:976;2;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Warnung;Freigabe;Rolf Hirt;982657;Störmeldungen
+09.01.25 20:43:44:448;2;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Warnung;Quittierung;Rolf Hirt;982670;Störmeldungen
+09.01.25 20:43:44:441;;TI-163;Trockner;Temperatur Zuluft Trockner;;Geht;;982658;Nicht bereit
+09.01.25 20:20:35:580;2;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Warnung;Geht;;982670;Störmeldungen
+09.01.25 20:16:36:611;2;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Warnung;Kommt;;982670;Störmeldungen
+09.01.25 20:11:39:759;;;;;Logout STRAGBS11;;Urs Wenzinger;982669;Login/Logout
+09.01.25 20:07:11:630;2;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Warnung;Geht;;982657;Störmeldungen
+09.01.25 20:06:20:640;1;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Alarm;Geht;;982659;Störmeldungen
+09.01.25 20:01:11:978;0;PARA-2300;Hauptprogramm;Bedienung Trockner;;;Urs Wenzinger;982668;Sollwert-Vorgaben
+09.01.25 20:00:44:681;0;PARA-2300;Hauptprogramm;Bedienung Trockner;;;Urs Wenzinger;982667;Sollwert-Vorgaben
+09.01.25 20:00:31:364;1;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Alarm;Freigabe;Urs Wenzinger;982659;Störmeldungen
+09.01.25 20:00:30:044;0;P23-DIG.00;Hauptprogramm;Anlage wird ausgefahren;Signal hat angesprochen;Freigabe;Urs Wenzinger;982665;Störmeldungen
+09.01.25 20:00:29:344;0;P23-DIG.00;Hauptprogramm;Anlage wird ausgefahren;Signal hat angesprochen;Quittierung;Urs Wenzinger;982665;Störmeldungen
+09.01.25 20:00:18:415;0;PARA-2300;Hauptprogramm;Bedienung Trockner;;;Urs Wenzinger;982666;Sollwert-Vorgaben
+09.01.25 20:00:11:151;;P23-DIG.00;Hauptprogramm;Anlage wird ausgefahren;;;;982663;Betrieb
+09.01.25 20:00:11:151;;P23-DIG.00;Hauptprogramm;Anlage wird ausgefahren;;;;982664;Betrieb
+09.01.25 20:00:10:462;0;PARA-2300;Hauptprogramm;Bedienung Trockner;;;Urs Wenzinger;982662;Sollwert-Vorgaben
+09.01.25 20:00:10:150;0;P23-DIG.00;Hauptprogramm;Anlage wird ausgefahren;Signal hat angesprochen;Geht;;982665;Störmeldungen
+09.01.25 20:00:10:000;0;P23-DIG.00;Hauptprogramm;Anlage wird ausgefahren;Signal hat angesprochen;Kommt;;982665;Störmeldungen
+09.01.25 19:59:30:603;0;PARA-2300;Hauptprogramm;Bedienung Trockner;;;Urs Wenzinger;982661;Sollwert-Vorgaben
+09.01.25 19:59:13:636;1;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Alarm;Quittierung;Urs Wenzinger;982659;Störmeldungen
+09.01.25 19:59:12:224;2;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Warnung;Quittierung;Urs Wenzinger;982657;Störmeldungen
+09.01.25 19:59:06:431;;;;;Login STRAGBS11;;Urs Wenzinger;982660;Login/Logout
+09.01.25 19:57:49:570;1;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Alarm;Kommt;;982659;Störmeldungen
+09.01.25 19:57:34:669;;TI-163;Trockner;Temperatur Zuluft Trockner;;Kommt;;982658;Nicht bereit
+09.01.25 19:57:34:669;2;TI-163;Trockner;Temperatur Zuluft Trockner;Oberer Grenzwert Warnung;Kommt;;982657;Störmeldungen
+09.01.25 19:54:49:967;0;PARA-2300;Hauptprogramm;Bedienung Trockner;;;Rolf Hirt;982656;Sollwert-Vorgaben
+09.01.25 19:54:11:967;0;PARA-2300;Hauptprogramm;Bedienung Trockner;;;Rolf Hirt;982655;Sollwert-Vorgaben
+09.01.25 19:54:06:671;0;PARA-2300;Hauptprogramm;Bedienung Trockner;;;Rolf Hirt;982654;Sollwert-Vorgaben
+09.01.25 19:54:05:980;0;PRG-13;Kuehlwasser;Kühlung Brüde-1 sekundär;Kein Aggregate verfügbar;Geht;;982456;Störmeldungen
+09.01.25 19:52:40:433;0;PARA-2300;Hauptprogramm;Bedienung Trockner;;;Rolf Hirt;982653;Sollwert-Vorgaben
+09.01.25 19:52:33:222;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Quittierung;Rolf Hirt;982648;Störmeldungen
+09.01.25 19:46:26:118;;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;;;Rolf Hirt;982650;Aggregate-Vorwahlen
+09.01.25 19:46:25:570;;PRG-41;Schlammeintrag;Trogkette;;Kommt;;982652;Nicht bereit
+09.01.25 19:46:25:570;;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;;Kommt;;982651;Nicht bereit
+09.01.25 19:46:22:367;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Freigabe;Rolf Hirt;982646;Störmeldungen
+09.01.25 19:46:21:490;;PRG-41;Schlammeintrag;Trogkette;;Geht;;982649;Nicht bereit
+09.01.25 19:46:21:284;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Quittierung;Rolf Hirt;982646;Störmeldungen
+09.01.25 19:46:20:670;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Geht;;982648;Störmeldungen
+09.01.25 19:46:20:534;;PRG-41;Schlammeintrag;Trogkette;;Kommt;;982649;Nicht bereit
+09.01.25 19:46:20:534;;PRG-41;Schlammeintrag;Trogkette;;Geht;;982647;Nicht bereit
+09.01.25 19:46:19:454;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Geht;;982646;Störmeldungen
+09.01.25 19:46:19:050;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Kommt;;982648;Störmeldungen
+09.01.25 19:46:18:914;;PRG-41;Schlammeintrag;Trogkette;;Kommt;;982647;Nicht bereit
+09.01.25 19:46:18:914;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Kommt;;982646;Störmeldungen
+09.01.25 19:45:55:117;;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;;;Rolf Hirt;982645;Aggregate-Vorwahlen
+09.01.25 19:45:54:650;;PRG-41;Schlammeintrag;Trogkette;;Geht;;982642;Nicht bereit
+09.01.25 19:45:54:650;;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;;Geht;;982644;Nicht bereit
+09.01.25 19:44:47:071;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Freigabe;Rolf Hirt;982641;Störmeldungen
+09.01.25 19:44:47:071;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Freigabe;Rolf Hirt;982637;Störmeldungen
+09.01.25 19:44:46:747;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Quittierung;Rolf Hirt;982641;Störmeldungen
+09.01.25 19:44:46:747;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Quittierung;Rolf Hirt;982637;Störmeldungen
+09.01.25 19:44:43:195;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Freigabe;Rolf Hirt;982639;Störmeldungen
+09.01.25 19:44:39:617;;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;;;Rolf Hirt;982643;Aggregate-Vorwahlen
+09.01.25 19:44:39:030;;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;;Kommt;;982644;Nicht bereit
+09.01.25 19:44:34:569;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Quittierung;Rolf Hirt;982639;Störmeldungen
+09.01.25 19:44:34:001;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Geht;;982641;Störmeldungen
+09.01.25 19:44:33:860;;PRG-41;Schlammeintrag;Trogkette;;Kommt;;982642;Nicht bereit
+09.01.25 19:44:33:860;;PRG-41;Schlammeintrag;Trogkette;;Geht;;982640;Nicht bereit
+09.01.25 19:44:30:194;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Geht;;982639;Störmeldungen
+09.01.25 19:44:29:790;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Kommt;;982641;Störmeldungen
+09.01.25 19:44:29:654;;PRG-41;Schlammeintrag;Trogkette;;Kommt;;982640;Nicht bereit
+09.01.25 19:44:29:654;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Kommt;;982639;Störmeldungen
+09.01.25 19:44:07:186;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Freigabe;Rolf Hirt;982632;Störmeldungen
+09.01.25 19:44:06:041;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Quittierung;Rolf Hirt;982632;Störmeldungen
+09.01.25 19:44:05:226;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Freigabe;Rolf Hirt;982635;Störmeldungen
+09.01.25 19:44:04:770;;PRG-41;Schlammeintrag;Trogkette;;Geht;;982638;Nicht bereit
+09.01.25 19:05:49:636;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Quittierung;Rolf Hirt;982635;Störmeldungen
+09.01.25 19:05:49:146;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Geht;;982637;Störmeldungen
+09.01.25 19:05:49:010;;PRG-41;Schlammeintrag;Trogkette;;Kommt;;982638;Nicht bereit
+09.01.25 19:05:49:010;;PRG-41;Schlammeintrag;Trogkette;;Geht;;982636;Nicht bereit
+09.01.25 19:05:18:550;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Geht;;982635;Störmeldungen
+09.01.25 19:05:18:280;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Kommt;;982637;Störmeldungen
+09.01.25 19:05:18:144;;PRG-41;Schlammeintrag;Trogkette;;Kommt;;982636;Nicht bereit
+09.01.25 19:05:18:144;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Kommt;;982635;Störmeldungen
+09.01.25 19:04:54:045;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Freigabe;Rolf Hirt;982630;Störmeldungen
+09.01.25 19:04:53:290;;PRG-41;Schlammeintrag;Trogkette;;Geht;;982634;Nicht bereit
+09.01.25 19:04:52:560;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Quittierung;Rolf Hirt;982630;Störmeldungen
+09.01.25 19:04:51:890;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Geht;;982632;Störmeldungen
+09.01.25 19:04:51:749;;PRG-41;Schlammeintrag;Trogkette;;Kommt;;982634;Nicht bereit
+09.01.25 19:04:51:749;;PRG-41;Schlammeintrag;Trogkette;;Geht;;982631;Nicht bereit
+09.01.25 19:04:29:968;;;;;Login STRAGSRV01;;Rolf Hirt;982633;Login/Logout
+09.01.25 18:52:22:990;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Geht;;982630;Störmeldungen
+09.01.25 18:52:22:724;0;PRG-41;Schlammeintrag;Trogkette;Programm Störung;Kommt;;982632;Störmeldungen
+09.01.25 18:52:22:590;;PRG-41;Schlammeintrag;Trogkette;;Kommt;;982631;Nicht bereit
+09.01.25 18:52:22:590;1;H-001;Feucht-Schlammförderung;Feuchtschlamm Trogkettenförderer;Drehüberwachung angesprochen;Kommt;;982630;Störmeldungen
+09.01.25 12:28:23:448;;;;;Logout STRAGSRV01;;Roland Reinle;982629;Login/Logout
+09.01.25 12:27:35:127;;;;;Login STRAGSRV01;;Roland Reinle;982628;Login/Logout
+09.01.25 10:32:04:792;;;;;Logout STRAGBS11;;Sven Keller;982627;Login/Logout
+09.01.25 10:30:19:870;;;;;Logout STRAGSRV01;;Vinzenzo Signorelli;982626;Login/Logout
+09.01.25 10:30:14:577;0;PARA-3007;Hauptprogramm;Vorwahl 'Globale Alarmgruppe';;;Vinzenzo Signorelli;982625;Sollwert-Vorgaben
+09.01.25 10:30:09:442;0;PRG-20;Schlammtrocknung;Trockner;Feuchte hoch, Bänder gestoppt;Freigabe;Vinzenzo Signorelli;982621;Störmeldungen
+09.01.25 10:30:08:582;0;PRG-20;Schlammtrocknung;Trockner;Feuchte hoch, Bänder gestoppt;Quittierung;Vinzenzo Signorelli;982621;Störmeldungen
+09.01.25 10:30:08:023;0;PRG-23;Hauptprogramm;Hauptprogramm;Reinigung Vorbereiten und Schwenkpresse ausfahren;Freigabe;Vinzenzo Signorelli;982622;Störmeldungen
+09.01.25 10:30:07:240;0;PRG-23;Hauptprogramm;Hauptprogramm;Reinigung Vorbereiten und Schwenkpresse ausfahren;Quittierung;Vinzenzo Signorelli;982622;Störmeldungen
+09.01.25 10:30:04:328;;;;;Login STRAGSRV01;;Vinzenzo Signorelli;982624;Login/Logout
+09.01.25 10:21:55:120;;;;;Login STRAGBS11;;Sven Keller;982623;Login/Logout
+09.01.25 10:09:40:833;0;PRG-23;Hauptprogramm;Hauptprogramm;Reinigung Vorbereiten und Schwenkpresse ausfahren;Geht;;982622;Störmeldungen
+09.01.25 09:54:39:930;0;PRG-23;Hauptprogramm;Hauptprogramm;Reinigung Vorbereiten und Schwenkpresse ausfahren;Kommt;;982622;Störmeldungen
+09.01.25 09:54:00:080;0;PRG-20;Schlammtrocknung;Trockner;Feuchte hoch, Bänder gestoppt;Geht;;982621;Störmeldungen
+09.01.25 09:37:00:090;0;PRG-20;Schlammtrocknung;Trockner;Feuchte hoch, Bänder gestoppt;Kommt;;982621;Störmeldungen
+09.01.25 09:05:17:957;;;;;Logout STRAGBS11;;Rolf Hirt;982620;Login/Logout
+09.01.25 08:53:31:754;;;;;Login STRAGBS11;;Rolf Hirt;982619;Login/Logout
+09.01.25 08:12:13:421;;;;;Logout STRAGSRV01;;Roland Reinle;982618;Login/Logout
+09.01.25 08:08:34:628;0;LISA-518;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Alarm;Freigabe;Roland Reinle;982616;Störmeldungen
+09.01.25 08:08:34:628;0;LIS-518;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Voralarm;Freigabe;Roland Reinle;982615;Störmeldungen
+09.01.25 08:08:33:124;0;LISA-518;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Alarm;Quittierung;Roland Reinle;982616;Störmeldungen
+09.01.25 08:08:33:124;0;LIS-518;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Voralarm;Quittierung;Roland Reinle;982615;Störmeldungen
+09.01.25 08:08:28:893;0;PARA-0105;Abluftreinigung;Vorwahl Chemikaliendosierung;;;Roland Reinle;982617;Sollwert-Vorgaben
+09.01.25 08:07:57:776;0;LIS-518;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Voralarm;Geht;;982615;Störmeldungen
+09.01.25 08:07:57:640;0;LISA-518;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Alarm;Geht;;982616;Störmeldungen
+09.01.25 08:03:04:696;0;LISA-518;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Alarm;Kommt;;982616;Störmeldungen
+09.01.25 08:03:04:560;0;LIS-518;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Voralarm;Kommt;;982615;Störmeldungen
+09.01.25 08:02:25:351;0;PARA-0105;Abluftreinigung;Vorwahl Chemikaliendosierung;;;Roland Reinle;982614;Sollwert-Vorgaben
+09.01.25 08:00:50:489;0;LISA-508;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Alarm;Freigabe;Roland Reinle;982608;Störmeldungen
+09.01.25 08:00:50:489;0;LIS-508;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Voralarm;Freigabe;Roland Reinle;982607;Störmeldungen
+09.01.25 08:00:49:641;0;LISA-508;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Alarm;Quittierung;Roland Reinle;982608;Störmeldungen
+09.01.25 08:00:49:641;0;LIS-508;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Voralarm;Quittierung;Roland Reinle;982607;Störmeldungen
+09.01.25 08:00:45:452;0;PARA-0004;Abluftreinigung;Vorwahl Chemikaliendosierung;;;Roland Reinle;982613;Sollwert-Vorgaben
+09.01.25 07:59:17:770;0;LISA-508;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Alarm;Geht;;982608;Störmeldungen
+09.01.25 07:59:17:770;0;LIS-508;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Voralarm;Geht;;982607;Störmeldungen
+09.01.25 07:58:11:448;;P-005;Wäscher alkalisch;Umwälzpumpe Wäscher 2;;;Roland Reinle;982612;Sollwert-Vorgaben
+09.01.25 07:57:51:213;;LIAH-516;Wäscher sauer;Niveaustand Wäscher 2 Max-Max;;;Roland Reinle;982611;Sollwert-Vorgaben
+09.01.25 07:57:13:300;;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;;;Roland Reinle;982610;Sollwert-Vorgaben
+09.01.25 07:56:57:945;;LIAH-506;Wäscher sauer;Niveaustand Wäscher 1 Max-Max;;;Roland Reinle;982609;Sollwert-Vorgaben
+09.01.25 07:55:55:615;0;LISA-508;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Alarm;Kommt;;982608;Störmeldungen
+09.01.25 07:55:55:615;0;LIS-508;Wäscher sauer;Füllstand H2SO4 Behälter;Niveau tief Voralarm;Kommt;;982607;Störmeldungen
+09.01.25 07:55:33:357;0;PARA-0004;Abluftreinigung;Vorwahl Chemikaliendosierung;;;Roland Reinle;982606;Sollwert-Vorgaben
+09.01.25 07:50:23:786;;;;;Logout STRAGBS11;;Sven Keller;982605;Login/Logout
+09.01.25 07:38:12:286;;;;;Login STRAGBS11;;Sven Keller;982604;Login/Logout
+09.01.25 07:14:49:470;0;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Freigabe;Roland Reinle;982603;Störmeldungen
+09.01.25 07:14:49:470;0;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Freigabe;Roland Reinle;982600;Störmeldungen
+09.01.25 07:14:49:470;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982602;Störmeldungen
+09.01.25 07:14:49:470;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982601;Störmeldungen
+09.01.25 07:14:49:470;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982599;Störmeldungen
+09.01.25 07:14:49:470;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982598;Störmeldungen
+09.01.25 07:14:48:408;0;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Quittierung;Roland Reinle;982603;Störmeldungen
+09.01.25 07:14:48:408;0;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Quittierung;Roland Reinle;982600;Störmeldungen
+09.01.25 07:14:48:408;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982602;Störmeldungen
+09.01.25 07:14:48:408;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982601;Störmeldungen
+09.01.25 07:14:48:408;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982599;Störmeldungen
+09.01.25 07:14:48:408;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982598;Störmeldungen
+09.01.25 07:14:05:755;0;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Geht;;982603;Störmeldungen
+09.01.25 07:14:05:755;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Geht;;982602;Störmeldungen
+09.01.25 07:12:35:030;0;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Kommt;;982603;Störmeldungen
+09.01.25 07:12:30:120;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Kommt;;982602;Störmeldungen
+09.01.25 07:12:29:580;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Geht;;982601;Störmeldungen
+09.01.25 07:12:28:636;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Kommt;;982601;Störmeldungen
+09.01.25 07:12:28:085;0;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Geht;;982600;Störmeldungen
+09.01.25 07:12:28:085;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Geht;;982599;Störmeldungen
+09.01.25 07:12:17:870;0;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;Niveau tief Alarm;Kommt;;982600;Störmeldungen
+09.01.25 07:12:12:970;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Kommt;;982599;Störmeldungen
+09.01.25 07:12:12:835;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Geht;;982598;Störmeldungen
+09.01.25 07:12:11:870;0;PRG-00;Abluftreinigung;Wäscher 1;Abschaltung Niveau Wäschersumpf tief;Kommt;;982598;Störmeldungen
+09.01.25 07:10:50:364;0;TIA-321;Rückkühlung;Temperatur Abluft Wäscher 2;Oberer Grenzwert Warnung;Geht;;982595;Störmeldungen
+09.01.25 07:10:36:877;0;TIA-321;Rückkühlung;Temperatur Abluft Wäscher 2;Oberer Grenzwert Warnung;Freigabe;Roland Reinle;982595;Störmeldungen
+09.01.25 07:10:36:877;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Freigabe;Roland Reinle;982597;Störmeldungen
+09.01.25 07:10:36:877;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Freigabe;Roland Reinle;982592;Störmeldungen
+09.01.25 07:10:36:877;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Freigabe;Roland Reinle;982584;Störmeldungen
+09.01.25 07:10:36:877;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982594;Störmeldungen
+09.01.25 07:10:36:877;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982593;Störmeldungen
+09.01.25 07:10:36:877;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982591;Störmeldungen
+09.01.25 07:10:36:877;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982590;Störmeldungen
+09.01.25 07:10:36:877;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982589;Störmeldungen
+09.01.25 07:10:36:877;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982588;Störmeldungen
+09.01.25 07:10:36:877;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982587;Störmeldungen
+09.01.25 07:10:36:877;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982586;Störmeldungen
+09.01.25 07:10:36:877;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Freigabe;Roland Reinle;982585;Störmeldungen
+09.01.25 07:10:36:215;;TIA-321;Rückkühlung;Temperatur Abluft Wäscher 2;;Geht;;982596;Nicht bereit
+09.01.25 07:10:36:030;0;TIA-321;Rückkühlung;Temperatur Abluft Wäscher 2;Oberer Grenzwert Warnung;Quittierung;Roland Reinle;982595;Störmeldungen
+09.01.25 07:10:36:030;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Quittierung;Roland Reinle;982597;Störmeldungen
+09.01.25 07:10:36:030;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Quittierung;Roland Reinle;982592;Störmeldungen
+09.01.25 07:10:36:030;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Quittierung;Roland Reinle;982584;Störmeldungen
+09.01.25 07:10:36:030;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982594;Störmeldungen
+09.01.25 07:10:36:030;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982593;Störmeldungen
+09.01.25 07:10:36:030;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982591;Störmeldungen
+09.01.25 07:10:36:030;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982590;Störmeldungen
+09.01.25 07:10:36:030;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982589;Störmeldungen
+09.01.25 07:10:36:030;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982588;Störmeldungen
+09.01.25 07:10:36:030;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982587;Störmeldungen
+09.01.25 07:10:36:030;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982586;Störmeldungen
+09.01.25 07:10:36:030;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Quittierung;Roland Reinle;982585;Störmeldungen
+09.01.25 07:09:53:215;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Geht;;982597;Störmeldungen
+09.01.25 07:09:53:215;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Geht;;982594;Störmeldungen
+09.01.25 07:09:13:060;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Kommt;;982597;Störmeldungen
+09.01.25 07:09:10:340;;TIA-321;Rückkühlung;Temperatur Abluft Wäscher 2;;Kommt;;982596;Nicht bereit
+09.01.25 07:09:10:340;0;TIA-321;Rückkühlung;Temperatur Abluft Wäscher 2;Oberer Grenzwert Warnung;Kommt;;982595;Störmeldungen
+09.01.25 07:09:09:219;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Freigabe;AUTO;982583;Störmeldungen
+09.01.25 07:09:09:218;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Quittierung;AUTO;982583;Störmeldungen
+09.01.25 07:09:08:160;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Kommt;;982594;Störmeldungen
+09.01.25 07:09:06:935;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Geht;;982593;Störmeldungen
+09.01.25 07:09:06:115;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Kommt;;982593;Störmeldungen
+09.01.25 07:09:05:980;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Geht;;982592;Störmeldungen
+09.01.25 07:09:05:980;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Geht;;982591;Störmeldungen
+09.01.25 07:08:58:775;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Kommt;;982592;Störmeldungen
+09.01.25 07:08:53:875;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Kommt;;982591;Störmeldungen
+09.01.25 07:08:53:325;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Geht;;982590;Störmeldungen
+09.01.25 07:08:52:650;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Kommt;;982590;Störmeldungen
+09.01.25 07:08:52:236;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Geht;;982589;Störmeldungen
+09.01.25 07:08:51:965;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Kommt;;982589;Störmeldungen
+09.01.25 07:08:51:560;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Geht;;982588;Störmeldungen
+09.01.25 07:08:50:875;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Kommt;;982588;Störmeldungen
+09.01.25 07:08:50:605;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Geht;;982587;Störmeldungen
+09.01.25 07:08:49:920;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Kommt;;982587;Störmeldungen
+09.01.25 07:08:49:511;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Geht;;982586;Störmeldungen
+09.01.25 07:08:48:432;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Kommt;;982586;Störmeldungen
+09.01.25 07:08:44:066;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Geht;;982585;Störmeldungen
+09.01.25 07:08:43:930;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Kommt;;982585;Störmeldungen
+09.01.25 07:08:41:490;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Geht;;982584;Störmeldungen
+09.01.25 07:08:41:490;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Geht;;982583;Störmeldungen
+09.01.25 07:08:38:355;0;LIAL-516;Wäscher sauer;Niveaustand Wäscher 2 Min-Min;Niveau tief Alarm;Kommt;;982584;Störmeldungen
+09.01.25 07:08:33:462;0;PRG-01;Abluftreinigung;Wäscher 2;Abschaltung Niveau Wäschersumpf tief;Kommt;;982583;Störmeldungen
+09.01.25 07:05:04:148;;P-005;Wäscher alkalisch;Umwälzpumpe Wäscher 2;;;Roland Reinle;982582;Sollwert-Vorgaben
+09.01.25 07:04:36:305;;LIAH-516;Wäscher sauer;Niveaustand Wäscher 2 Max-Max;;;Roland Reinle;982581;Sollwert-Vorgaben
+09.01.25 07:04:09:492;;LIAL-506;Wäscher sauer;Niveaustand Wäscher 1 Min-Min;;;Roland Reinle;982580;Sollwert-Vorgaben
+09.01.25 07:03:39:289;;LIAH-506;Wäscher sauer;Niveaustand Wäscher 1 Max-Max;;;Roland Reinle;982579;Sollwert-Vorgaben
+09.01.25 06:45:35:575;;;;;Login STRAGSRV01;;Roland Reinle;982578;Login/Logout
+09.01.25 06:41:41:143;;;;;Logout STRAGBS11;;Roland Reinle;982577;Login/Logout
+09.01.25 06:40:43:862;;;;;Login STRAGBS11;;Roland Reinle;982576;Login/Logout
+09.01.25 06:14:02:996;;;;;Logout STRAGSRV01;;Roland Reinle;982575;Login/Logout
+09.01.25 05:47:14:124;0;LIA-181;Granulatbunker;Füllstand Granulatbunker Niveau tief;Signal hat angesprochen;Freigabe;Roland Reinle;982572;Störmeldungen
+09.01.25 05:47:12:750;0;LIA-181;Granulatbunker;Füllstand Granulatbunker Niveau tief;Signal hat angesprochen;Quittierung;Roland Reinle;982572;Störmeldungen
+09.01.25 05:47:06:144;;;;;Login STRAGSRV01;;Roland Reinle;982574;Login/Logout
+09.01.25 05:44:12:718;;;;;Logout STRAGSRV01;;Roland Reinle;982573;Login/Logout
+09.01.25 05:39:07:255;0;LIA-181;Granulatbunker;Füllstand Granulatbunker Niveau tief;Signal hat angesprochen;Geht;;982572;Störmeldungen
+09.01.25 05:38:48:890;0;LIA-181;Granulatbunker;Füllstand Granulatbunker Niveau tief;Signal hat angesprochen;Kommt;;982572;Störmeldungen
+09.01.25 04:33:10:899;0;PARA-3007;Hauptprogramm;Vorwahl 'Globale Alarmgruppe';;;Roland Reinle;982571;Sollwert-Vorgaben
+09.01.25 04:32:27:001;;;;;Login STRAGSRV01;;Roland Reinle;982570;Login/Logout
