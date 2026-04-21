@@ -47,3 +47,8 @@ Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du näc
 ### Ausserordentlich
 Florin wird ein Video erstellen, welches das Laden der Daten nochmals beschreibt. So können die neuen Daten nachgeladen werden.
 
+## 21.04.26
+### Anwesend
+Alle aus dem Projektteam
+
+Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten.
