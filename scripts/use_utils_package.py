@@ -1,9 +1,13 @@
+import os
+
 import psycopg2
 
 from utils.db_interaction import EventDataSource
 
+host = "db" if os.getenv("GITLAB_CI") else "localhost"
+
 conn = psycopg2.connect(
-    dbname="pro2d_db", user="postgres", password="postgres", host="localhost", port="5432"
+    dbname="pro2d_db", user="postgres", password="postgres", host=host, port="5432"
 )
 
 db = EventDataSource(conn)
