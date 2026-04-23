@@ -34,4 +34,5 @@ unittest:
     - bash scripts/load_test_db.sh
     script:
     - uv run pytest
+    - uv run python scripts/use_utils_package.py
 
