@@ -134,6 +134,6 @@ def test_filter_events(data_source: EventDataSource) -> None:
     assert filtered_evttype is not None
     assert all(evt == "Login/Logout" for evt in filtered_evttype["evtTyp"].unique())
 
-    filtered_msr = data_source.filter_events(column_to_filter="MSR", filter_for=["240", "150"])
+    filtered_msr = data_source.filter_events(column_to_filter="Msr", filter_for=["240", "150"])
     assert filtered_msr is not None
-    assert all(msr in ["240", "150"] for msr in filtered_msr["MSR"].unique())
+    assert all(msr in ["240", "150"] for msr in filtered_msr["Msr"].unique())
