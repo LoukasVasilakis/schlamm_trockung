@@ -25,11 +25,11 @@ events_time_analysis = db.get_time_analysis_data()
 user_events = db.get_events_from_user(["Vincenzo Signorelli", "Ronald Reinle"])
 
 # Alle Event mit MSR 1, 2, 5 und 8 abrufen
-msr_events = db.filter_events(column_to_filter="Msr", values=["1", "2", "5", "8"])
+msr_events = db.filter_events(column_to_filter="Msr", filter_for=["1", "2", "5", "8"])
 
 # Alle Events von Vincenzo und Roland mit MSR 1, 2, 5 und 8 abrufen
 user_msr_events = db.filter_events(
-    column_to_filter="Msr", values=["1", "2", "5", "8"], df=user_events
+    column_to_filter="Msr", filter_for=["1", "2", "5", "8"], df=user_events
 )
 
 # Zusätzliche Zeitfelder zu den Events von Vincenzo und Roland mit MSR 1, 2, 5 und 8 hinzufügen
