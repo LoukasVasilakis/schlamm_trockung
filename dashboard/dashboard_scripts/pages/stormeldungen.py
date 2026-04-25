@@ -5,11 +5,7 @@ from dash import callback, dcc, html
 from dash.dependencies import Input, Output
 from dashboard.dashboard_scripts.data_loader import load_data
 
-try:
-    df, dates = load_data()
-except Exception:
-    df = None
-    dates = []
+df, dates = load_data()
 
 if not __name__.startswith("test"):
     dash.register_page(__name__, path="/stormeldungen", name="Störmeldungen")
