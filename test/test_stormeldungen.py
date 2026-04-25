@@ -1,4 +1,4 @@
-from dashboard.dashboard_scripts.pages.stoermeldungen import update_bar_chart
+from dashboard.dashboard_scripts.pages.stormeldungen import update_bar_chart
 
 
 def test_update_bar_chart_returns_figure():
