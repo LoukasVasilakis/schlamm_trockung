@@ -69,9 +69,7 @@ def add_bar_trace(fig, series, row, col, color_map, is_percent=False):
             x=plot_df["Wert"],
             y=plot_df["Benutzer"],
             orientation="h",
-            marker_color=[
-                color_map.get(user, "#636EFA") for user in plot_df["Benutzer"]
-            ],
+            marker_color=[color_map.get(user, "#636EFA") for user in plot_df["Benutzer"]],
             text=text_values,
             textposition="outside",
             cliponaxis=False,
@@ -164,9 +162,7 @@ def update_user_overview(slider_value, selected_evttyp):
         else pd.Series(dtype=float)
     )
 
-    dff_no_nan_auto = dff[
-        (dff["Benutzer"].notna()) & (~dff["Benutzer"].isin(["AUTO"]))
-    ].copy()
+    dff_no_nan_auto = dff[(dff["Benutzer"].notna()) & (~dff["Benutzer"].isin(["AUTO"]))].copy()
 
     user_counts_no_nan_auto = dff_no_nan_auto["Benutzer"].astype(str).value_counts()
     user_pct_no_nan_auto = (
@@ -228,11 +224,7 @@ def update_user_overview(slider_value, selected_evttyp):
     fig.update_yaxes(title_text="", row=1, col=2)
     fig.update_yaxes(title_text="", row=2, col=2)
 
-    title_suffix = (
-        f" – evtTyp: {selected_evttyp}"
-        if selected_evttyp not in [None, "ALL"]
-        else ""
-    )
+    title_suffix = f" – evtTyp: {selected_evttyp}" if selected_evttyp not in [None, "ALL"] else ""
 
     fig.update_layout(
         title=f"Benutzer-Übersicht – Anzahl Events pro Benutzer{title_suffix}",
