@@ -1,5 +1,4 @@
 import pandas as pd
-
 from dashboard.dashboard_scripts.charts.stormeldungen_chart import update_bar_chart
 
 

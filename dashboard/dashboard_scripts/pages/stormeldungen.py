@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 from dash import callback, dcc, html
 from dash.dependencies import Input, Output
+
 from dashboard.dashboard_scripts.data_loader import load_data
 
 df, dates = load_data()
