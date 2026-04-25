@@ -9,9 +9,7 @@ def update_bar_chart(slider_value, df, dates):
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
     dff = df[
-        (df["Datum"] >= start_date)
-        & (df["Datum"] <= end_date)
-        & (df["evtTyp"] == "Störmeldungen")
+        (df["Datum"] >= start_date) & (df["Datum"] <= end_date) & (df["evtTyp"] == "Störmeldungen")
     ].copy()
 
     dff = dff[dff["Meldung"].str.strip() != ""].copy()
