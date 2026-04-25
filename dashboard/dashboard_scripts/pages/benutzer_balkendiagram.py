@@ -1,13 +1,11 @@
+import dash
 import pandas as pd
 import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-from plotly.colors import qualitative
-from dash import html, dcc, callback
+from dash import callback, dcc, html
 from dash.dependencies import Input, Output
-import dash
-
-from data_loader import df, dates
-
+from data_loader import dates, df
+from plotly.colors import qualitative
+from plotly.subplots import make_subplots
 
 dash.register_page(__name__, path="/benutzer-balkendiagram", name="Benutzer-Übersicht")
 

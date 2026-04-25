@@ -1,5 +1,5 @@
-import pandas as pd
 import dash
+import pandas as pd
 from dash import Input, Output, callback
 from data_loader import dates
 

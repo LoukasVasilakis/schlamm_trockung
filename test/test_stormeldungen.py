@@ -1,4 +1,3 @@
-import pytest
 from dashboard.dashboard_scripts.pages.stoermeldungen import update_bar_chart
 
 

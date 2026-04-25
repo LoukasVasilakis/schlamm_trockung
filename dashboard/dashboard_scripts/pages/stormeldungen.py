@@ -1,11 +1,9 @@
+import dash
 import pandas as pd
 import plotly.express as px
-from dash import html, dcc, callback
+from dash import callback, dcc, html
 from dash.dependencies import Input, Output
-import dash
-
-from data_loader import df, dates
-
+from data_loader import dates, df
 
 dash.register_page(__name__, path="/stormeldungen", name="Störmeldungen")
 

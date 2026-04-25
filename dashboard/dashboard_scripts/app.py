@@ -1,10 +1,7 @@
 import dash
-from dash import html, dcc
 import plotly.io as pio
-
+from dash import dcc, html
 from data_loader import dates
-import callbacks  # registers shared callbacks
-
 
 # Dashboard Guidelines
 pio.templates["custom"] = pio.templates["plotly_white"]  # Plotly template erstellen
