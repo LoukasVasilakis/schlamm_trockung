@@ -12,7 +12,12 @@ from data_loader import df, dates
 dash.register_page(__name__, path="/benutzer-balkendiagram", name="Benutzer-Übersicht")
 
 
-ALL_EVENT_TYPES = sorted(df["evtTyp"].dropna().astype(str).unique())
+def get_event_type_options(source_df):
+    event_types = sorted(source_df["evtTyp"].dropna().astype(str).unique())
+
+    return [{"label": "All", "value": "ALL"}] + [
+        {"label": evt_type, "value": evt_type} for evt_type in event_types
+    ]
 
 
 def build_user_color_map(source_df):
@@ -32,9 +37,6 @@ def build_user_color_map(source_df):
         color_map[user] = palette[i % len(palette)]
 
     return color_map
-
-
-GLOBAL_USER_COLOR_MAP = build_user_color_map(df)
 
 
 def add_bar_trace(fig, series, row, col, color_map, is_percent=False):
@@ -69,7 +71,9 @@ def add_bar_trace(fig, series, row, col, color_map, is_percent=False):
             x=plot_df["Wert"],
             y=plot_df["Benutzer"],
             orientation="h",
-            marker_color=[color_map.get(user, "#636EFA") for user in plot_df["Benutzer"]],
+            marker_color=[
+                color_map.get(user, "#636EFA") for user in plot_df["Benutzer"]
+            ],
             text=text_values,
             textposition="outside",
             cliponaxis=False,
@@ -87,17 +91,23 @@ def add_bar_trace(fig, series, row, col, color_map, is_percent=False):
 
 layout = html.Div(
     [
-        html.H2("Benutzer-Übersicht", style={"fontFamily": "Arial", "textAlign": "center"}),
+        html.H2(
+            "Benutzer-Übersicht",
+            style={"fontFamily": "Arial", "textAlign": "center"},
+        ),
         html.Div(
             [
                 html.Label(
                     "Filter evtTyp",
-                    style={"fontFamily": "Arial", "display": "block", "marginBottom": "5px"},
+                    style={
+                        "fontFamily": "Arial",
+                        "display": "block",
+                        "marginBottom": "5px",
+                    },
                 ),
                 dcc.Dropdown(
                     id="balkendiagram-evttyp-dropdown",
-                    options=[{"label": "All", "value": "ALL"}]
-                    + [{"label": evt_type, "value": evt_type} for evt_type in ALL_EVENT_TYPES],
+                    options=get_event_type_options(df),
                     value="ALL",
                     clearable=False,
                     style={"fontFamily": "Arial", "width": "300px"},
@@ -147,9 +157,8 @@ def update_user_overview(slider_value, selected_evttyp):
         )
         return fig
 
-    color_map = GLOBAL_USER_COLOR_MAP
+    color_map = build_user_color_map(df)
 
-    # Zeile 1: Alle Benutzer
     user_counts_all = dff["Benutzer"].fillna("NaN").astype(str).value_counts()
     user_pct_all = (
         (user_counts_all / user_counts_all.sum() * 100).round(1)
@@ -157,8 +166,9 @@ def update_user_overview(slider_value, selected_evttyp):
         else pd.Series(dtype=float)
     )
 
-    # Zeile 2: Ohne NaN und AUTO
-    dff_no_nan_auto = dff[(dff["Benutzer"].notna()) & (~dff["Benutzer"].isin(["AUTO"]))].copy()
+    dff_no_nan_auto = dff[
+        (dff["Benutzer"].notna()) & (~dff["Benutzer"].isin(["AUTO"]))
+    ].copy()
 
     user_counts_no_nan_auto = dff_no_nan_auto["Benutzer"].astype(str).value_counts()
     user_pct_no_nan_auto = (
@@ -167,16 +177,18 @@ def update_user_overview(slider_value, selected_evttyp):
         else pd.Series(dtype=float)
     )
 
-    # Figure for 2 rows x 2 columns
-    fig = make_subplots(rows=2, cols=2, horizontal_spacing=0.18, vertical_spacing=0.22)
+    fig = make_subplots(
+        rows=2,
+        cols=2,
+        horizontal_spacing=0.18,
+        vertical_spacing=0.22,
+    )
 
     add_bar_trace(fig, user_counts_all, 1, 1, color_map, is_percent=False)
     add_bar_trace(fig, user_pct_all, 1, 2, color_map, is_percent=True)
-
     add_bar_trace(fig, user_counts_no_nan_auto, 2, 1, color_map, is_percent=False)
     add_bar_trace(fig, user_pct_no_nan_auto, 2, 2, color_map, is_percent=True)
 
-    # Spaltentitel ganz oben
     fig.add_annotation(
         x=0.24,
         y=1.10,
@@ -197,7 +209,6 @@ def update_user_overview(slider_value, selected_evttyp):
         font=dict(family="Arial", size=16, color="black"),
     )
 
-    # Titel nur über der zweiten Zeile
     fig.add_annotation(
         x=0.5,
         y=0.43,
@@ -219,7 +230,11 @@ def update_user_overview(slider_value, selected_evttyp):
     fig.update_yaxes(title_text="", row=1, col=2)
     fig.update_yaxes(title_text="", row=2, col=2)
 
-    title_suffix = f" – evtTyp: {selected_evttyp}" if selected_evttyp not in [None, "ALL"] else ""
+    title_suffix = (
+        f" – evtTyp: {selected_evttyp}"
+        if selected_evttyp not in [None, "ALL"]
+        else ""
+    )
 
     fig.update_layout(
         title=f"Benutzer-Übersicht – Anzahl Events pro Benutzer{title_suffix}",
