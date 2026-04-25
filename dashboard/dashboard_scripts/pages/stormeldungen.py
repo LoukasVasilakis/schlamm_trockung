@@ -3,10 +3,13 @@ import pandas as pd
 import plotly.express as px
 from dash import callback, dcc, html
 from dash.dependencies import Input, Output
-
 from dashboard.dashboard_scripts.data_loader import load_data
 
-df, dates = load_data()
+try:
+    df, dates = load_data()
+except Exception:
+    df = None
+    dates = []
 
 if not __name__.startswith("test"):
     dash.register_page(__name__, path="/stormeldungen", name="Störmeldungen")
