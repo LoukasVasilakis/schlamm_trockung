@@ -11,3 +11,12 @@ Alle Projektteilnehmer, Salomon, kundenseitig Daniel und Vincenzo
 - Meldungen kommen auch, wenn die Anlage nicht läuft (Login, Logout): Gibt es eine Liste aller Daten, an welchen die Maschine nicht gelaufen ist? -> Ersichtlich in der PLS, sollte bald kommen
 - Hinweis für STRAGAG: Da PLS nicht diesen Sprint bearbeitet wird, können wir diese Daten sehr wahrscheinlich nichts ins Dashboard integrieren.
 - Für nächsten Sprint: Dashboard, Utils-Package, erweiterte EDA auf den Daten 2015-2026
+
+## Sprint 2 Review
+### Anwesend
+Alle Projektteilnehmer, Barbara, Salomon, kundenseitig Daniel
+
+### Vorbesprechung am Morgen
+- Vorbereitete Präsentation angeschaut, ergänzt und aufgeteilt
+
+### Besprochen wurde
