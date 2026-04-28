@@ -45,6 +45,11 @@ select = [
     "B",   # flake8-bugbear
 ]
 
+[tool.nbqa.addopts]
+ruff = [
+    "--extend-ignore=B018,E501"
+]
+
 [tool.ruff.lint.per-file-ignores]
 "*.ipynb" = [
     "E501",  # Line too long (notebooks often have long lines for readability)
