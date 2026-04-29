@@ -43,6 +43,4 @@ def load_data():
 
     return df, dates
 
-
-df = None
-dates = None
+df, dates = load_data()
