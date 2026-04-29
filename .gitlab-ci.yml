@@ -17,5 +17,4 @@ ruff:
 unittest:
     stage: test
     script:
-    - uv run pytest test/test_example.py --verbose
-
+    - PYTHONPATH="$CI_PROJECT_DIR" uv run pytest --verbose --ignore=test/test_db_connection.py
