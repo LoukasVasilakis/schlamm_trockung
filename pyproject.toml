@@ -11,6 +11,8 @@ dependencies = [
     "psycopg2 >= 2.9.11",
     "psycopg2-binary >= 2.9.11",
     "pre-commit>=4.5.1",
+    "openpyxl>=3.1.5",
+    "seaborn>=0.13.2",
 ]
 
 [project.optional-dependencies]
@@ -18,9 +20,6 @@ dependencies = [
         
         # Linting
         "ruff >= 0.14.1",
-        "mypy >= 1.15.0",
-        "mypy-extensions >= 1.0.0",
-        "pydoclint >= 0.6.6",
         "nbqa >= 1.9.1",
         
         # Test framework
@@ -41,6 +40,11 @@ select = [
     "N",   # pep8-naming
     "UP",  # pyupgrade
     "B",   # flake8-bugbear
+]
+
+[tool.nbqa.addopts]
+ruff = [
+    "--extend-ignore=B018,E501"
 ]
 
 [tool.ruff.lint.per-file-ignores]

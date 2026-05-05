@@ -231,33 +231,97 @@ Ausser beim dev-Branch nach einem Merge in den main-Branch oder in speziellen Au
 
 ---
 
-## Data Import (Postgres)
+## CI/CD pipeline
 
-Die CSV-Daten werden automatisch beim Start des Datenbank-Containers importiert.
+### uv.lock
+Die Datei `uv.lock` wird vom Python-Paketmanager uv automatisch erzeugt und dient dazu, alle Projektabhängigkeiten exakt festzuhalten.
 
-### Funktionsweise
-- **OneDrive Link** Damit der Datenimport stattfinden kann, müssen die CSVs lokal verfügbar sein.
- Das können wir erreichen, indem wir im Sharepoint im `STRAG` Ordner klicken "Verknüpfung zu Onedrive hinzufügen"
-- **Import** Sobald die OneDrive-Verknüpfung existiert muss nur noch der Container gestartet werden (`docker compose up`) im Ordner `db/docker`
+**Zweck**
+    
+`uv.lock` stellt sicher, dass alle Entwickler:innen sowie die CI/CD-Pipeline dieselben Paketversionen verwenden.
+Dadurch werden reproduzierbare und stabile Umgebungen gewährleistet.
 
-### Datenquelle (Docker)
-In der `db/docker/.env` Datei kann der lokale Pfad zu den CSV-Daten konfiguriert werden. Dies ist notwendig, da der OneDrive-Pfad je nach Benutzer variiert.
+
+**Erstellung/Aktualisierung**
+
+```bash
+uv lock # erstellen oder aktualisieren
+ ```
+**Verwendung in der CI/CD Pipeline**
+
+In der Pipeline wird die Datei verwendet, um exakt die definierten Versionen zu installieren
+```bash
+  uv sync # installiert alle Abhängigkeiten
+  ```
+**Hinweise**
+  - `uv.lock` sollte im Repository versioniert (committed) werden
+  - Die Datei sollte **nicht** manuell bearbeitet werden
+
+### Linter
+Für die Codequalität und einheitliche Formatierung werden mehrere Tools verwendet, die über pre-commit und den Python-Linter Ruff integriert sind.
+
+**Verwendete Tools**
+
+- **Ruff**: Schneller Linter und Formatter (PEP8, Imports, Bugs, Naming, etc.)
+- **nbqa**: Ermöglicht Linting und Formatting von Jupyter Notebooks
+
+**Zweck**
+- Konsistenter Code-Stil im gesamten Projekt
+- Frühes Erkennen von Fehlern
+- Bessere Lesbarkeit und Wartbarkeit
+
+**Installation**
+```bash
+uv sync --extra dev
+ ```
+
+**Verwendung**
+
+Manuel ausführen
+```bash
+uv run ruff check .
+ ```
+
+**Automatische Korrekturen**
+```bash
+uv run ruff check . --fix # behebt automatisch viele Linting-Probleme
+uv run ruff format . # sorgt für ein konsistentes Code-Layout
+```
+
+**Für Notebooks**
+```bash
+uv run nbqa ruff .
+```
+
+Mit automatischen Fixes:
+```bash
+uv run nbqa ruff . --fix
+```
+
+### Data Import (Postgres)
+
+Um den Zugang zu den CSV-Dateien zu vereinfachen, wird lokal ein Docker-Container mit einer postgres-Datenbank erstellt, in welche die CSV-Dateien geladen werden.
+
+Damit der Datenimport stattfinden kann, müssen die CSVs lokal verfügbar sein. Das können wir erreichen, indem wir im Sharepoint im `STRAG` Ordner auf "Verknüpfung zu Onedrive hinzufügen" klicken.
+
+Anschliessend muss im .env-File (`db/docker/.env`) der Pfad zum Ordner gesetzt werden: 
 
 Beispiel in `.env`:
 ```env
 IMPORT_DATA_PATH=C:/Pfad/zu/deinen/Daten
 ```
 
-In der `docker-compose.yml` wird diese Variable dann verwendet:
+In der `docker-compose.yml` wird diese Variable dann verwendet und der Ordner wird als Volume an den Container gebunden:
 ```yaml
 volumes:
   - "${IMPORT_DATA_PATH}:/import_data"
 ```
-Stelle sicher, dass `IMPORT_DATA_PATH` in deiner lokalen `.env` auf den korrekten Ordner mit den CSV-Dateien zeigt.
-Wichtig ist dabei, dass der `IMPORT_DATA_PATH` auf den ordner `Logger` zeigt, da ansonsten auch die (vorerst unnötigen Prozess-Events) importiert werden (und der import fehlschlägt).
 
-### Manueller Re-Import
-Der Import kann auch von Hand gestartet werden:
+Sobald die OneDrive-Verknüpfung existiert und der Pfad stimmt, kann der Container im Ordner `db/docker` mit `docker compose up` erstellt und gestartet werden.
+
+**Manueller Re-Import**
+
+Der Import kann auch von Hand neu gestartet werden:
 ```bash
 docker exec -it postgres_db /docker-entrypoint-initdb.d/02_import_csv.sh
 ```
