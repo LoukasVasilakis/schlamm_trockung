@@ -23,3 +23,15 @@ Alle Projektteilnehmer, Barbara, Salomon
 - Neues Sprintziel: Dashboard erstellt
 - Vorbereitung Assessment besprochen und aufgeteilt
 - Issues-Board aufgeräumt, neue Issues erstellt und zugeteilt
+
+## Planning Sprint 3
+### Anwesend
+Alle Projektteilnehmer, Salomon
+
+### Besprochen wurde
+- Kurze Zusammenfassung *DB-Lösung*: Sqlite-DB mit Cronjob / Windows-Task welcher regelmässig Daten in die DB schreibt
+- Wichtige Punkte für nächsten Sprint:
+    - Setup des Dashboards und DB bei ihm
+    - Wie kommen wir an die CSV?
+    - Dashboard fertigstellen
+- Issue-Board aufgeräumt, neue Issues erstellt und zugeteilt
