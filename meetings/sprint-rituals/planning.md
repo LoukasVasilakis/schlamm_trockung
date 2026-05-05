@@ -35,6 +35,7 @@ Alle Projektteilnehmer, Salomon
     - Wie kommen wir an die CSV?
     - Dashboard fertigstellen
 - Issue-Board aufgeräumt, neue Issues erstellt und zugeteilt
+- Unterschrift AI-Governance
 
 #### Zeitplan für Sprint 3
 - 7.5.: Meeting mit Dani und Chestonag -> Wie funktioniert Dashboard
