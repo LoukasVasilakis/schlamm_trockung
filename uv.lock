@@ -868,7 +868,7 @@ wheels = [
 [[package]]
 name = "pro2db-ausfaelle-in-schlammtrocknungsanlage"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "dash" },
     { name = "matplotlib" },
@@ -887,6 +887,11 @@ dev = [
     { name = "ruff" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "ruff" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "dash", specifier = ">=4.0.0" },
@@ -902,6 +907,9 @@ requires-dist = [
     { name = "seaborn", specifier = ">=0.13.2" },
 ]
 provides-extras = ["dev"]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ruff", specifier = ">=0.15.5" }]
 
 [[package]]
 name = "prompt-toolkit"
