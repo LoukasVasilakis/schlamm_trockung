@@ -1,0 +1,21 @@
+Datum;Prio;Msr;Ort;Objekt;Meldung;Zustand;Benutzer;evtID;evtTyp
+08.01.20 13:41:14:530;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Lastwächter angesprochen;Geht;;650004;Störmeldungen
+08.01.20 13:41:14:220;;H-006;Granulatverladung;Becherwerk Granulatbunker;;Geht;;650002;Nicht bereit
+08.01.20 13:41:14:220;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Motorschutzschalter thermisch ausgelöst;Geht;;650003;Störmeldungen
+08.01.20 13:40:52:505;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Lastwächter angesprochen;Freigabe;Roland Reinle;650004;Störmeldungen
+08.01.20 13:40:52:505;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Motorschutzschalter thermisch ausgelöst;Freigabe;Roland Reinle;650003;Störmeldungen
+08.01.20 13:40:51:813;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Lastwächter angesprochen;Quittierung;Roland Reinle;650004;Störmeldungen
+08.01.20 13:40:51:813;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Motorschutzschalter thermisch ausgelöst;Quittierung;Roland Reinle;650003;Störmeldungen
+08.01.20 13:38:39:904;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Lastwächter angesprochen;Kommt;;650004;Störmeldungen
+08.01.20 13:38:39:750;;H-006;Granulatverladung;Becherwerk Granulatbunker;;Kommt;;650002;Nicht bereit
+08.01.20 13:38:39:750;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Motorschutzschalter thermisch ausgelöst;Kommt;;650003;Störmeldungen
+08.01.20 13:35:38:870;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Lastwächter angesprochen;Geht;;650000;Störmeldungen
+08.01.20 13:35:38:870;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Motorschutzschalter thermisch ausgelöst;Geht;;649999;Störmeldungen
+08.01.20 13:35:38:560;;H-006;Granulatverladung;Becherwerk Granulatbunker;;Geht;;649998;Nicht bereit
+08.01.20 13:35:06:439;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Lastwächter angesprochen;Freigabe;Roland Reinle;650000;Störmeldungen
+08.01.20 13:35:06:439;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Motorschutzschalter thermisch ausgelöst;Freigabe;Roland Reinle;649999;Störmeldungen
+08.01.20 13:35:05:531;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Lastwächter angesprochen;Quittierung;Roland Reinle;650000;Störmeldungen
+08.01.20 13:35:05:531;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Motorschutzschalter thermisch ausgelöst;Quittierung;Roland Reinle;649999;Störmeldungen
+08.01.20 13:34:37:593;;H-006;Granulatverladung;Becherwerk Granulatbunker;;Kommt;;649998;Nicht bereit
+08.01.20 13:34:37:593;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Lastwächter angesprochen;Kommt;;650000;Störmeldungen
+08.01.20 13:34:37:593;1;H-006;Granulatverladung;Becherwerk Granulatbunker;Motorschutzschalter thermisch ausgelöst;Kommt;;649999;Störmeldungen

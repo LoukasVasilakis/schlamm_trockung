@@ -43,4 +43,5 @@ def load_data():
 
     return df, dates
 
+
 df, dates = load_data()
