@@ -102,10 +102,9 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
 ### Ground-Rules
 - Keine projektspezifischen und sensible Daten der KI füttern
 - Test-Driven-Development für Qualitätssicherung (Unit Test wird geschrieben vor Coding, dann wird Code gezielt so erstellt solange bis der Test grün ist)
-- evtl. "datenschutzfreundlichere" KI Anbieter nutzen (z.B. Claude)
 - Neutrale Prompts, welche nicht auf das konkrete Projekt bzw. Domäne schliessen lassen
 - **Qualitätssicherung**: Jeder KI-generierte Code muss reviewed werden.
-- **Kennzeichnungspflicht**: Grössere KI Nutzung (Generierung von gesamten Funktionen oder Funktionalitäten) kennzeichnen
+- Weitere Informationen sind im AI Governance Vertag zu sehen (inkl. Unterschriften vom Projekt Team)
 ---
 ## Projektstruktur
 
@@ -117,9 +116,9 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
     │   ├── kundenmeeting_02-03-26.md
     │   ├── retro.md
     │   ├── weekly.md
-    │   └── planning_03-03-26.md
+    │   └── planning.md
     │
-    ├── db/
+    ├── db/                         # Datenbank
     │   ├── docker/
     │   │   └── docker-compose.yml
     │   └── init/
@@ -129,12 +128,25 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
     ├── notebooks/
     │
     ├── src/
+    │   └── utils/
+    │       ├── __init__.py
+    │       └── db_interaction.py
     │
     ├── test/                       # Automatisierte Code-Überprüfung
+    │   ├── data/
+    │   │   ├── PLS-Events_2020_01_03.csv
+    │   │   ├── PLS-Events_2020_01_04.csv
+    │   │   ├── PLS-Events_2020_01_06.csv
+    │   │   ├── PLS-Events_2020_01_08.csv
+    │   │   ├── PLS-Events_2020_01_09.csv
+    │   │   └── PLS-Events_2020_01_03.csv
+    │   ├── test_data_source.py
     │   ├── test_db_connection.py
-    │   └── test_example.py
+    │   └── test_stormeldungen.py
     │
-    ├── praesentationen/            # Präsentationsmaterial (Slides etc.)
+    ├── scripts/                    
+    │   ├── load_test_db.sh
+    │   └── use_ultis_package.py    # Eigene Funktionen
     │
     ├── eda/                        # Explorative Datenanalyse
     │   ├── eda_documents/          # EDA Dokumentation
@@ -142,14 +154,25 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
     │   │
     │   └── eda_scripts/            # Package für alle eda scripts
     │       ├── __init__.py
+    │       ├── drahtbruch_vs_msr.ipynb
     │       ├── error_analysis.py
+    │       ├── error_analysis_2.ipynb
+    │       ├── object_analysis.ipynb
+    │       ├── top3_error_analysis.ipynb
     │       └── user_analysis.ipynb
     │
     │
     ├── dashboard/
-    │   ├── dashboard_documents/     # Dashboard Dokumentation
     │   └── dashboard_scripts/       # Package für alle Dashboard scripts
-    │       └── __init__.py
+    │       ├── __init__.py
+    │       ├── app.py
+    │       ├── callbacks.py
+    │       ├── data_loader.py
+    │       ├── assets/
+    │       │   └── style.css
+    │       └── pages/
+    │           ├── benutzer_balkendiagram.py
+    │           └── stormeldungen.py 
     │
     ├── Readme.md                    # Projektbeschreibung und Nutzung
     ├── .gitignore                   # Dateien die Git ignorieren soll
@@ -158,6 +181,7 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
     ├── .gitlab-ci.yml               # CI/CD Pipeline Konfiguration
     ├── goal-driven-roadmap-and-releases.md
     ├── pre-commit-config.yaml       # Pre-Commit Prüfregeln
+    ├── AI Governance Vertag.pdf     # Informationen über das Nutzen von KI im Projekt
     └── uv.lock                      # Abhängigkeitsversionen sperren
 
 ## Branching Workflow
@@ -274,7 +298,7 @@ Für die Codequalität und einheitliche Formatierung werden mehrere Tools verwen
 
 **Installation**
 ```bash
-uv sync --extra dev
+uv sync --active
  ```
 
 **Verwendung**
