@@ -14,9 +14,22 @@ Alle Projektteilnehmer, Salomon, kundenseitig Daniel und Vincenzo
 
 ## Sprint 2 Review
 ### Anwesend
-Alle Projektteilnehmer, Barbara, Salomon, kundenseitig Daniel
+Alle Projektteilnehmer, Barbara, Salomon, kundenseitig Daniel und Vinzenco
 
 ### Vorbesprechung am Morgen
 - Vorbereitete Präsentation angeschaut, ergänzt und aufgeteilt
 
 ### Besprochen wurde
+- Zuerst Review:
+    - Im Bericht zeigen Janis, Harman und Alessandro die spannendsten Grafiken -> Daniel ist sehr interessiert
+    - Loukas zeigt Dashboard -> Daniel sehr zufrieden
+    - Melanie erklärt kurz den Nutzen und Plan des Utils-Package 
+    - Florin zeigt die nächsten Termine auf
+- Varianten fürs Dashboard:
+    - Entweder auf PLS-PC -> muss über Chestonag abgesprochen werden (Prio 1)
+    - Oder auf zweit PC, welcher ebenfalls immer hier im Büro steht -> Prio 2, aber 100% machbar, benötigt eventuell nochmals einen Besuch
+- Diskussion:
+    - Janis: Gerne Feedback zu den Reports bis Montag nächste Woche, für unser Planning
+    - Barbara: Test des Dashboard für Daniel, evt. lokal bei ihm auf dem Computer? Daniel hat einen eigenen Laptop mit Windows 11.
+
+- Führung durch die STRAGAG.
