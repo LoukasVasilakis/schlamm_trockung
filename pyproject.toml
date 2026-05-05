@@ -20,9 +20,6 @@ dependencies = [
         
         # Linting
         "ruff >= 0.14.1",
-        "mypy >= 1.15.0",
-        "mypy-extensions >= 1.0.0",
-        "pydoclint >= 0.6.6",
         "nbqa >= 1.9.1",
         
         # Test framework
