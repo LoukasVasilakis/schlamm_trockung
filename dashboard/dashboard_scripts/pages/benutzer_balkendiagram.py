@@ -1,13 +1,55 @@
 import dash
 import pandas as pd
+import psycopg2
 import plotly.graph_objects as go
 from dash import callback, dcc, html
 from dash.dependencies import Input, Output
-from data_loader import dates, df
 from plotly.colors import qualitative
 from plotly.subplots import make_subplots
+import use_utils_package
 
 dash.register_page(__name__, path="/benutzer-balkendiagram", name="Benutzer-Übersicht")
+
+
+def load_data():
+    conn = psycopg2.connect(
+        dbname="pro2d_db",
+        user="postgres",
+        password="postgres",
+        host="localhost",
+        port="5432",
+    )
+
+    df = pd.read_sql(
+        'SELECT "Datum", "Meldung", "evtTyp", "Prio", "Benutzer" FROM events',
+        conn,
+    )
+
+    conn.close()
+
+    df["Datum"] = pd.to_datetime(df["Datum"], errors="coerce")
+    df = df.sort_values("Datum")
+
+    df["Benutzer"] = df["Benutzer"].replace(
+        "Vinzenzo Signorelli",
+        "Vincenzo Signorelli",
+    )
+
+    df = df.dropna(subset=["Datum"]).copy()
+    df["Meldung"] = df["Meldung"].fillna("").astype(str)
+
+    dates = pd.to_datetime(
+        df["Datum"]
+        .dropna()
+        .sort_values()
+        .dt.normalize()
+        .unique()
+    )
+
+    return df, dates
+
+
+df, dates = load_data()
 
 
 def get_event_type_options(source_df):
@@ -30,11 +72,7 @@ def build_user_color_map(source_df):
         + qualitative.Light24
     )
 
-    color_map = {}
-    for i, user in enumerate(users):
-        color_map[user] = palette[i % len(palette)]
-
-    return color_map
+    return {user: palette[i % len(palette)] for i, user in enumerate(users)}
 
 
 def add_bar_trace(fig, series, row, col, color_map, is_percent=False):
@@ -69,7 +107,9 @@ def add_bar_trace(fig, series, row, col, color_map, is_percent=False):
             x=plot_df["Wert"],
             y=plot_df["Benutzer"],
             orientation="h",
-            marker_color=[color_map.get(user, "#636EFA") for user in plot_df["Benutzer"]],
+            marker_color=[
+                color_map.get(user, "#636EFA") for user in plot_df["Benutzer"]
+            ],
             text=text_values,
             textposition="outside",
             cliponaxis=False,
@@ -156,13 +196,11 @@ def update_user_overview(slider_value, selected_evttyp):
     color_map = build_user_color_map(df)
 
     user_counts_all = dff["Benutzer"].fillna("NaN").astype(str).value_counts()
-    user_pct_all = (
-        (user_counts_all / user_counts_all.sum() * 100).round(1)
-        if not user_counts_all.empty
-        else pd.Series(dtype=float)
-    )
+    user_pct_all = (user_counts_all / user_counts_all.sum() * 100).round(1)
 
-    dff_no_nan_auto = dff[(dff["Benutzer"].notna()) & (~dff["Benutzer"].isin(["AUTO"]))].copy()
+    dff_no_nan_auto = dff[
+        (dff["Benutzer"].notna()) & (~dff["Benutzer"].isin(["AUTO"]))
+    ].copy()
 
     user_counts_no_nan_auto = dff_no_nan_auto["Benutzer"].astype(str).value_counts()
     user_pct_no_nan_auto = (
@@ -208,7 +246,7 @@ def update_user_overview(slider_value, selected_evttyp):
         y=0.43,
         xref="paper",
         yref="paper",
-        text="<b>Benutzer (Ohne NaN, AUTO)</b>",
+        text="<b>Benutzer ohne NaN und AUTO</b>",
         showarrow=False,
         font=dict(family="Arial", size=14, color="black"),
     )
@@ -220,11 +258,14 @@ def update_user_overview(slider_value, selected_evttyp):
 
     fig.update_yaxes(title_text="Benutzer", row=1, col=1)
     fig.update_yaxes(title_text="Benutzer", row=2, col=1)
-
     fig.update_yaxes(title_text="", row=1, col=2)
     fig.update_yaxes(title_text="", row=2, col=2)
 
-    title_suffix = f" – evtTyp: {selected_evttyp}" if selected_evttyp not in [None, "ALL"] else ""
+    title_suffix = (
+        f" – evtTyp: {selected_evttyp}"
+        if selected_evttyp not in [None, "ALL"]
+        else ""
+    )
 
     fig.update_layout(
         title=f"Benutzer-Übersicht – Anzahl Events pro Benutzer{title_suffix}",
