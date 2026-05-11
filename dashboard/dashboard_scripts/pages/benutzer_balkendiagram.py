@@ -6,7 +6,7 @@ from dash import callback, dcc, html
 from dash.dependencies import Input, Output
 from plotly.colors import qualitative
 from plotly.subplots import make_subplots
-import use_utils_package
+#import use_utils_package
 
 dash.register_page(__name__, path="/benutzer-balkendiagram", name="Benutzer-Übersicht")
 
