@@ -16,7 +16,7 @@ def load_data():
         port="5432",
     )
     df = pd.read_sql(
-        'SELECT "Datum", "Meldung", "evtTyp", "Prio", "Benutzer", "Ort", "Objekt", "Msr" FROM events',
+        'SELECT "Datum", "Meldung", "evtTyp", "Prio", "Benutzer", "Ort", "Objekt", "Msr", "Zustand" FROM events',
         conn,
     )
     conn.close()
@@ -29,11 +29,9 @@ def load_data():
     )
     df = df.dropna(subset=["Datum"]).copy()
 
-    df["Meldung"] = df["Meldung"].fillna("NaN").astype(str)
-    df.loc[df["Meldung"].str.strip() == "", "Meldung"] = "NaN"
-    df["Msr"] = df["Msr"].fillna("NaN").astype(str)
-    df["Objekt"] = df["Objekt"].fillna("NaN").astype(str)
-    df["evtTyp"] = df["evtTyp"].fillna("NaN").astype(str)
+    for col in ["Meldung", "Msr", "Objekt", "evtTyp", "Prio", "Benutzer", "Ort", "Zustand"]:
+        df[col] = df[col].fillna("NaN").astype(str)
+        df.loc[df[col].str.strip() == "", col] = "NaN"
 
     dates = pd.to_datetime(
         df["Datum"].dropna().sort_values().dt.normalize().unique()
@@ -50,139 +48,213 @@ def build_simple_options(series):
 
 
 if not __name__.startswith("test"):
-    dash.register_page(__name__, path="/stormeldungen", name="Störmeldungen")
+    dash.register_page(__name__, path="/", name="Störmeldungen")
 
 
 layout = html.Div(
     [
-
         # ---- Filter-Bereich ----
         html.Div(
             [
+                # Zeile 1: Dropdowns
                 html.Div(
                     [
-                        html.Label("evtTyp", style={"fontFamily": "Arial"}),
-                        dcc.Dropdown(
-                            id="stoer-evttyp-dropdown",
-                            options=build_simple_options(df["evtTyp"]),
-                            value=["Störmeldungen"],
-                            multi=True,
-                            placeholder="Alle",
-                            style={"width": "220px", "fontFamily": "Arial"},
-                        ),
-                    ],
-                    style={"display": "inline-block", "marginRight": "10px", "verticalAlign": "top"},
-                ),
-                html.Div(
-                    [
-                        html.Label("Objekt", style={"fontFamily": "Arial"}),
-                        dcc.Dropdown(
-                            id="stoer-objekt-dropdown",
-                            options=[],
-                            value=[],
-                            multi=True,
-                            placeholder="Alle",
-                            style={"width": "220px", "fontFamily": "Arial"},
-                        ),
-                    ],
-                    style={"display": "inline-block", "marginRight": "10px", "verticalAlign": "top"},
-                ),
-                html.Div(
-                    [
-                        html.Label("Msr", style={"fontFamily": "Arial"}),
-                        dcc.Dropdown(
-                            id="stoer-msr-dropdown",
-                            options=[],
-                            value=[],
-                            multi=True,
-                            placeholder="Alle",
-                            style={"width": "220px", "fontFamily": "Arial"},
-                        ),
-                    ],
-                    style={"display": "inline-block", "marginRight": "10px", "verticalAlign": "top"},
-                ),
-                html.Div(
-                    [
-                        html.Label("Meldung", style={"fontFamily": "Arial"}),
-                        dcc.Dropdown(
-                            id="stoer-meldung-dropdown",
-                            options=[],
-                            value=[],
-                            multi=True,
-                            placeholder="Alle",
-                            style={"width": "220px", "fontFamily": "Arial"},
-                        ),
-                    ],
-                    style={"display": "inline-block", "marginRight": "10px", "verticalAlign": "top"},
-                ),
-                html.Div(
-                    [
-                        html.Label("Top N", style={"fontFamily": "Arial"}),
-                        dcc.Dropdown(
-                            id="stoer-topn-dropdown",
-                            options=[
-                                {"label": "Alle", "value": "ALL"},
-                                {"label": "5", "value": 5},
-                                {"label": "10", "value": 10},
-                                {"label": "15", "value": 15},
-                                {"label": "20", "value": 20},
+                        html.Div(
+                            [
+                                html.Label("evtTyp", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                dcc.Dropdown(
+                                    id="stoer-evttyp-dropdown",
+                                    options=build_simple_options(df["evtTyp"]),
+                                    value=["Störmeldungen"],
+                                    multi=True,
+                                    placeholder="Alle",
+                                    style={"width": "200px", "fontFamily": "Arial"},
+                                ),
                             ],
-                            value=10,
-                            clearable=False,
-                            style={"width": "100px", "fontFamily": "Arial"},
+                            style={"marginRight": "20px"},
                         ),
-                    ],
-                    style={"display": "inline-block", "marginRight": "15px", "verticalAlign": "top"},
-                ),
-                html.Div(
-                    [
-                        html.Label("Y-Achse", style={"fontFamily": "Arial"}),
-                        dcc.RadioItems(
-                            id="stoer-yaxis-toggle",
-                            options=[
-                                {"label": " evtTyp", "value": "evtTyp"},
-                                {"label": " Objekt", "value": "Objekt"},
-                                {"label": " Msr", "value": "Msr"},
-                                {"label": " Meldung", "value": "Meldung"},
+                        html.Div(
+                            [
+                                html.Label("Objekt", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                dcc.Dropdown(
+                                    id="stoer-objekt-dropdown",
+                                    options=[],
+                                    value=[],
+                                    multi=True,
+                                    placeholder="Alle",
+                                    style={"width": "200px", "fontFamily": "Arial"},
+                                ),
                             ],
-                            value="Meldung",
-                            inline=True,
-                            style={"fontFamily": "Arial"},
+                            style={"marginRight": "20px"},
                         ),
-                    ],
-                    style={"display": "inline-block", "marginRight": "15px", "verticalAlign": "top"},
-                ),
-                html.Div(
-                    [
-                        html.Label("Ansicht", style={"fontFamily": "Arial"}),
-                        dcc.RadioItems(
-                            id="stoer-view-toggle",
-                            options=[
-                                {"label": " Absolut", "value": "absolut"},
-                                {"label": " Prozentual", "value": "prozentual"},
+                        html.Div(
+                            [
+                                html.Label("Msr", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                dcc.Dropdown(
+                                    id="stoer-msr-dropdown",
+                                    options=[],
+                                    value=[],
+                                    multi=True,
+                                    placeholder="Alle",
+                                    style={"width": "200px", "fontFamily": "Arial"},
+                                ),
                             ],
-                            value="absolut",
-                            inline=True,
-                            style={"fontFamily": "Arial"},
+                            style={"marginRight": "20px"},
+                        ),
+                        html.Div(
+                            [
+                                html.Label("Meldung", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                dcc.Dropdown(
+                                    id="stoer-meldung-dropdown",
+                                    options=[],
+                                    value=[],
+                                    multi=True,
+                                    placeholder="Alle",
+                                    style={"width": "200px", "fontFamily": "Arial"},
+                                ),
+                            ],
+                            style={"marginRight": "20px"},
+                        ),
+                        html.Div(
+                            [
+                                html.Label("Prio", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                dcc.Dropdown(
+                                    id="stoer-prio-dropdown",
+                                    options=[],
+                                    value=[],
+                                    multi=True,
+                                    placeholder="Alle",
+                                    style={"width": "140px", "fontFamily": "Arial"},
+                                ),
+                            ],
+                            style={"marginRight": "20px"},
+                        ),
+                        html.Div(
+                            [
+                                html.Label("Ort", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                dcc.Dropdown(
+                                    id="stoer-ort-dropdown",
+                                    options=[],
+                                    value=[],
+                                    multi=True,
+                                    placeholder="Alle",
+                                    style={"width": "200px", "fontFamily": "Arial"},
+                                ),
+                            ],
+                            style={"marginRight": "20px"},
+                        ),
+                        html.Div(
+                            [
+                                html.Label("Zustand", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                dcc.Dropdown(
+                                    id="stoer-zustand-dropdown",
+                                    options=[],
+                                    value=[],
+                                    multi=True,
+                                    placeholder="Alle",
+                                    style={"width": "200px", "fontFamily": "Arial"},
+                                ),
+                            ],
+                            style={"marginRight": "20px"},
+                        ),
+                        html.Div(
+                            [
+                                html.Label("Benutzer", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                dcc.Dropdown(
+                                    id="stoer-benutzer-dropdown",
+                                    options=[],
+                                    value=[],
+                                    multi=True,
+                                    placeholder="Alle",
+                                    style={"width": "200px", "fontFamily": "Arial"},
+                                ),
+                            ],
                         ),
                     ],
-                    style={"display": "inline-block", "marginRight": "15px", "verticalAlign": "top"},
+                    style={"display": "flex", "flexWrap": "wrap", "alignItems": "flex-start", "marginBottom": "16px"},
                 ),
+                # Zeile 2: Steuerung
                 html.Div(
                     [
-                        html.Button(
-                            "Reset Filter",
-                            id="stoer-reset-button",
-                            n_clicks=0,
-                            style={
-                                "fontFamily": "Arial",
-                                "padding": "8px 16px",
-                                "marginTop": "20px",
-                                "cursor": "pointer",
-                            },
+                        html.Div(
+                            [
+                                html.Label("Top N", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                dcc.Dropdown(
+                                    id="stoer-topn-dropdown",
+                                    options=[
+                                        {"label": "Alle", "value": "ALL"},
+                                        {"label": "5", "value": 5},
+                                        {"label": "10", "value": 10},
+                                        {"label": "15", "value": 15},
+                                        {"label": "20", "value": 20},
+                                    ],
+                                    value=10,
+                                    clearable=False,
+                                    style={"width": "100px", "fontFamily": "Arial"},
+                                ),
+                            ],
+                            style={"marginRight": "30px"},
+                        ),
+                        html.Div(
+                            [
+                                html.Label("Y-Achse", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                dcc.RadioItems(
+                                    id="stoer-yaxis-toggle",
+                                    options=[
+                                        {"label": " evtTyp", "value": "evtTyp"},
+                                        {"label": " Objekt", "value": "Objekt"},
+                                        {"label": " Msr", "value": "Msr"},
+                                        {"label": " Meldung", "value": "Meldung"},
+                                        {"label": " Prio", "value": "Prio"},
+                                        {"label": " Ort", "value": "Ort"},
+                                        {"label": " Zustand", "value": "Zustand"},
+                                        {"label": " Benutzer", "value": "Benutzer"},
+                                    ],
+                                    value="Meldung",
+                                    inline=True,
+                                    style={"fontFamily": "Arial"},
+                                ),
+                            ],
+                            style={"marginRight": "30px"},
+                        ),
+                        html.Div(
+                            [
+                                html.Label("Ansicht", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                dcc.RadioItems(
+                                    id="stoer-view-toggle",
+                                    options=[
+                                        {"label": " Absolut", "value": "absolut"},
+                                        {"label": " Prozentual", "value": "prozentual"},
+                                    ],
+                                    value="absolut",
+                                    inline=True,
+                                    style={"fontFamily": "Arial"},
+                                ),
+                            ],
+                            style={"marginRight": "30px"},
+                        ),
+                        html.Div(
+                            [
+                                html.Button(
+                                    "Reset Filter",
+                                    id="stoer-reset-button",
+                                    n_clicks=0,
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "padding": "8px 18px",
+                                        "cursor": "pointer",
+                                        "backgroundColor": "#e89090",
+                                        "border": "1px solid #c97070",
+                                        "borderRadius": "4px",
+                                        "color": "#4a0000",
+                                        "marginTop": "22px",
+                                    },
+                                ),
+                            ],
                         ),
                     ],
-                    style={"display": "inline-block", "verticalAlign": "top"},
+                    style={"display": "flex", "alignItems": "flex-start"},
                 ),
             ],
             style={"marginBottom": "20px"},
@@ -319,6 +391,10 @@ layout = html.Div(
     Output("stoer-objekt-dropdown", "value"),
     Output("stoer-msr-dropdown", "value"),
     Output("stoer-meldung-dropdown", "value"),
+    Output("stoer-prio-dropdown", "value"),
+    Output("stoer-ort-dropdown", "value"),
+    Output("stoer-zustand-dropdown", "value"),
+    Output("stoer-benutzer-dropdown", "value"),
     Output("stoer-view-toggle", "value"),
     Output("stoer-topn-dropdown", "value"),
     Output("stoer-yaxis-toggle", "value"),
@@ -330,10 +406,10 @@ layout = html.Div(
     prevent_initial_call=True,
 )
 def reset_filters(n_clicks):
-    return ["Störmeldungen"], [], [], [], "absolut", 10, "Meldung", None, "off", [], "log"
+    return ["Störmeldungen"], [], [], [], [], [], [], [], "absolut", 10, "Meldung", None, "off", [], "log"
 
 
-def _apply_filters(dff, evttyp, objekt, msr, meldung):
+def _apply_filters(dff, evttyp, objekt, msr, meldung, prio=None, ort=None, zustand=None, benutzer=None):
     if evttyp:
         dff = dff[dff["evtTyp"].isin(evttyp)]
     if objekt:
@@ -342,22 +418,27 @@ def _apply_filters(dff, evttyp, objekt, msr, meldung):
         dff = dff[dff["Msr"].isin(msr)]
     if meldung:
         dff = dff[dff["Meldung"].isin(meldung)]
+    if prio:
+        dff = dff[dff["Prio"].isin(prio)]
+    if ort:
+        dff = dff[dff["Ort"].isin(ort)]
+    if zustand:
+        dff = dff[dff["Zustand"].isin(zustand)]
+    if benutzer:
+        dff = dff[dff["Benutzer"].isin(benutzer)]
     return dff
 
 
 def _get_excluded_days(dff, threshold_abs, sigma_choice, manual_excludes):
-    """Berechnet welche Tage entfernt werden sollen."""
     if dff.empty:
         return set()
 
     daily_counts = dff.groupby(dff["Datum"].dt.normalize()).size()
     excluded = set()
 
-    # 1. Threshold-Mechanismus (absolute Events/Tag)
     if threshold_abs is not None and threshold_abs > 0:
         excluded.update(daily_counts[daily_counts > threshold_abs].index)
 
-    # 2. Outlier (nσ)
     if sigma_choice != "off" and len(daily_counts) > 1:
         try:
             n_sigma = int(sigma_choice)
@@ -369,7 +450,6 @@ def _get_excluded_days(dff, threshold_abs, sigma_choice, manual_excludes):
         except (ValueError, TypeError):
             pass
 
-    # 3. Manuelle Tage
     for d_str in (manual_excludes or []):
         excluded.add(pd.Timestamp(d_str))
 
@@ -407,20 +487,79 @@ def update_meldung_options(evttyp, objekt, msr):
 
 
 @callback(
+    Output("stoer-prio-dropdown", "options"),
+    Input("stoer-evttyp-dropdown", "value"),
+    Input("stoer-objekt-dropdown", "value"),
+    Input("stoer-msr-dropdown", "value"),
+    Input("stoer-meldung-dropdown", "value"),
+)
+def update_prio_options(evttyp, objekt, msr, meldung):
+    dff = _apply_filters(df.copy(), evttyp, objekt, msr, meldung)
+    return build_simple_options(dff["Prio"])
+
+
+@callback(
+    Output("stoer-ort-dropdown", "options"),
+    Input("stoer-evttyp-dropdown", "value"),
+    Input("stoer-objekt-dropdown", "value"),
+    Input("stoer-msr-dropdown", "value"),
+    Input("stoer-meldung-dropdown", "value"),
+    Input("stoer-prio-dropdown", "value"),
+)
+def update_ort_options(evttyp, objekt, msr, meldung, prio):
+    dff = _apply_filters(df.copy(), evttyp, objekt, msr, meldung, prio)
+    return build_simple_options(dff["Ort"])
+
+
+@callback(
+    Output("stoer-zustand-dropdown", "options"),
+    Input("stoer-evttyp-dropdown", "value"),
+    Input("stoer-objekt-dropdown", "value"),
+    Input("stoer-msr-dropdown", "value"),
+    Input("stoer-meldung-dropdown", "value"),
+    Input("stoer-prio-dropdown", "value"),
+    Input("stoer-ort-dropdown", "value"),
+)
+def update_zustand_options(evttyp, objekt, msr, meldung, prio, ort):
+    dff = _apply_filters(df.copy(), evttyp, objekt, msr, meldung, prio, ort)
+    return build_simple_options(dff["Zustand"])
+
+
+@callback(
+    Output("stoer-benutzer-dropdown", "options"),
+    Input("stoer-evttyp-dropdown", "value"),
+    Input("stoer-objekt-dropdown", "value"),
+    Input("stoer-msr-dropdown", "value"),
+    Input("stoer-meldung-dropdown", "value"),
+    Input("stoer-prio-dropdown", "value"),
+    Input("stoer-ort-dropdown", "value"),
+    Input("stoer-zustand-dropdown", "value"),
+)
+def update_benutzer_options(evttyp, objekt, msr, meldung, prio, ort, zustand):
+    dff = _apply_filters(df.copy(), evttyp, objekt, msr, meldung, prio, ort, zustand)
+    return build_simple_options(dff["Benutzer"])
+
+
+@callback(
     Output("stoer-manual-exclude", "options"),
     Input("date-range-slider", "value"),
     Input("stoer-evttyp-dropdown", "value"),
     Input("stoer-objekt-dropdown", "value"),
     Input("stoer-msr-dropdown", "value"),
     Input("stoer-meldung-dropdown", "value"),
+    Input("stoer-prio-dropdown", "value"),
+    Input("stoer-ort-dropdown", "value"),
+    Input("stoer-zustand-dropdown", "value"),
+    Input("stoer-benutzer-dropdown", "value"),
 )
-def update_manual_exclude_options(slider_value, evttyp, objekt, msr, meldung):
+def update_manual_exclude_options(slider_value, evttyp, objekt, msr, meldung,
+                                  prio, ort, zustand, benutzer):
     start_idx, end_idx = slider_value
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
     dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)].copy()
-    dff = _apply_filters(dff, evttyp, objekt, msr, meldung)
+    dff = _apply_filters(dff, evttyp, objekt, msr, meldung, prio, ort, zustand, benutzer)
 
     available_days = sorted(dff["Datum"].dt.normalize().unique())
     return [
@@ -436,18 +575,23 @@ def update_manual_exclude_options(slider_value, evttyp, objekt, msr, meldung):
     Input("stoer-objekt-dropdown", "value"),
     Input("stoer-msr-dropdown", "value"),
     Input("stoer-meldung-dropdown", "value"),
+    Input("stoer-prio-dropdown", "value"),
+    Input("stoer-ort-dropdown", "value"),
+    Input("stoer-zustand-dropdown", "value"),
+    Input("stoer-benutzer-dropdown", "value"),
     Input("stoer-threshold-input", "value"),
     Input("stoer-outlier-sigma", "value"),
     Input("stoer-manual-exclude", "value"),
 )
 def update_exclude_stats(slider_value, evttyp, objekt, msr, meldung,
-                        threshold_abs, sigma_choice, manual_excludes):
+                         prio, ort, zustand, benutzer,
+                         threshold_abs, sigma_choice, manual_excludes):
     start_idx, end_idx = slider_value
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
     dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)].copy()
-    dff = _apply_filters(dff, evttyp, objekt, msr, meldung)
+    dff = _apply_filters(dff, evttyp, objekt, msr, meldung, prio, ort, zustand, benutzer)
 
     if dff.empty:
         return "Keine Daten im gewählten Zeitraum."
@@ -478,12 +622,17 @@ def update_exclude_stats(slider_value, evttyp, objekt, msr, meldung,
     Input("stoer-objekt-dropdown", "value"),
     Input("stoer-msr-dropdown", "value"),
     Input("stoer-meldung-dropdown", "value"),
+    Input("stoer-prio-dropdown", "value"),
+    Input("stoer-ort-dropdown", "value"),
+    Input("stoer-zustand-dropdown", "value"),
+    Input("stoer-benutzer-dropdown", "value"),
     Input("stoer-outlier-sigma", "value"),
     Input("stoer-threshold-input", "value"),
     Input("stoer-dist-scale", "value"),
 )
 def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
-                             sigma_choice, threshold_abs, scale_mode):
+                              prio, ort, zustand, benutzer,
+                              sigma_choice, threshold_abs, scale_mode):
     import numpy as np
 
     start_idx, end_idx = slider_value
@@ -491,7 +640,7 @@ def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
     dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)].copy()
-    dff = _apply_filters(dff, evttyp, objekt, msr, meldung)
+    dff = _apply_filters(dff, evttyp, objekt, msr, meldung, prio, ort, zustand, benutzer)
 
     if dff.empty or dff["Datum"].dt.normalize().nunique() < 2:
         fig = go.Figure()
@@ -511,7 +660,6 @@ def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
     mean = daily_counts.mean()
     std = daily_counts.std()
 
-    # Schwellwert berechnen (egal welche Methode – wir bestimmen den effektiven Cutoff)
     cutoff = None
     if sigma_choice != "off" and std > 0:
         try:
@@ -523,13 +671,11 @@ def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
     if threshold_abs is not None and threshold_abs > 0:
         cutoff = min(cutoff, threshold_abs) if cutoff is not None else threshold_abs
 
-    # Bins selbst berechnen
     values = daily_counts.values
     counts_hist, bin_edges = np.histogram(values, bins=30, density=True)
     bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
     bin_width = bin_edges[1] - bin_edges[0]
 
-    # Farbe pro Balken: rot wenn rechts vom Cutoff, sonst grün
     if cutoff is not None:
         colors = ["red" if c > cutoff else "#2ca02c" for c in bin_centers]
     else:
@@ -548,14 +694,12 @@ def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
         )
     )
 
-    # Mittelwert
     fig.add_vline(
         x=mean, line=dict(color="blue", width=2, dash="solid"),
         annotation_text=f"Ø {mean:.0f}",
         annotation_position="top",
     )
 
-    # Sigma-Linie (nur positiv)
     if sigma_choice != "off" and std > 0:
         try:
             n_sigma = int(sigma_choice)
@@ -568,7 +712,6 @@ def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
         except (ValueError, TypeError):
             pass
 
-    # Threshold-Linie
     if threshold_abs is not None and threshold_abs > 0:
         fig.add_vline(
             x=threshold_abs, line=dict(color="orange", width=2, dash="dot"),
@@ -601,18 +744,23 @@ def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
     Input("stoer-objekt-dropdown", "value"),
     Input("stoer-msr-dropdown", "value"),
     Input("stoer-meldung-dropdown", "value"),
+    Input("stoer-prio-dropdown", "value"),
+    Input("stoer-ort-dropdown", "value"),
+    Input("stoer-zustand-dropdown", "value"),
+    Input("stoer-benutzer-dropdown", "value"),
     Input("stoer-threshold-input", "value"),
     Input("stoer-outlier-sigma", "value"),
     Input("stoer-manual-exclude", "value"),
 )
 def update_timeline(slider_value, evttyp, objekt, msr, meldung,
+                    prio, ort, zustand, benutzer,
                     threshold_abs, sigma_choice, manual_excludes):
     start_idx, end_idx = slider_value
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
     dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)].copy()
-    dff = _apply_filters(dff, evttyp, objekt, msr, meldung)
+    dff = _apply_filters(dff, evttyp, objekt, msr, meldung, prio, ort, zustand, benutzer)
 
     if dff.empty:
         fig = go.Figure()
@@ -677,6 +825,10 @@ def update_timeline(slider_value, evttyp, objekt, msr, meldung,
     Input("stoer-objekt-dropdown", "value"),
     Input("stoer-msr-dropdown", "value"),
     Input("stoer-meldung-dropdown", "value"),
+    Input("stoer-prio-dropdown", "value"),
+    Input("stoer-ort-dropdown", "value"),
+    Input("stoer-zustand-dropdown", "value"),
+    Input("stoer-benutzer-dropdown", "value"),
     Input("stoer-topn-dropdown", "value"),
     Input("stoer-view-toggle", "value"),
     Input("stoer-yaxis-toggle", "value"),
@@ -684,14 +836,16 @@ def update_timeline(slider_value, evttyp, objekt, msr, meldung,
     Input("stoer-outlier-sigma", "value"),
     Input("stoer-manual-exclude", "value"),
 )
-def update_bar_chart(slider_value, evttyp, objekt, msr, meldung, top_n,
-                     view_mode, y_col, threshold_abs, sigma_choice, manual_excludes):
+def update_bar_chart(slider_value, evttyp, objekt, msr, meldung,
+                     prio, ort, zustand, benutzer,
+                     top_n, view_mode, y_col,
+                     threshold_abs, sigma_choice, manual_excludes):
     start_idx, end_idx = slider_value
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
     dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)].copy()
-    dff = _apply_filters(dff, evttyp, objekt, msr, meldung)
+    dff = _apply_filters(dff, evttyp, objekt, msr, meldung, prio, ort, zustand, benutzer)
 
     excluded = _get_excluded_days(dff, threshold_abs, sigma_choice, manual_excludes)
     if excluded:

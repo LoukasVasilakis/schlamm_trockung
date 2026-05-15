@@ -64,19 +64,8 @@ app.layout = html.Div(
             style={"textAlign": "center", "fontFamily": "Arial", "marginBottom": "10px"},
         ),
 
-        html.Div(
-            [
-                dcc.Link("Störmeldungen", href="/stormeldungen", className="nav-button"),
-                dcc.Link(
-                    "Benutzer-Balkendiagram",
-                    href="/benutzer-balkendiagram",
-                    className="nav-button",
-                ),
-            ],
-            style={"textAlign": "center", "marginBottom": "30px", "fontFamily": "Arial"},
-        ),
 
-        html.H3("Select Date", style={"fontFamily": "Arial"}),
+        html.H3("Datum auswählen", style={"fontFamily": "Arial"}),
 
         html.Div(
             dcc.DatePickerRange(

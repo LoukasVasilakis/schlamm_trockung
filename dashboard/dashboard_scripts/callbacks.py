@@ -91,7 +91,7 @@ def show_selected_dates(slider_value):
     start_idx, end_idx = slider_value
 
     return (
-        f"Selected range: "
+        f"Ausgewählter Zeitraum: "
         f"{dates[start_idx].strftime('%Y-%m-%d')} "
-        f"to {dates[end_idx].strftime('%Y-%m-%d')}"
+        f"bis {dates[end_idx].strftime('%Y-%m-%d')}"
     )
