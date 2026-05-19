@@ -1,8 +1,8 @@
 import dash
 import pandas as pd
-import psycopg2
 import plotly.express as px
 import plotly.graph_objects as go
+import psycopg2
 from dash import callback, dcc, html
 from dash.dependencies import Input, Output
 
@@ -16,7 +16,8 @@ def load_data():
         port="5432",
     )
     df = pd.read_sql(
-        'SELECT "Datum", "Meldung", "evtTyp", "Prio", "Benutzer", "Ort", "Objekt", "Msr", "Zustand" FROM events',
+        'SELECT "Datum", "Meldung", "evtTyp", "Prio", "Benutzer", "Ort", "Objekt", "Msr",'
+        ' "Zustand" FROM events',
         conn,
     )
     conn.close()
@@ -33,9 +34,7 @@ def load_data():
         df[col] = df[col].fillna("NaN").astype(str)
         df.loc[df[col].str.strip() == "", col] = "NaN"
 
-    dates = pd.to_datetime(
-        df["Datum"].dropna().sort_values().dt.normalize().unique()
-    )
+    dates = pd.to_datetime(df["Datum"].dropna().sort_values().dt.normalize().unique())
 
     return df, dates
 
@@ -61,7 +60,15 @@ layout = html.Div(
                     [
                         html.Div(
                             [
-                                html.Label("evtTyp", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                html.Label(
+                                    "evtTyp",
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "marginBottom": "4px",
+                                        "display": "block",
+                                    },
+                                ),
                                 dcc.Dropdown(
                                     id="stoer-evttyp-dropdown",
                                     options=build_simple_options(df["evtTyp"]),
@@ -75,7 +82,15 @@ layout = html.Div(
                         ),
                         html.Div(
                             [
-                                html.Label("Objekt", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                html.Label(
+                                    "Objekt",
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "marginBottom": "4px",
+                                        "display": "block",
+                                    },
+                                ),
                                 dcc.Dropdown(
                                     id="stoer-objekt-dropdown",
                                     options=[],
@@ -89,7 +104,15 @@ layout = html.Div(
                         ),
                         html.Div(
                             [
-                                html.Label("Msr", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                html.Label(
+                                    "Msr",
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "marginBottom": "4px",
+                                        "display": "block",
+                                    },
+                                ),
                                 dcc.Dropdown(
                                     id="stoer-msr-dropdown",
                                     options=[],
@@ -103,7 +126,15 @@ layout = html.Div(
                         ),
                         html.Div(
                             [
-                                html.Label("Meldung", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                html.Label(
+                                    "Meldung",
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "marginBottom": "4px",
+                                        "display": "block",
+                                    },
+                                ),
                                 dcc.Dropdown(
                                     id="stoer-meldung-dropdown",
                                     options=[],
@@ -117,7 +148,15 @@ layout = html.Div(
                         ),
                         html.Div(
                             [
-                                html.Label("Prio", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                html.Label(
+                                    "Prio",
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "marginBottom": "4px",
+                                        "display": "block",
+                                    },
+                                ),
                                 dcc.Dropdown(
                                     id="stoer-prio-dropdown",
                                     options=[],
@@ -131,7 +170,15 @@ layout = html.Div(
                         ),
                         html.Div(
                             [
-                                html.Label("Ort", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                html.Label(
+                                    "Ort",
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "marginBottom": "4px",
+                                        "display": "block",
+                                    },
+                                ),
                                 dcc.Dropdown(
                                     id="stoer-ort-dropdown",
                                     options=[],
@@ -145,7 +192,15 @@ layout = html.Div(
                         ),
                         html.Div(
                             [
-                                html.Label("Zustand", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                html.Label(
+                                    "Zustand",
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "marginBottom": "4px",
+                                        "display": "block",
+                                    },
+                                ),
                                 dcc.Dropdown(
                                     id="stoer-zustand-dropdown",
                                     options=[],
@@ -159,7 +214,15 @@ layout = html.Div(
                         ),
                         html.Div(
                             [
-                                html.Label("Benutzer", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                html.Label(
+                                    "Benutzer",
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "marginBottom": "4px",
+                                        "display": "block",
+                                    },
+                                ),
                                 dcc.Dropdown(
                                     id="stoer-benutzer-dropdown",
                                     options=[],
@@ -171,14 +234,27 @@ layout = html.Div(
                             ],
                         ),
                     ],
-                    style={"display": "flex", "flexWrap": "wrap", "alignItems": "flex-start", "marginBottom": "16px"},
+                    style={
+                        "display": "flex",
+                        "flexWrap": "wrap",
+                        "alignItems": "flex-start",
+                        "marginBottom": "16px",
+                    },
                 ),
                 # Zeile 2: Steuerung
                 html.Div(
                     [
                         html.Div(
                             [
-                                html.Label("Top N", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                html.Label(
+                                    "Top N",
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "marginBottom": "4px",
+                                        "display": "block",
+                                    },
+                                ),
                                 dcc.Dropdown(
                                     id="stoer-topn-dropdown",
                                     options=[
@@ -197,7 +273,15 @@ layout = html.Div(
                         ),
                         html.Div(
                             [
-                                html.Label("Y-Achse", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                html.Label(
+                                    "Y-Achse",
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "marginBottom": "4px",
+                                        "display": "block",
+                                    },
+                                ),
                                 dcc.RadioItems(
                                     id="stoer-yaxis-toggle",
                                     options=[
@@ -219,7 +303,15 @@ layout = html.Div(
                         ),
                         html.Div(
                             [
-                                html.Label("Ansicht", style={"fontFamily": "Arial", "fontWeight": "bold", "marginBottom": "4px", "display": "block"}),
+                                html.Label(
+                                    "Ansicht",
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontWeight": "bold",
+                                        "marginBottom": "4px",
+                                        "display": "block",
+                                    },
+                                ),
                                 dcc.RadioItems(
                                     id="stoer-view-toggle",
                                     options=[
@@ -264,7 +356,13 @@ layout = html.Div(
             [
                 html.Summary(
                     "Zeitverlauf (Events pro Tag)",
-                    style={"fontFamily": "Arial", "fontWeight": "bold", "cursor": "pointer", "fontSize": "16px", "marginBottom": "5px"},
+                    style={
+                        "fontFamily": "Arial",
+                        "fontWeight": "bold",
+                        "cursor": "pointer",
+                        "fontSize": "16px",
+                        "marginBottom": "5px",
+                    },
                 ),
                 dcc.Graph(id="stoer-timeline-mini", config={"displayModeBar": False}),
             ],
@@ -274,7 +372,12 @@ layout = html.Div(
             [
                 html.Summary(
                     "Extremwerte entfernen",
-                    style={"fontFamily": "Arial", "fontWeight": "bold", "cursor": "pointer", "fontSize": "16px"},
+                    style={
+                        "fontFamily": "Arial",
+                        "fontWeight": "bold",
+                        "cursor": "pointer",
+                        "fontSize": "16px",
+                    },
                 ),
                 html.Div(
                     [
@@ -291,14 +394,26 @@ layout = html.Div(
                                     min=0,
                                     step=1,
                                     placeholder="z.B. 5000",
-                                    style={"width": "120px", "fontFamily": "Arial", "padding": "5px"},
+                                    style={
+                                        "width": "120px",
+                                        "fontFamily": "Arial",
+                                        "padding": "5px",
+                                    },
                                 ),
                                 html.Span(
                                     " (Tage mit mehr Events werden entfernt, leer = aus)",
-                                    style={"fontFamily": "Arial", "fontSize": "12px", "marginLeft": "5px"},
+                                    style={
+                                        "fontFamily": "Arial",
+                                        "fontSize": "12px",
+                                        "marginLeft": "5px",
+                                    },
                                 ),
                             ],
-                            style={"display": "inline-block", "marginRight": "20px", "verticalAlign": "top"},
+                            style={
+                                "display": "inline-block",
+                                "marginRight": "20px",
+                                "verticalAlign": "top",
+                            },
                         ),
                         html.Div(
                             [
@@ -319,11 +434,17 @@ layout = html.Div(
                                     style={"width": "220px", "fontFamily": "Arial"},
                                 ),
                             ],
-                            style={"display": "inline-block", "marginRight": "20px", "verticalAlign": "top"},
+                            style={
+                                "display": "inline-block",
+                                "marginRight": "20px",
+                                "verticalAlign": "top",
+                            },
                         ),
                         html.Div(
                             [
-                                html.Label("Manuelle Tage ausschliessen", style={"fontFamily": "Arial"}),
+                                html.Label(
+                                    "Manuelle Tage ausschliessen", style={"fontFamily": "Arial"}
+                                ),
                                 dcc.Dropdown(
                                     id="stoer-manual-exclude",
                                     options=[],
@@ -351,7 +472,9 @@ layout = html.Div(
                 ),
                 html.Div(
                     [
-                        html.Label("Y-Achse Skala:", style={"fontFamily": "Arial", "marginRight": "10px"}),
+                        html.Label(
+                            "Y-Achse Skala:", style={"fontFamily": "Arial", "marginRight": "10px"}
+                        ),
                         dcc.RadioItems(
                             id="stoer-dist-scale",
                             options=[
@@ -367,7 +490,13 @@ layout = html.Div(
                 ),
                 dcc.Graph(id="stoer-distribution-plot", config={"displayModeBar": False}),
             ],
-            style={"marginTop": "10px", "marginBottom": "20px", "padding": "10px", "backgroundColor": "#E0F0E0", "borderRadius": "5px"},
+            style={
+                "marginTop": "10px",
+                "marginBottom": "20px",
+                "padding": "10px",
+                "backgroundColor": "#E0F0E0",
+                "borderRadius": "5px",
+            },
         ),
         # ---- Hauptplot ----
         dcc.Graph(
@@ -406,10 +535,28 @@ layout = html.Div(
     prevent_initial_call=True,
 )
 def reset_filters(n_clicks):
-    return ["Störmeldungen"], [], [], [], [], [], [], [], "absolut", 10, "Meldung", None, "off", [], "log"
+    return (
+        ["Störmeldungen"],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        "absolut",
+        10,
+        "Meldung",
+        None,
+        "off",
+        [],
+        "log",
+    )
 
 
-def _apply_filters(dff, evttyp, objekt, msr, meldung, prio=None, ort=None, zustand=None, benutzer=None):
+def _apply_filters(
+    dff, evttyp, objekt, msr, meldung, prio=None, ort=None, zustand=None, benutzer=None
+):
     if evttyp:
         dff = dff[dff["evtTyp"].isin(evttyp)]
     if objekt:
@@ -450,7 +597,7 @@ def _get_excluded_days(dff, threshold_abs, sigma_choice, manual_excludes):
         except (ValueError, TypeError):
             pass
 
-    for d_str in (manual_excludes or []):
+    for d_str in manual_excludes or []:
         excluded.add(pd.Timestamp(d_str))
 
     return excluded
@@ -552,8 +699,9 @@ def update_benutzer_options(evttyp, objekt, msr, meldung, prio, ort, zustand):
     Input("stoer-zustand-dropdown", "value"),
     Input("stoer-benutzer-dropdown", "value"),
 )
-def update_manual_exclude_options(slider_value, evttyp, objekt, msr, meldung,
-                                  prio, ort, zustand, benutzer):
+def update_manual_exclude_options(
+    slider_value, evttyp, objekt, msr, meldung, prio, ort, zustand, benutzer
+):
     start_idx, end_idx = slider_value
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
@@ -563,7 +711,10 @@ def update_manual_exclude_options(slider_value, evttyp, objekt, msr, meldung,
 
     available_days = sorted(dff["Datum"].dt.normalize().unique())
     return [
-        {"label": pd.Timestamp(d).strftime("%Y-%m-%d"), "value": pd.Timestamp(d).strftime("%Y-%m-%d")}
+        {
+            "label": pd.Timestamp(d).strftime("%Y-%m-%d"),
+            "value": pd.Timestamp(d).strftime("%Y-%m-%d"),
+        }
         for d in available_days
     ]
 
@@ -583,9 +734,20 @@ def update_manual_exclude_options(slider_value, evttyp, objekt, msr, meldung,
     Input("stoer-outlier-sigma", "value"),
     Input("stoer-manual-exclude", "value"),
 )
-def update_exclude_stats(slider_value, evttyp, objekt, msr, meldung,
-                         prio, ort, zustand, benutzer,
-                         threshold_abs, sigma_choice, manual_excludes):
+def update_exclude_stats(
+    slider_value,
+    evttyp,
+    objekt,
+    msr,
+    meldung,
+    prio,
+    ort,
+    zustand,
+    benutzer,
+    threshold_abs,
+    sigma_choice,
+    manual_excludes,
+):
     start_idx, end_idx = slider_value
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
@@ -602,17 +764,25 @@ def update_exclude_stats(slider_value, evttyp, objekt, msr, meldung,
     excluded = _get_excluded_days(dff, threshold_abs, sigma_choice, manual_excludes)
 
     if not excluded:
-        return f"Keine Tage entfernt. Daten: {total_events:,} Events an {total_days} Tagen.".replace(",", "'")
+        return (
+            f"Keine Tage entfernt. Daten: {total_events:,} Events an {total_days} Tagen.".replace(
+                ",", "'"
+            )
+        )
 
     excluded_events = len(dff[dff["Datum"].dt.normalize().isin(excluded)])
     pct_days = len(excluded) / total_days * 100 if total_days > 0 else 0
     pct_events = excluded_events / total_events * 100 if total_events > 0 else 0
 
-    return html.Div([
-        html.B("Entfernt: "),
-        f"{len(excluded)} von {total_days} Tagen ({pct_days:.1f}%) – "
-        f"{excluded_events:,} von {total_events:,} Events ({pct_events:.1f}%)".replace(",", "'"),
-    ])
+    return html.Div(
+        [
+            html.B("Entfernt: "),
+            f"{len(excluded)} von {total_days} Tagen ({pct_days:.1f}%) – "
+            f"{excluded_events:,} von {total_events:,} Events ({pct_events:.1f}%)".replace(
+                ",", "'"
+            ),
+        ]
+    )
 
 
 @callback(
@@ -630,9 +800,20 @@ def update_exclude_stats(slider_value, evttyp, objekt, msr, meldung,
     Input("stoer-threshold-input", "value"),
     Input("stoer-dist-scale", "value"),
 )
-def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
-                              prio, ort, zustand, benutzer,
-                              sigma_choice, threshold_abs, scale_mode):
+def update_distribution_plot(
+    slider_value,
+    evttyp,
+    objekt,
+    msr,
+    meldung,
+    prio,
+    ort,
+    zustand,
+    benutzer,
+    sigma_choice,
+    threshold_abs,
+    scale_mode,
+):
     import numpy as np
 
     start_idx, end_idx = slider_value
@@ -652,8 +833,14 @@ def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
             xaxis=dict(visible=False),
             yaxis=dict(visible=False),
         )
-        fig.add_annotation(text="Zu wenig Daten für Verteilung",
-                          x=0.5, y=0.5, xref="paper", yref="paper", showarrow=False)
+        fig.add_annotation(
+            text="Zu wenig Daten für Verteilung",
+            x=0.5,
+            y=0.5,
+            xref="paper",
+            yref="paper",
+            showarrow=False,
+        )
         return fig
 
     daily_counts = dff.groupby(dff["Datum"].dt.normalize()).size()
@@ -695,7 +882,8 @@ def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
     )
 
     fig.add_vline(
-        x=mean, line=dict(color="blue", width=2, dash="solid"),
+        x=mean,
+        line=dict(color="blue", width=2, dash="solid"),
         annotation_text=f"Ø {mean:.0f}",
         annotation_position="top",
     )
@@ -705,7 +893,8 @@ def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
             n_sigma = int(sigma_choice)
             upper = mean + n_sigma * std
             fig.add_vline(
-                x=upper, line=dict(color="red", width=2, dash="dash"),
+                x=upper,
+                line=dict(color="red", width=2, dash="dash"),
                 annotation_text=f"+{n_sigma}σ",
                 annotation_position="top",
             )
@@ -714,7 +903,8 @@ def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
 
     if threshold_abs is not None and threshold_abs > 0:
         fig.add_vline(
-            x=threshold_abs, line=dict(color="orange", width=2, dash="dot"),
+            x=threshold_abs,
+            line=dict(color="orange", width=2, dash="dot"),
             annotation_text=f"Threshold {int(threshold_abs)}",
             annotation_position="top",
         )
@@ -752,9 +942,20 @@ def update_distribution_plot(slider_value, evttyp, objekt, msr, meldung,
     Input("stoer-outlier-sigma", "value"),
     Input("stoer-manual-exclude", "value"),
 )
-def update_timeline(slider_value, evttyp, objekt, msr, meldung,
-                    prio, ort, zustand, benutzer,
-                    threshold_abs, sigma_choice, manual_excludes):
+def update_timeline(
+    slider_value,
+    evttyp,
+    objekt,
+    msr,
+    meldung,
+    prio,
+    ort,
+    zustand,
+    benutzer,
+    threshold_abs,
+    sigma_choice,
+    manual_excludes,
+):
     start_idx, end_idx = slider_value
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
@@ -772,8 +973,9 @@ def update_timeline(slider_value, evttyp, objekt, msr, meldung,
             xaxis=dict(visible=False),
             yaxis=dict(visible=False),
         )
-        fig.add_annotation(text="Keine Daten", x=0.5, y=0.5,
-                          xref="paper", yref="paper", showarrow=False)
+        fig.add_annotation(
+            text="Keine Daten", x=0.5, y=0.5, xref="paper", yref="paper", showarrow=False
+        )
         return fig
 
     daily = dff.groupby(dff["Datum"].dt.normalize()).size().reset_index()
@@ -783,26 +985,39 @@ def update_timeline(slider_value, evttyp, objekt, msr, meldung,
     daily["status"] = daily["Tag"].apply(lambda d: "entfernt" if d in excluded else "behalten")
 
     fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=daily["Tag"], y=daily["Anzahl"],
-        mode="lines", line=dict(color="lightgray", width=1),
-        hoverinfo="skip", showlegend=False,
-    ))
+    fig.add_trace(
+        go.Scatter(
+            x=daily["Tag"],
+            y=daily["Anzahl"],
+            mode="lines",
+            line=dict(color="lightgray", width=1),
+            hoverinfo="skip",
+            showlegend=False,
+        )
+    )
     keep = daily[daily["status"] == "behalten"]
-    fig.add_trace(go.Scatter(
-        x=keep["Tag"], y=keep["Anzahl"],
-        mode="markers", marker=dict(color="#2ca02c", size=6),
-        name="behalten",
-        hovertemplate="%{x|%Y-%m-%d}<br>Anzahl: %{y}<extra></extra>",
-    ))
+    fig.add_trace(
+        go.Scatter(
+            x=keep["Tag"],
+            y=keep["Anzahl"],
+            mode="markers",
+            marker=dict(color="#2ca02c", size=6),
+            name="behalten",
+            hovertemplate="%{x|%Y-%m-%d}<br>Anzahl: %{y}<extra></extra>",
+        )
+    )
     rem = daily[daily["status"] == "entfernt"]
     if not rem.empty:
-        fig.add_trace(go.Scatter(
-            x=rem["Tag"], y=rem["Anzahl"],
-            mode="markers", marker=dict(color="red", size=8, symbol="x"),
-            name="entfernt",
-            hovertemplate="%{x|%Y-%m-%d}<br>Anzahl: %{y}<br>ENTFERNT<extra></extra>",
-        ))
+        fig.add_trace(
+            go.Scatter(
+                x=rem["Tag"],
+                y=rem["Anzahl"],
+                mode="markers",
+                marker=dict(color="red", size=8, symbol="x"),
+                name="entfernt",
+                hovertemplate="%{x|%Y-%m-%d}<br>Anzahl: %{y}<br>ENTFERNT<extra></extra>",
+            )
+        )
 
     fig.update_layout(
         height=180,
@@ -836,10 +1051,23 @@ def update_timeline(slider_value, evttyp, objekt, msr, meldung,
     Input("stoer-outlier-sigma", "value"),
     Input("stoer-manual-exclude", "value"),
 )
-def update_bar_chart(slider_value, evttyp, objekt, msr, meldung,
-                     prio, ort, zustand, benutzer,
-                     top_n, view_mode, y_col,
-                     threshold_abs, sigma_choice, manual_excludes):
+def update_bar_chart(
+    slider_value,
+    evttyp,
+    objekt,
+    msr,
+    meldung,
+    prio,
+    ort,
+    zustand,
+    benutzer,
+    top_n,
+    view_mode,
+    y_col,
+    threshold_abs,
+    sigma_choice,
+    manual_excludes,
+):
     start_idx, end_idx = slider_value
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
@@ -854,11 +1082,17 @@ def update_bar_chart(slider_value, evttyp, objekt, msr, meldung,
     if dff.empty:
         fig = px.bar(
             pd.DataFrame({y_col: [], "Wert": []}),
-            x="Wert", y=y_col, orientation="h",
+            x="Wert",
+            y=y_col,
+            orientation="h",
             title="Keine Daten im gewählten Zeitraum/Filter",
         )
-        fig.update_layout(plot_bgcolor="#F0FFF0", paper_bgcolor="#F0FFF0",
-                          font=dict(family="Arial", color="black"), showlegend=False)
+        fig.update_layout(
+            plot_bgcolor="#F0FFF0",
+            paper_bgcolor="#F0FFF0",
+            font=dict(family="Arial", color="black"),
+            showlegend=False,
+        )
         return fig
 
     counts = dff[y_col].value_counts()
@@ -866,10 +1100,12 @@ def update_bar_chart(slider_value, evttyp, objekt, msr, meldung,
         counts = counts.head(int(top_n))
     counts = counts.sort_values(ascending=True)
 
-    plot_df = pd.DataFrame({
-        y_col: counts.index.astype(str).tolist(),
-        "Anzahl": counts.values.tolist(),
-    })
+    plot_df = pd.DataFrame(
+        {
+            y_col: counts.index.astype(str).tolist(),
+            "Anzahl": counts.values.tolist(),
+        }
+    )
 
     total = len(dff)
     if view_mode == "prozentual":
@@ -886,15 +1122,21 @@ def update_bar_chart(slider_value, evttyp, objekt, msr, meldung,
     n_label = "Alle" if top_n == "ALL" else top_n
     excl_suffix = f" ({len(excluded)} Tage entfernt)" if excluded else ""
     fig = px.bar(
-        plot_df, x="Wert", y=y_col, orientation="h",
-        color=y_col, text="text",
+        plot_df,
+        x="Wert",
+        y=y_col,
+        orientation="h",
+        color=y_col,
+        text="text",
         color_discrete_sequence=px.colors.qualitative.Plotly,
         title=f"Top {n_label} {y_col} im gewählten Zeitraum{excl_suffix}",
     )
     fig.update_traces(textposition="outside")
     fig.update_layout(
-        xaxis_title=x_title, yaxis_title=y_col,
-        plot_bgcolor="#F0FFF0", paper_bgcolor="#F0FFF0",
+        xaxis_title=x_title,
+        yaxis_title=y_col,
+        plot_bgcolor="#F0FFF0",
+        paper_bgcolor="#F0FFF0",
         font=dict(family="Arial", color="black"),
         margin=dict(l=220, r=40, t=60, b=40),
         showlegend=False,

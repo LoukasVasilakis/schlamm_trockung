@@ -1,7 +1,7 @@
 import dash
 import pandas as pd
-import psycopg2
 import plotly.io as pio
+import psycopg2
 from dash import dcc, html
 
 
@@ -32,13 +32,7 @@ def load_data():
     df = df.dropna(subset=["Datum"]).copy()
     df["Meldung"] = df["Meldung"].fillna("").astype(str)
 
-    dates = pd.to_datetime(
-        df["Datum"]
-        .dropna()
-        .sort_values()
-        .dt.normalize()
-        .unique()
-    )
+    dates = pd.to_datetime(df["Datum"].dropna().sort_values().dt.normalize().unique())
 
     return df, dates
 
@@ -63,10 +57,7 @@ app.layout = html.Div(
             "STRAG AG",
             style={"textAlign": "center", "fontFamily": "Arial", "marginBottom": "10px"},
         ),
-
-
         html.H3("Datum auswählen", style={"fontFamily": "Arial"}),
-
         html.Div(
             dcc.DatePickerRange(
                 id="date-picker-range",
@@ -79,7 +70,6 @@ app.layout = html.Div(
             ),
             style={"display": "inline-block", "marginBottom": "10px"},
         ),
-
         html.Div(
             dcc.RangeSlider(
                 min=0,
@@ -94,12 +84,10 @@ app.layout = html.Div(
             ),
             className="slider-wrapper",
         ),
-
         html.Div(
             id="output-date",
             style={"marginTop": "10px", "marginBottom": "20px", "fontFamily": "Arial"},
         ),
-
         dash.page_container,
     ],
     style={
@@ -111,7 +99,6 @@ app.layout = html.Div(
     },
 )
 
-import callbacks
 
 if __name__ == "__main__":
     app.run(debug=True)

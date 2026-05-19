@@ -31,13 +31,7 @@ def load_data():
     df = df.dropna(subset=["Datum"]).copy()
     df["Meldung"] = df["Meldung"].fillna("").astype(str)
 
-    dates = pd.to_datetime(
-        df["Datum"]
-        .dropna()
-        .sort_values()
-        .dt.normalize()
-        .unique()
-    )
+    dates = pd.to_datetime(df["Datum"].dropna().sort_values().dt.normalize().unique())
 
     return df, dates
 
