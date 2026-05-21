@@ -88,9 +88,14 @@ def main():
 
     with sqlite3.connect(DB_FILE) as connection:
         for csv_file in csv_files:
-            import_csv_file(connection, csv_file)
-            os.remove(csv_file)
-        connection.commit()
+            try:
+                import_csv_file(connection, csv_file)
+                os.remove(csv_file)
+            except Exception as e:
+                print(f"Fehler beim Importieren oder Löschen von {csv_file}: {e}")
+                continue
+            else:
+                connection.commit()
 
     print(f"Import abgeschlossen. {len(csv_files)} Dateien verarbeitet.")
 
