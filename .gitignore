@@ -4,3 +4,5 @@ db/docker/.env
 *.pyc
 /src/pro2db_ausfaelle_in_schlammtrocknungsanlage.egg-info/
 .idea
+*.sqlite
+*.log
