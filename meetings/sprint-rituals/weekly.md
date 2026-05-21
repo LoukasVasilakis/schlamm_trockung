@@ -61,3 +61,9 @@ Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du näc
 
 ### Ausserordentlich
 Salomon erklärt, wieso Abstraktion (Nutzung von Utils-Package) wichtig ist.
+
+## 19.05.26
+### Anwesend
+Alle aus dem Projektteam
+
+Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten?
