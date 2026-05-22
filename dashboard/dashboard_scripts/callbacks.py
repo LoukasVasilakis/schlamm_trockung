@@ -25,8 +25,12 @@ def load_data():
         "Vincenzo Signorelli",
     )
 
-    df = df.dropna(subset=["Datum"]).copy()
+    df = df.dropna(subset=["Datum"])
     df["Meldung"] = df["Meldung"].fillna("").astype(str)
+
+    categorical_cols = ["evtTyp", "Prio", "Benutzer"]
+    for col in categorical_cols:
+        df[col] = df[col].astype("category")
 
     dates = pd.to_datetime(df["Datum"].dropna().sort_values().dt.normalize().unique())
 

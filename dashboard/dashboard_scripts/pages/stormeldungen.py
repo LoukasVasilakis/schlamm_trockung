@@ -27,11 +27,15 @@ def load_data():
         "Vinzenzo Signorelli",
         "Vincenzo Signorelli",
     )
-    df = df.dropna(subset=["Datum"]).copy()
+    df = df.dropna(subset=["Datum"])
 
-    for col in ["Meldung", "Msr", "Objekt", "evtTyp", "Prio", "Benutzer", "Ort", "Zustand"]:
+    categorical_cols = ["evtTyp", "Prio", "Zustand", "Ort", "Benutzer", "Objekt", "Msr"]
+    for col in ["Meldung"] + categorical_cols:
         df[col] = df[col].fillna("NaN").astype(str)
         df.loc[df[col].str.strip() == "", col] = "NaN"
+
+    for col in categorical_cols:
+        df[col] = df[col].astype("category")
 
     dates = pd.to_datetime(df["Datum"].dropna().sort_values().dt.normalize().unique())
 
@@ -42,7 +46,12 @@ df, dates = load_data()
 
 
 def build_simple_options(series):
-    return [{"label": v, "value": v} for v in sorted(series.dropna().astype(str).unique())]
+    if hasattr(series, "cat"):
+        # Faster unique() for categorical data
+        unique_vals = sorted(series.unique().dropna().astype(str))
+    else:
+        unique_vals = sorted(series.dropna().astype(str).unique())
+    return [{"label": v, "value": v} for v in unique_vals]
 
 
 if not __name__.startswith("test"):
@@ -554,32 +563,35 @@ def reset_filters(n_clicks):
 
 
 def _apply_filters(
-    dff, evttyp, objekt, msr, meldung, prio=None, ort=None, zustand=None, benutzer=None
+    df, evttyp, objekt, msr, meldung, prio=None, ort=None, zustand=None, benutzer=None
 ):
+    mask = pd.Series(True, index=df.index)
     if evttyp:
-        dff = dff[dff["evtTyp"].isin(evttyp)]
+        mask &= df["evtTyp"].isin(evttyp)
     if objekt:
-        dff = dff[dff["Objekt"].isin(objekt)]
+        mask &= df["Objekt"].isin(objekt)
     if msr:
-        dff = dff[dff["Msr"].isin(msr)]
+        mask &= df["Msr"].isin(msr)
     if meldung:
-        dff = dff[dff["Meldung"].isin(meldung)]
+        mask &= df["Meldung"].isin(meldung)
     if prio:
-        dff = dff[dff["Prio"].isin(prio)]
+        mask &= df["Prio"].isin(prio)
     if ort:
-        dff = dff[dff["Ort"].isin(ort)]
+        mask &= df["Ort"].isin(ort)
     if zustand:
-        dff = dff[dff["Zustand"].isin(zustand)]
+        mask &= df["Zustand"].isin(zustand)
     if benutzer:
-        dff = dff[dff["Benutzer"].isin(benutzer)]
-    return dff
+        mask &= df["Benutzer"].isin(benutzer)
+    return df[mask]
 
 
 def _get_excluded_days(dff, threshold_abs, sigma_choice, manual_excludes):
     if dff.empty:
         return set()
 
-    daily_counts = dff.groupby(dff["Datum"].dt.normalize()).size()
+    # Pre-calculate normalized dates to avoid repeated .dt.normalize() calls
+    normalized_dates = dff["Datum"].dt.normalize()
+    daily_counts = normalized_dates.value_counts()
     excluded = set()
 
     if threshold_abs is not None and threshold_abs > 0:
@@ -617,7 +629,7 @@ def update_objekt_options(evttyp):
     Input("stoer-objekt-dropdown", "value"),
 )
 def update_msr_options(evttyp, objekt):
-    dff = _apply_filters(df.copy(), evttyp, objekt, [], [])
+    dff = _apply_filters(df, evttyp, objekt, [], [])
     return build_simple_options(dff["Msr"])
 
 
@@ -628,7 +640,7 @@ def update_msr_options(evttyp, objekt):
     Input("stoer-msr-dropdown", "value"),
 )
 def update_meldung_options(evttyp, objekt, msr):
-    dff = _apply_filters(df.copy(), evttyp, objekt, msr, [])
+    dff = _apply_filters(df, evttyp, objekt, msr, [])
     return build_simple_options(dff["Meldung"])
 
 
@@ -640,7 +652,7 @@ def update_meldung_options(evttyp, objekt, msr):
     Input("stoer-meldung-dropdown", "value"),
 )
 def update_prio_options(evttyp, objekt, msr, meldung):
-    dff = _apply_filters(df.copy(), evttyp, objekt, msr, meldung)
+    dff = _apply_filters(df, evttyp, objekt, msr, meldung)
     return build_simple_options(dff["Prio"])
 
 
@@ -653,7 +665,7 @@ def update_prio_options(evttyp, objekt, msr, meldung):
     Input("stoer-prio-dropdown", "value"),
 )
 def update_ort_options(evttyp, objekt, msr, meldung, prio):
-    dff = _apply_filters(df.copy(), evttyp, objekt, msr, meldung, prio)
+    dff = _apply_filters(df, evttyp, objekt, msr, meldung, prio)
     return build_simple_options(dff["Ort"])
 
 
@@ -667,7 +679,7 @@ def update_ort_options(evttyp, objekt, msr, meldung, prio):
     Input("stoer-ort-dropdown", "value"),
 )
 def update_zustand_options(evttyp, objekt, msr, meldung, prio, ort):
-    dff = _apply_filters(df.copy(), evttyp, objekt, msr, meldung, prio, ort)
+    dff = _apply_filters(df, evttyp, objekt, msr, meldung, prio, ort)
     return build_simple_options(dff["Zustand"])
 
 
@@ -682,7 +694,7 @@ def update_zustand_options(evttyp, objekt, msr, meldung, prio, ort):
     Input("stoer-zustand-dropdown", "value"),
 )
 def update_benutzer_options(evttyp, objekt, msr, meldung, prio, ort, zustand):
-    dff = _apply_filters(df.copy(), evttyp, objekt, msr, meldung, prio, ort, zustand)
+    dff = _apply_filters(df, evttyp, objekt, msr, meldung, prio, ort, zustand)
     return build_simple_options(dff["Benutzer"])
 
 
@@ -705,7 +717,7 @@ def update_manual_exclude_options(
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
-    dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)].copy()
+    dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)]
     dff = _apply_filters(dff, evttyp, objekt, msr, meldung, prio, ort, zustand, benutzer)
 
     available_days = sorted(dff["Datum"].dt.normalize().unique())
@@ -751,7 +763,7 @@ def update_exclude_stats(
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
-    dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)].copy()
+    dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)]
     dff = _apply_filters(dff, evttyp, objekt, msr, meldung, prio, ort, zustand, benutzer)
 
     if dff.empty:
@@ -819,7 +831,7 @@ def update_distribution_plot(
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
-    dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)].copy()
+    dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)]
     dff = _apply_filters(dff, evttyp, objekt, msr, meldung, prio, ort, zustand, benutzer)
 
     if dff.empty or dff["Datum"].dt.normalize().nunique() < 2:
@@ -959,7 +971,7 @@ def update_timeline(
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
-    dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)].copy()
+    dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)]
     dff = _apply_filters(dff, evttyp, objekt, msr, meldung, prio, ort, zustand, benutzer)
 
     if dff.empty:
@@ -977,15 +989,18 @@ def update_timeline(
         )
         return fig
 
-    daily = dff.groupby(dff["Datum"].dt.normalize()).size().reset_index()
+    # Pre-calculate normalized dates to avoid repeated .dt.normalize() calls
+    normalized_dates = dff["Datum"].dt.normalize()
+    daily = normalized_dates.value_counts().reset_index()
     daily.columns = ["Tag", "Anzahl"]
+    daily = daily.sort_values("Tag")
 
     excluded = _get_excluded_days(dff, threshold_abs, sigma_choice, manual_excludes)
     daily["status"] = daily["Tag"].apply(lambda d: "entfernt" if d in excluded else "behalten")
 
     fig = go.Figure()
     fig.add_trace(
-        go.Scatter(
+        go.Scattergl(
             x=daily["Tag"],
             y=daily["Anzahl"],
             mode="lines",
@@ -996,7 +1011,7 @@ def update_timeline(
     )
     keep = daily[daily["status"] == "behalten"]
     fig.add_trace(
-        go.Scatter(
+        go.Scattergl(
             x=keep["Tag"],
             y=keep["Anzahl"],
             mode="markers",
@@ -1008,7 +1023,7 @@ def update_timeline(
     rem = daily[daily["status"] == "entfernt"]
     if not rem.empty:
         fig.add_trace(
-            go.Scatter(
+            go.Scattergl(
                 x=rem["Tag"],
                 y=rem["Anzahl"],
                 mode="markers",
@@ -1071,11 +1086,14 @@ def update_bar_chart(
     start_date = dates[start_idx]
     end_date = dates[end_idx] + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
 
-    dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)].copy()
+    dff = df[(df["Datum"] >= start_date) & (df["Datum"] <= end_date)]
     dff = _apply_filters(dff, evttyp, objekt, msr, meldung, prio, ort, zustand, benutzer)
 
     excluded = _get_excluded_days(dff, threshold_abs, sigma_choice, manual_excludes)
     if excluded:
+        # Use boolean indexing on the original dff instead of
+        # .dt.normalize() in the mask if possible
+        # but excluded contains Timestamps, so this is already quite efficient.
         dff = dff[~dff["Datum"].dt.normalize().isin(excluded)]
 
     if dff.empty:
