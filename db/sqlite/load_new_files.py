@@ -4,10 +4,11 @@ import sqlite3
 from datetime import datetime
 from pathlib import Path
 
-BASE_DIR = Path("C:/Temp")
-
+BASE_DIR = Path(__file__).resolve().parent
 DB_FILE = BASE_DIR / "events.sqlite"
-FILE_DIR = BASE_DIR / "import"
+# Assuming there's an 'import' directory in db/sqlite or elsewhere.
+# Let's make it configurable via environment or default to a local 'import' folder.
+FILE_DIR = Path(os.getenv("IMPORT_DATA_PATH", str(BASE_DIR / "import")))
 
 
 def parse_datum(value: str):

@@ -1,18 +1,15 @@
+import sqlite3
+from pathlib import Path
+
 import dash
 import pandas as pd
 import plotly.io as pio
-import psycopg2
 from dash import dcc, html
 
 
 def load_data():
-    conn = psycopg2.connect(
-        dbname="pro2d_db",
-        user="postgres",
-        password="postgres",
-        host="localhost",
-        port="5432",
-    )
+    db_path = Path(__file__).resolve().parent.parent.parent / "db" / "sqlite" / "events.sqlite"
+    conn = sqlite3.connect(db_path)
 
     df = pd.read_sql(
         'SELECT "Datum", "Meldung", "evtTyp", "Prio", "Benutzer" FROM events',
@@ -100,5 +97,9 @@ app.layout = html.Div(
 )
 
 
-if __name__ == "__main__":
+def main():
     app.run(debug=True)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,4 +1,15 @@
+import sqlite3
+from pathlib import Path
+
 import pandas as pd
+
+# Path to SQLite database relative to the project root
+DB_PATH = Path(__file__).resolve().parent.parent.parent / "db" / "sqlite" / "events.sqlite"
+
+
+def get_db_connection():
+    """Returns a connection to the SQLite database."""
+    return sqlite3.connect(DB_PATH)
 
 
 class EventDataSource:

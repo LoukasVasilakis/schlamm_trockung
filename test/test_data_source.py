@@ -1,21 +1,17 @@
-import os
+import sqlite3
 from collections.abc import Generator
+from pathlib import Path
 
 import pandas as pd
-import psycopg2
 import pytest
-from psycopg2.extensions import connection
 
 from utils.db_interaction import EventDataSource
 
 
 @pytest.fixture
-def connection() -> Generator[connection, None, None]:
-    host = "db" if os.getenv("GITLAB_CI") else "localhost"
-
-    conn = psycopg2.connect(
-        dbname="pro2d_db", user="postgres", password="postgres", host=host, port="5432"
-    )
+def connection() -> Generator[sqlite3.Connection, None, None]:
+    db_path = Path(__file__).resolve().parent.parent / "db" / "sqlite" / "events.sqlite"
+    conn = sqlite3.connect(db_path)
 
     yield conn
     conn.close()

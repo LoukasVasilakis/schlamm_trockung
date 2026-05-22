@@ -6,11 +6,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 
 DB_FILE = BASE_DIR / "events.sqlite"
-CSV_DIR = Path(
-    "C:/Users/janis/OneDrive - FHNW/"
-    "P-pro2Db_Ausfälle-in-Schlammtrockungsanlage_M365 - STRAG AG/"
-    "Data/Logger"
-)
+# To be changed
+CSV_DIR = Path(__file__).resolve().parent.parent.parent / "test" / "data"
 
 
 CREATE_TABLE_SQL = """
