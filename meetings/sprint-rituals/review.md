@@ -33,3 +33,18 @@ Alle Projektteilnehmer, Barbara, Salomon, kundenseitig Daniel und Vinzenco
     - Barbara: Test des Dashboard für Daniel, evt. lokal bei ihm auf dem Computer? Daniel hat einen eigenen Laptop mit Windows 11.
 
 - Führung durch die STRAGAG.
+
+## Sprint 3 Review
+### Anwesend
+Harman, Alessandro, Florin, Janis, Melanie, kundenseitig Daniel
+
+### Vorbesprechung am Morgen
+- Vorbereitete Präsentation angeschaut und ergänzt
+
+### Besprochen wurde
+- Dashboard angeschaut
+- Offene Punkte: Datenloch, AI-Governance
+- Rückblick auf alle Sprints
+- Weiteres Potenzial für dieses Projekt
+- Was haben wir gelernt?
+- Zugriff aufs Repo für Dani -> Zip ins Teams nachdem alles in Main gemerged wurde

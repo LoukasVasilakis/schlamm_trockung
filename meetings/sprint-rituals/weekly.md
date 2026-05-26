@@ -2,7 +2,7 @@
 ### Anwesend
 Alle Projektteilnehmer
 
-Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten.
+Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten?
 
 ### Ausserordentlich
 Agenda für Weekly nächste Woche:
@@ -14,7 +14,7 @@ Agenda für Weekly nächste Woche:
 ### Anwesend
 Alle Projektteilnehmer
 
-Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten.
+Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten?
 
 ### Ausserordentlich
 - Demo Pipeline -> Melanie zeigt die Pipeline und precommits
@@ -33,7 +33,7 @@ Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du näc
 ### Anwesend
 Alessandro, Janis, Loukas, Harman, Melanie
 
-Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten.
+Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten?
 
 ### Ausserordentlich
 Loukas zeigt die Dashboard-Übersichtsseite, welche er bereits erstellt hat.
@@ -42,7 +42,7 @@ Loukas zeigt die Dashboard-Übersichtsseite, welche er bereits erstellt hat.
 ### Anwesend
 Alle aus dem Projektteam
 
-Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten.
+Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten?
 
 ### Ausserordentlich
 Florin wird ein Video erstellen, welches das Laden der Daten nochmals beschreibt. So können die neuen Daten nachgeladen werden.
@@ -51,4 +51,19 @@ Florin wird ein Video erstellen, welches das Laden der Daten nochmals beschreibt
 ### Anwesend
 Alle aus dem Projektteam
 
-Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten.
+Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten?
+
+## 12.05.26
+### Anwesend
+Alle aus dem Projektteam
+
+Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten?
+
+### Ausserordentlich
+Salomon erklärt, wieso Abstraktion (Nutzung von Utils-Package) wichtig ist.
+
+## 19.05.26
+### Anwesend
+Alle aus dem Projektteam
+
+Jeder beantwortet drei Fragen: Was hast du bis jetzt gemacht? Was machst du nächste Woche? Was für Probleme sind aufgetreten?
