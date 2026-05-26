@@ -21,3 +21,17 @@ Alle Projektteilnehmer
     - Vorbereitung der Meetings -> PO sollte Planning etwas besser vorbereiten, allenfalls Teilaufgaben abgeben
     - Readme / AI-Governance nicht korrekt -> Gewisse Punkte müssen angepasst / gelöscht werden
     - Ohne Lösung: "Mental-Load" zusammen mit anderen Modulen etwas gross, Kunde hat wieder ein Meeting verpasst
+
+## Sprint 3 Retro
+### Anwesend
+Harman, Alessandro, Florin, Janis, Melanie
+
+### Besprochen wurde
+- Was lief gut? Kommunikation, Kollaboration, Merge Requests, Projekt erfolgreich abgeschlossen mit Installation, Arbeiten eigenständig + pünktlich erledigt
+- Was lief nicht gut? 
+    - Issue Board -> Tasks sind müehsamer als Issues da sie auf dem Board nicht ersichtlich sind
+    - Feature doppelt implementiert -> Bessere Absprache
+    - Weeklys manchmal unnötig -> Leider Teil von agiler Entwicklung
+- Tipp von Salomon: Nutzt euch gegenseitig/Fachexperten/Externe noch mehr wo ihr schon wisst, wie/was
+- Assessment-Aufgaben verteilt: Janis bereitet "Personelle Präsentation", Melanie "Technische Präsentation" vor
+    - Treffpunkt 14:45 für finale Vorbereitungen
