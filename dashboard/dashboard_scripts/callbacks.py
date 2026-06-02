@@ -47,11 +47,14 @@ df, dates = load_data()
     Input("date-picker-range", "start_date"),
     Input("date-picker-range", "end_date"),
     Input("date-range-slider", "value"),
+    prevent_initial_call=False,
 )
 def sync_date_controls(start_date, end_date, slider_value):
-    trigger = dash.callback_context.triggered_id
+    """Synchronize date picker and range slider in both directions."""
+    trigger_id = dash.callback_context.triggered_id
 
-    if trigger == "date-picker-range":
+    # If date picker changed, update slider
+    if trigger_id in ["date-picker-range.start_date", "date-picker-range.end_date"]:
         if start_date is None or end_date is None:
             return dash.no_update, dash.no_update, dash.no_update
 
@@ -61,32 +64,42 @@ def sync_date_controls(start_date, end_date, slider_value):
         start_idx = dates.searchsorted(selected_start)
         end_idx = dates.searchsorted(selected_end)
 
+        # Clamp to valid range
         start_idx = max(0, min(start_idx, len(dates) - 1))
         end_idx = max(0, min(end_idx, len(dates) - 1))
 
         return [start_idx, end_idx], dash.no_update, dash.no_update
 
-    if trigger == "date-range-slider":
+    # If slider changed, update date picker
+    if trigger_id == "date-range-slider":
+        if slider_value is None or len(slider_value) < 2:
+            return dash.no_update, dash.no_update, dash.no_update
+
         start_idx, end_idx = slider_value
+        return dash.no_update, dates[start_idx].date(), dates[end_idx].date()
 
-        return (
-            dash.no_update,
-            dates[start_idx].date(),
-            dates[end_idx].date(),
-        )
-
-    return slider_value, start_date, end_date
+    # Initial call or state preservation
+    return dash.no_update, dash.no_update, dash.no_update
 
 
 @callback(
     Output("output-date", "children"),
+    Input("date-picker-range", "start_date"),
+    Input("date-picker-range", "end_date"),
     Input("date-range-slider", "value"),
+    prevent_initial_call=False,
 )
-def show_selected_dates(slider_value):
-    start_idx, end_idx = slider_value
+def show_selected_dates(start_date, end_date, slider_value):
+    """Display the selected date range from either the picker or slider."""
+    # Prefer date picker values if available
+    if start_date and end_date:
+        start = pd.to_datetime(start_date)
+        end = pd.to_datetime(end_date)
+    elif slider_value and len(slider_value) >= 2:
+        start_idx, end_idx = slider_value
+        start = dates[start_idx]
+        end = dates[end_idx]
+    else:
+        return ""
 
-    return (
-        f"Ausgewählter Zeitraum: "
-        f"{dates[start_idx].strftime('%Y-%m-%d')} "
-        f"bis {dates[end_idx].strftime('%Y-%m-%d')}"
-    )
+    return f"Ausgewählter Zeitraum: {start.strftime('%Y-%m-%d')} bis {end.strftime('%Y-%m-%d')}"

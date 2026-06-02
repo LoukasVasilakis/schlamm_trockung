@@ -6,6 +6,9 @@ import pandas as pd
 import plotly.io as pio
 from dash import dcc, html
 
+# Import callbacks to register them with the app
+from . import callbacks  # noqa: F401
+
 
 def load_data():
     db_path = Path(__file__).resolve().parent.parent.parent / "db" / "sqlite" / "events.sqlite"
