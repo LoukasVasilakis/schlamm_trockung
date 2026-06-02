@@ -1,13 +1,10 @@
-import os
-
-import psycopg2
+import sqlite3
+from pathlib import Path
 
 
 def test_db_connection():
-    host = "db" if os.getenv("GITLAB_CI") else "localhost"
-    conn = psycopg2.connect(
-        dbname="pro2d_db", user="postgres", password="postgres", host=host, port="5432"
-    )
+    db_path = Path(__file__).resolve().parent.parent / "db" / "sqlite" / "events.sqlite"
+    conn = sqlite3.connect(db_path)
 
     cur = conn.cursor()
 

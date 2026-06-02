@@ -111,6 +111,11 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
     pro2db_ausfaelle_in_schlammtrocknungsanlage/
     │
     ├── meetings/                   # Notizen und Protokolle von Meetings
+    │   ├──sprint-rituals/
+    │   │   ├── planning.md
+    │   │   ├── retro.md
+    │   │   ├── review.md
+    │   │   └── weekly.md
     │   ├── deepdive_09-03-2026.md
     │   ├── kickoff_24-02-26.md
     │   ├── kundenmeeting_02-03-26.md
@@ -121,16 +126,21 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
     ├── db/                         # Datenbank
     │   ├── docker/
     │   │   └── docker-compose.yml
-    │   └── init/
-    │       ├── 01_init.sql
-    │       └── 02_import_csv.sh
+    │   ├── init/
+    │   │   ├── 01_init.sql
+    │   │   └── 02_import_csv.sh
+    │   └── sqlite
+    │       ├── create_sqlite_load_csv.py
+    │       └── load_new_files.py
     │ 
     ├── notebooks/
+    │   └── .gitkeep
     │
     ├── src/
-    │   └── utils/
-    │       ├── __init__.py
-    │       └── db_interaction.py
+    │   ├── utils/
+    │   │   ├── __init__.py
+    │   │   └── db_interaction.py
+    │   └── .gitkeep
     │
     ├── test/                       # Automatisierte Code-Überprüfung
     │   ├── data/
@@ -145,8 +155,9 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
     │   └── test_stormeldungen.py
     │
     ├── scripts/                    
+    │   ├── create_task.bat
     │   ├── load_test_db.sh
-    │   └── use_ultis_package.py    # Eigene Funktionen
+    │   └── run_import.bat
     │
     ├── eda/                        # Explorative Datenanalyse
     │   ├── eda_documents/          # EDA Dokumentation
@@ -158,6 +169,8 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
     │       ├── error_analysis.py
     │       ├── error_analysis_2.ipynb
     │       ├── object_analysis.ipynb
+    │       ├── pls_data_analysis.ipynb
+    │       ├── pls_info_analysis.ipynb
     │       ├── top3_error_analysis.ipynb
     │       └── user_analysis.ipynb
     │
@@ -167,11 +180,9 @@ Wichtige Projektfragen wurden im [Miro-Board](https://miro.com/app/board/uXjVG7-
     │       ├── __init__.py
     │       ├── app.py
     │       ├── callbacks.py
-    │       ├── data_loader.py
     │       ├── assets/
     │       │   └── style.css
     │       └── pages/
-    │           ├── benutzer_balkendiagram.py
     │           └── stormeldungen.py 
     │
     ├── Readme.md                    # Projektbeschreibung und Nutzung

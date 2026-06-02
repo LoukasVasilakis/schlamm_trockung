@@ -1,4 +1,15 @@
+import sqlite3
+from pathlib import Path
+
 import pandas as pd
+
+# Path to SQLite database relative to the project root
+DB_PATH = Path(__file__).resolve().parent.parent.parent / "db" / "sqlite" / "events.sqlite"
+
+
+def get_db_connection():
+    """Returns a connection to the SQLite database."""
+    return sqlite3.connect(DB_PATH)
 
 
 class EventDataSource:
@@ -7,7 +18,9 @@ class EventDataSource:
 
     def get_all_events(self) -> pd.DataFrame:
         """Gibt alle Events aus der Datenbank zurück."""
-        return pd.read_sql("SELECT * FROM events", self.db)
+        df = pd.read_sql("SELECT * FROM events", self.db)
+        df["Datum"] = pd.to_datetime(df["Datum"], errors="coerce")
+        return df
 
     def get_cleaned_events(self) -> pd.DataFrame:
         """Gibt alle Events mit bereinigten Benutzernamen zurück."""
@@ -57,7 +70,6 @@ class EventDataSource:
     def get_time_analysis_data(self, df: pd.DataFrame | None = None) -> pd.DataFrame:
         """Gibt Daten mit erweiterten Zeitfeldern für die Analyse zurück."""
         df = self.get_cleaned_events() if df is None else df
-        df["Datum"] = pd.to_datetime(df["Datum"])
         df["Stunde"] = df["Datum"].dt.hour
         df["Wochentag"] = df["Datum"].dt.day_name()
         df["Ist_Wochenende"] = df["Datum"].dt.dayofweek >= 5
@@ -88,7 +100,6 @@ class EventDataSource:
     ) -> pd.DataFrame:
         """Gibt alle Events in einem bestimmten Zeitbereich zurück.(exclude end)"""
         df = self.get_cleaned_events() if df is None else df
-        df["Datum"] = pd.to_datetime(df["Datum"])
         start_dt = pd.to_datetime(start)
         end_dt = pd.to_datetime(end)
         return df[(df["Datum"] >= start_dt) & (df["Datum"] < end_dt)]

@@ -1,51 +1,72 @@
+import sqlite3
+from pathlib import Path
+
 import dash
+import pandas as pd
 import plotly.io as pio
 from dash import dcc, html
-from data_loader import dates
+
+# Import callbacks to register them with the app
+from . import callbacks  # noqa: F401
+
+
+def load_data():
+    db_path = Path(__file__).resolve().parent.parent.parent / "db" / "sqlite" / "events.sqlite"
+    conn = sqlite3.connect(db_path)
+
+    df = pd.read_sql(
+        'SELECT "Datum", "Meldung", "evtTyp", "Prio", "Benutzer" FROM events',
+        conn,
+    )
+
+    conn.close()
+
+    df["Datum"] = pd.to_datetime(df["Datum"], errors="coerce")
+    df = df.sort_values("Datum")
+
+    df["Benutzer"] = df["Benutzer"].replace(
+        "Vinzenzo Signorelli",
+        "Vincenzo Signorelli",
+    )
+
+    df = df.dropna(subset=["Datum"]).copy()
+    df["Meldung"] = df["Meldung"].fillna("").astype(str)
+
+    dates = pd.to_datetime(df["Datum"].dropna().sort_values().dt.normalize().unique())
+
+    return df, dates
+
+
+df, dates = load_data()
+
 
 # Dashboard Guidelines
-pio.templates["custom"] = pio.templates["plotly_white"]  # Plotly template erstellen
-pio.templates["custom"].layout.font.family = "Arial"  # Schriftfont immer Arial
-pio.templates.default = "custom"  # Jeder Plot verwendet automatisch Arial
+pio.templates["custom"] = pio.templates["plotly_white"]
+pio.templates["custom"].layout.font.family = "Arial"
+pio.templates.default = "custom"
 
 
 # App
-app = dash.Dash(__name__, use_pages=True)  # Dash-App erstellen
+app = dash.Dash(__name__, use_pages=True)
 server = app.server
 
 
 app.layout = html.Div(
     [
-        # --- HEADER ---
         html.H1(
-            "STRAG AG",  # Titel
+            "STRAG AG",
             style={"textAlign": "center", "fontFamily": "Arial", "marginBottom": "10px"},
         ),
-        # --- NAVIGATION BUTTONS ---
-        html.Div(
-            [
-                dcc.Link("Störmeldungen", href="/stormeldungen", className="nav-button"),
-                dcc.Link(
-                    "Benutzer-Balkendiagram", href="/benutzer-balkendiagram", className="nav-button"
-                ),
-            ],
-            style={"textAlign": "center", "marginBottom": "30px", "fontFamily": "Arial"},
-        ),
-        # --- DATE FILTER ---
-        html.H3("Select Date", style={"fontFamily": "Arial"}),
+        html.H3("Datum auswählen", style={"fontFamily": "Arial"}),
         html.Div(
             dcc.DatePickerRange(
                 id="date-picker-range",
-                min_date_allowed=dates[
-                    0
-                ].date(),  # Erste Zeile in dates ist das früste auswählbar Datum
-                max_date_allowed=dates[
-                    -1
-                ].date(),  # Letzte Zeile in dates ist das letzte auswählbar Datum
+                min_date_allowed=dates[0].date(),
+                max_date_allowed=dates[-1].date(),
                 start_date=dates[0].date(),
                 end_date=dates[-1].date(),
                 display_format="YYYY-MM-DD",
-                updatemode="bothdates",  # Ermöglicht im Kalender ein Start und End Datum zu wählen
+                updatemode="bothdates",
             ),
             style={"display": "inline-block", "marginBottom": "10px"},
         ),
@@ -67,7 +88,6 @@ app.layout = html.Div(
             id="output-date",
             style={"marginTop": "10px", "marginBottom": "20px", "fontFamily": "Arial"},
         ),
-        # --- PAGE CONTENT ---
         dash.page_container,
     ],
     style={
@@ -80,5 +100,9 @@ app.layout = html.Div(
 )
 
 
-if __name__ == "__main__":
+def main():
     app.run(debug=True)
+
+
+if __name__ == "__main__":
+    main()
