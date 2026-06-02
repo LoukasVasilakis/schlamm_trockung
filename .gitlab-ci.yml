@@ -17,18 +17,7 @@ ruff:
 unittest:
     stage: test
     services:
-    - name: postgres:16-alpine
-      alias: db
-    variables:
-      POSTGRES_DB: pro2d_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_HOST: db
-      POSTGRES_PORT: "5432"
-      PGPASSWORD: postgres
     before_script:
-    - apt-get update
-    - apt-get install -y postgresql-client
     - pip install uv
     - uv sync --all-groups --all-extras
     - bash scripts/load_test_db.sh
