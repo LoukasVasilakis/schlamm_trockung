@@ -20,7 +20,7 @@ unittest:
     before_script:
     - pip install uv
     - uv sync --all-groups --all-extras
-    - bash scripts/load_test_db.sh
+    - python db/sqlite/create_sqlite_load_csv.py
     script:
     - uv run pytest
     - uv run python scripts/use_utils_package.py
